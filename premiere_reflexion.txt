@@ -1,0 +1,19 @@
+Première reflexions projet repetiteur de vol:
+
+-Optimisation des réglages et de la conduite des supports
+-Formalisation simples de données de nacra17
+
+CDC
+
+-Création d'un tableau de bord virtuel
+	assiette du bateau (horizon artif)
+	direction
+	force du vent
+	efforts de la structure
+-Protoype embarque central inertielle + GPS
+-Prévision ports pour capteurs du bateau
+	vitesse relative eau
+	vent
+-Enregistrement données de nav sur support amovible en données chiffrées
+-Reflexion sur le type d'écran 
+
