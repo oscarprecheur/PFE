@@ -1,0 +1,5 @@
+le dossier contient 2 pcb
+shield
+shield_2
+
+le pcb final est shield_2

@@ -1,0 +1,20 @@
+\t (00:00:00) padstack_editor 17.2 S052 Windows SPB 64-bit Edition
+\t (00:00:00)     Journal start - Mon Nov 25 17:15:12 2019
+\t (00:00:00)         Host=CAO1-19 User=thibault.jacquesson Pid=5304 CPUs=8
+\t (00:00:00) CmdLine= c:\cadence\spb_17.2\tools\bin\padstack_editor.exe M:\Val_et_Coco_ze_best\PCB CLAVIER\my-pads\hole_08_default.pad
+\t (00:00:00) 
+\d (00:00:07) QtSignal MainWindow New triggered
+\d (00:01:06) QtSignal MainWindow New triggered
+\d (00:01:12) QtSignal MainWindow New triggered
+\d (00:01:15) QtSignal MainWindow New triggered
+\d (00:01:18) QtSignal fileNewDialog browse clicked
+\d (00:01:20) QtFillin 
+\d (00:01:22) QtSignal fileNewDialog browse clicked
+\d (00:01:55) QtFillin P:/MEA4/Projet_S7/New/pads/pin_MCU..pad
+\d (00:02:04) QtSignal fileNewDialog dirPath editingFinished pad_MCU
+\d (00:05:36) QtSignal GuidedTabsParent GuidedTabs currentChanged Drill
+\d (00:05:37) QtSignal GuidedTabsParent GuidedTabs currentChanged "Secondary Drill"
+\d (00:05:38) QtSignal GuidedTabsParent GuidedTabs currentChanged "Drill Symbol"
+\d (00:06:03) QtSignal GuidedTabsParent GuidedTabs currentChanged Summary
+\d (00:06:16) QtSignal GuidedTabsParent GuidedTabs currentChanged Drill
+\t (00:08:30)     Journal end - Mon Nov 25 17:23:42 2019

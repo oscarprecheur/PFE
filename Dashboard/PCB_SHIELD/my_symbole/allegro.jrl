@@ -1,0 +1,20 @@
+\t (00:00:02) allegro 17.2 S052 Windows SPB 64-bit Edition
+\t (00:00:02)     Journal start - Wed Jan 15 17:38:19 2020
+\t (00:00:02)         Host=CAO1-07 User=raphael.bordoux Pid=8180 CPUs=8
+\t (00:00:02) CmdLine= c:\cadence\spb_17.2\tools\bin\allegro.exe P:\S7\projet\PCB_SHIELD\my_symbole\con_01.dra
+\t (00:00:02) 
+   (00:00:02) Loading axlcore.cxt 
+\t (00:00:02) Opening existing design...
+\i (00:00:03) fillin yes 
+\i (00:00:03) QtSignal SPBFoldDockArea FoldAreaTabWidget currentChanged con_01
+\d (00:00:03) Design opened: P:/S7/projet/PCB_SHIELD/my_symbole/con_01.dra
+\t (00:00:03) Grids are drawn 81.2800, 81.2800 apart for enhanced viewing.
+\i (00:00:03) trapsize 1474
+\i (00:00:03) trapsize 1514
+\i (00:00:03) trapsize 1474
+\i (00:00:03) trapsize 1867
+\i (00:00:03) generaledit 
+\i (00:00:05) exit 
+\e (00:00:05) Do you want to save the changes you made to con_01.dra?
+\i (00:00:06) fillin no 
+\t (00:00:06)     Journal end - Wed Jan 15 17:38:24 2020

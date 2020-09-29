@@ -1,0 +1,118 @@
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   1  |
+|------------------------------------------------------------------------------|
+|  P:/S7/projet/PCB_SHIELD/PCB/Shield_2.brd                                    |
+|                                                    Fri Jan 24 17:25:45 2020  |
+|------------------------------------------------------------------------------|
+| NET CHANGES                                                                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   net  name |  type of change |                net     pins                  |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+  5V           pins ADDED TO this new net
+                                 RASP.2         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  0            pins ADDED TO this new net
+                                 GPS.1          I2C_1.1        I2C_2.1        
+                                 I2C_3.1        I2C_4.1        RASP.6         
+                                 RASP.9         RASP.14        RASP.20        
+                                 RASP.25        RASP.30        RASP.34        
+                                 RASP.39        
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  ANT          pins ADDED TO this new net
+                                 ANT.1          GPS.4          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  ANT_GPIO     pins ADDED TO this new net
+                                 ANT_GPIO.1     RASP.40        
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  BACKUP       pins ADDED TO this new net
+                                 BU.1           GPS.3          
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  BACKUP_GPIO  pins ADDED TO this new net
+                                 BU_GPIO.1      RASP.38        
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  N15150       pins ADDED TO this new net
+                                 RASP.17        
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  RX(GPS)      pins ADDED TO this new net
+                                 GPS.6          RASP.10        
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  SCL          pins ADDED TO this new net
+                                 I2C_1.3        I2C_2.3        I2C_3.3        
+                                 I2C_4.3        RASP.5         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  SDA          pins ADDED TO this new net
+                                 I2C_1.2        I2C_2.2        I2C_3.2        
+                                 I2C_4.2        RASP.3         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  TX(GPS)      pins ADDED TO this new net
+                                 GPS.5          RASP.8         
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+  VCC          pins ADDED TO this new net
+                                 GPS.2          I2C_1.4        I2C_2.4        
+                                 I2C_3.4        I2C_4.4        RASP.1         
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   2  |
+|------------------------------------------------------------------------------|
+|  P:/S7/projet/PCB_SHIELD/PCB/Shield_2.brd                                    |
+|                                                    Fri Jan 24 17:25:45 2020  |
+|------------------------------------------------------------------------------|
+| COMPONENT DEFINITION added to design                                         |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    device type                                                               |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ CON1_CON_01_CON1
+ CON4_CON_04_CON4
+ CON6_CON_06_GPS
+ CON40A_TE_2-828221-0_CON40A
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   3  |
+|------------------------------------------------------------------------------|
+|  P:/S7/projet/PCB_SHIELD/PCB/Shield_2.brd                                    |
+|                                                    Fri Jan 24 17:25:45 2020  |
+|------------------------------------------------------------------------------|
+| COMPONENTS ADDED to design                                                   |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|    ref des        |    device type                                           |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ ANT                 CON1_CON_01_CON1      
+ ANT_GPIO            CON1_CON_01_CON1      
+ BU                  CON1_CON_01_CON1      
+ BU_GPIO             CON1_CON_01_CON1      
+ GPS                 CON6_CON_06_GPS       
+ I2C_1               CON4_CON_04_CON4      
+ I2C_2               CON4_CON_04_CON4      
+ I2C_3               CON4_CON_04_CON4      
+ I2C_4               CON4_CON_04_CON4      
+ RASP                CON40A_TE_2-828221-0_CON40A 
+|------------------------------------------------------------------------------|
+|                                 ECO   REPORT                                 |
+|                                                                    Page   4  |
+|------------------------------------------------------------------------------|
+|  P:/S7/projet/PCB_SHIELD/PCB/Shield_2.brd                                    |
+|                                                    Fri Jan 24 17:25:45 2020  |
+|------------------------------------------------------------------------------|
+| SLOT PROPERTIES added to design                                              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+|   slot_id    |   x   |   y   |   property   |             value              |
+|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+ ANT.1                          PRIM_FILE      .\pstchip.dat
+ ANT_GPIO.1                     PRIM_FILE      .\pstchip.dat
+ BU.1                           PRIM_FILE      .\pstchip.dat
+ BU_GPIO.1                      PRIM_FILE      .\pstchip.dat
+ GPS.6                          PRIM_FILE      .\pstchip.dat
+ I2C_1.4                        PRIM_FILE      .\pstchip.dat
+ I2C_2.4                        PRIM_FILE      .\pstchip.dat
+ I2C_3.4                        PRIM_FILE      .\pstchip.dat
+ I2C_4.4                        PRIM_FILE      .\pstchip.dat
+ RASP.9                         PRIM_FILE      .\pstchip.dat
+|------------------------------------------------------------------------------|
+|       Nets changed          :      43                                        |
+|       Comp definitions added:       4                                        |
+|       Components added      :      10                                        |
+|       Slot property added   :      10                                        |
+|                                                                              |
+|   Total ECO changes reported:      67                                        |
+|------------------------------------------------------------------------------|

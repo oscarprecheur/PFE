@@ -1,0 +1,23 @@
+
+INPUT-UNITS     MM
+
+WHEEL     1
+
+LINE          0.1016            D18
+LINE           0.127            D23
+LINE          0.1524            D19
+LINE          0.1999            D24
+LINE          0.2032            D20
+LINE           0.254            D21
+LINE           0.381            D17
+LINE           0.508            D26
+LINE          0.5999            D25
+LINE           0.635            D22
+CIRCLE        1.2499            D13
+CIRCLE        1.3899            D11
+CIRCLE        1.5999            D10
+CIRCLE        2.1999            D16
+CIRCLE             3            D15
+SQUARE        1.2499   0.00000            D14
+SQUARE        1.3899   0.00000            D12
+

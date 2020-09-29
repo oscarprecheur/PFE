@@ -1,0 +1,245 @@
+\t (00:00:09) allegro 17.2 S052 Windows SPB 64-bit Edition
+\t (00:00:09)     Journal start - Wed Jan 15 16:40:23 2020
+\t (00:00:09)         Host=CAO1-07 User=raphael.bordoux Pid=6804 CPUs=8
+\t (00:00:09) CmdLine= C:\Cadence\SPB_17.2\tools\bin\allegro.exe
+\t (00:00:09) 
+   (00:00:10) Loading axlcore.cxt 
+\t (00:00:11) Opening existing design...
+\i (00:00:11) QtSignal SPBFoldDockArea FoldAreaTabWidget currentChanged newfootprintspv
+\d (00:00:11) Design opened: P:/S7/projet/PCB_SHIELD/my_symbole/newfootprintspv.dra
+\t (00:00:11) Grids are drawn 102.4000, 102.4000 apart for enhanced viewing.
+\i (00:00:11) trapsize 876
+\i (00:00:11) trapsize 915
+\i (00:00:11) trapsize 876
+\t (00:00:11) Grids are drawn 0.2000, 0.2000 apart for enhanced viewing.
+\i (00:00:11) trapsize 2368
+\i (00:00:12) generaledit 
+\i (00:00:14) zoom out 1 
+\i (00:00:14) setwindow pcb
+\i (00:00:14) zoom out -0.0475 9.9700
+\t (00:00:14) Grids are drawn 0.4000, 0.4000 apart for enhanced viewing.
+\i (00:00:14) trapsize 4735
+\i (00:00:14) zoom out 1 
+\i (00:00:14) setwindow pcb
+\i (00:00:14) zoom out -0.0475 9.9700
+\t (00:00:14) Grids are drawn 0.8000, 0.8000 apart for enhanced viewing.
+\i (00:00:14) trapsize 9470
+\i (00:00:20) delete 
+\i (00:00:21) zoom in 1 
+\i (00:00:21) setwindow pcb
+\i (00:00:21) zoom in 22.4914 -4.4247
+\t (00:00:21) Grids are drawn 0.4000, 0.4000 apart for enhanced viewing.
+\i (00:00:21) trapsize 4735
+\i (00:00:21) zoom in 1 
+\i (00:00:21) setwindow pcb
+\i (00:00:21) zoom in 15.1047 -4.4246
+\t (00:00:21) Grids are drawn 0.2000, 0.2000 apart for enhanced viewing.
+\i (00:00:22) trapsize 2368
+\i (00:00:22) zoom in 1 
+\i (00:00:22) setwindow pcb
+\i (00:00:22) zoom in 14.6312 -4.4246
+\i (00:00:22) trapsize 1184
+\i (00:00:22) zoom in 1 
+\i (00:00:22) setwindow pcb
+\i (00:00:22) zoom in 12.5478 -4.4719
+\i (00:00:22) trapsize 592
+\i (00:00:22) zoom in 1 
+\i (00:00:22) setwindow pcb
+\i (00:00:22) zoom in 12.5479 -4.4718
+\i (00:00:22) trapsize 296
+\i (00:00:22) zoom in 1 
+\i (00:00:22) setwindow pcb
+\i (00:00:22) zoom in 12.5479 -4.4718
+\i (00:00:22) trapsize 148
+\i (00:00:22) zoom in 1 
+\i (00:00:22) setwindow pcb
+\i (00:00:22) zoom in 12.5479 -4.4718
+\i (00:00:22) trapsize 74
+\i (00:00:23) zoom out 1 
+\i (00:00:23) setwindow pcb
+\i (00:00:23) zoom out 12.5479 -4.4717
+\i (00:00:23) trapsize 148
+\i (00:00:23) zoom out 1 
+\i (00:00:23) setwindow pcb
+\i (00:00:23) zoom out 12.5479 -4.4717
+\i (00:00:23) trapsize 296
+\i (00:00:23) zoom out 1 
+\i (00:00:23) setwindow pcb
+\i (00:00:23) zoom out 12.5479 -4.4717
+\i (00:00:23) trapsize 592
+\i (00:00:24) zoom out 1 
+\i (00:00:24) setwindow pcb
+\i (00:00:24) zoom out 12.5478 -4.4717
+\i (00:00:24) trapsize 1184
+\i (00:00:24) roam x -96 
+\i (00:00:24) roam x -96
+\i (00:00:25) roam x -96 
+\i (00:00:25) roam x -96
+\i (00:00:25) roam x -96 
+\i (00:00:25) roam x -96
+\i (00:00:25) roam x -96 
+\i (00:00:25) roam x -96
+\i (00:00:25) roam x -96 
+\i (00:00:25) roam x -96
+\i (00:00:25) roam x -96 
+\i (00:00:25) roam x -96
+\i (00:00:25) roam x -96 
+\i (00:00:25) roam x -96
+\i (00:00:25) roam x -96 
+\i (00:00:25) roam x -96
+\i (00:00:25) roam x -96 
+\i (00:00:25) roam x -96
+\i (00:00:25) roam y -96 
+\i (00:00:25) roam y -96
+\i (00:00:26) roam y -96 
+\i (00:00:26) roam y -96
+\i (00:00:26) roam y -96 
+\i (00:00:26) roam y -96
+\i (00:00:26) roam x 96 
+\i (00:00:26) roam x 96
+\i (00:00:26) roam x 96 
+\i (00:00:26) roam x 96
+\i (00:00:27) zoom in 1 
+\i (00:00:27) setwindow pcb
+\i (00:00:27) zoom in -1.8268 1.9274
+\i (00:00:27) trapsize 592
+\i (00:00:27) zoom in 1 
+\i (00:00:27) setwindow pcb
+\i (00:00:27) zoom in -1.8268 1.9275
+\i (00:00:27) trapsize 296
+\i (00:00:28) roam y 96 
+\i (00:00:28) roam y 96
+\i (00:00:28) roam y 96 
+\i (00:00:28) roam y 96
+\i (00:00:28) roam y 96 
+\i (00:00:28) roam y 96
+\i (00:00:28) roam x 96 
+\i (00:00:28) roam x 96
+\i (00:00:28) roam x 96 
+\i (00:00:28) roam x 96
+\i (00:00:29) roam x 96 
+\i (00:00:29) roam x 96
+\i (00:00:29) zoom out 1 
+\i (00:00:29) setwindow pcb
+\i (00:00:29) zoom out 0.9405 -0.4300
+\i (00:00:29) trapsize 592
+\i (00:00:30) zoom out 1 
+\i (00:00:30) setwindow pcb
+\i (00:00:30) zoom out 0.9405 -0.4299
+\i (00:00:30) trapsize 1184
+\i (00:00:30) zoom out 1 
+\i (00:00:30) setwindow pcb
+\i (00:00:30) zoom out 1.0352 -0.4062
+\i (00:00:30) trapsize 2368
+\i (00:00:30) zoom out 1 
+\i (00:00:30) setwindow pcb
+\i (00:00:30) zoom out 1.0351 -0.4063
+\t (00:00:30) Grids are drawn 0.4000, 0.4000 apart for enhanced viewing.
+\i (00:00:30) trapsize 4736
+\i (00:00:30) zoom out 1 
+\i (00:00:30) setwindow pcb
+\i (00:00:30) zoom out 1.0351 -0.4062
+\t (00:00:30) Grids are drawn 0.8000, 0.8000 apart for enhanced viewing.
+\i (00:00:30) trapsize 9471
+\i (00:00:30) zoom out 1 
+\i (00:00:30) setwindow pcb
+\i (00:00:30) zoom out 1.0351 -0.4062
+\t (00:00:30) Grids are drawn 1.6000, 1.6000 apart for enhanced viewing.
+\i (00:00:30) trapsize 18942
+\i (00:00:31) zoom out 1 
+\i (00:00:31) setwindow pcb
+\i (00:00:31) zoom out 1.0352 -0.4063
+\t (00:00:31) Grids are drawn 3.2000, 3.2000 apart for enhanced viewing.
+\i (00:00:31) trapsize 37884
+\i (00:00:31) zoom out 1 
+\i (00:00:31) setwindow pcb
+\i (00:00:31) zoom out 114.2878 -0.4062
+\t (00:00:31) Grids are drawn 6.4000, 6.4000 apart for enhanced viewing.
+\i (00:00:31) trapsize 50681
+\i (00:00:31) zoom out 1 
+\i (00:00:31) setwindow pcb
+\i (00:00:31) zoom out 249.1651 -26.5170
+\i (00:00:31) trapsize 50681
+\i (00:00:31) zoom out 1 
+\i (00:00:31) setwindow pcb
+\i (00:00:31) zoom out 249.1651 -26.5170
+\i (00:00:31) trapsize 50681
+\i (00:00:31) zoom out 1 
+\i (00:00:31) setwindow pcb
+\i (00:00:31) zoom out 249.1651 -26.5170
+\i (00:00:31) trapsize 50681
+\i (00:00:31) zoom out 1 
+\i (00:00:31) setwindow pcb
+\i (00:00:31) zoom out 249.1651 -26.5170
+\i (00:00:31) trapsize 50681
+\i (00:00:31) zoom out 1 
+\i (00:00:31) setwindow pcb
+\i (00:00:31) zoom out 228.8928 -27.5307
+\i (00:00:31) trapsize 50681
+\i (00:00:31) zoom out 1 
+\i (00:00:31) setwindow pcb
+\i (00:00:31) zoom out 193.4163 -28.5443
+\i (00:00:31) trapsize 50681
+\i (00:00:31) zoom out 1 
+\i (00:00:31) setwindow pcb
+\i (00:00:31) zoom out 178.2121 -28.5443
+\i (00:00:31) trapsize 50681
+\i (00:00:32) zoom in 1 
+\i (00:00:32) setwindow pcb
+\i (00:00:32) zoom in 64.6872 -10.2992
+\t (00:00:32) Grids are drawn 3.2000, 3.2000 apart for enhanced viewing.
+\i (00:00:32) trapsize 25340
+\i (00:00:32) zoom in 1 
+\i (00:00:32) setwindow pcb
+\i (00:00:32) zoom in 6.1360 -10.2992
+\t (00:00:32) Grids are drawn 1.6000, 1.6000 apart for enhanced viewing.
+\i (00:00:32) trapsize 12670
+\i (00:00:32) zoom in 1 
+\i (00:00:32) setwindow pcb
+\i (00:00:32) zoom in -1.4661 -8.2720
+\t (00:00:32) Grids are drawn 0.8000, 0.8000 apart for enhanced viewing.
+\i (00:00:32) trapsize 6335
+\i (00:00:33) zoom in 1 
+\i (00:00:33) setwindow pcb
+\i (00:00:33) zoom in -1.4661 -8.2719
+\t (00:00:33) Grids are drawn 0.4000, 0.4000 apart for enhanced viewing.
+\i (00:00:33) trapsize 3168
+\i (00:00:33) zoom in 1 
+\i (00:00:33) setwindow pcb
+\i (00:00:33) zoom in -1.4661 -8.2719
+\t (00:00:33) Grids are drawn 0.2000, 0.2000 apart for enhanced viewing.
+\i (00:00:33) trapsize 1584
+\i (00:00:33) zoom in 1 
+\i (00:00:33) setwindow pcb
+\i (00:00:33) zoom in -1.4660 -8.2719
+\i (00:00:33) trapsize 792
+\i (00:00:34) zoom in 1 
+\i (00:00:34) setwindow pcb
+\i (00:00:34) zoom in -1.4660 -8.2719
+\i (00:00:34) trapsize 396
+\i (00:00:34) zoom in 1 
+\i (00:00:34) setwindow pcb
+\i (00:00:34) zoom in -1.4660 -8.2718
+\i (00:00:34) trapsize 198
+\i (00:00:35) zoom in 1 
+\i (00:00:35) setwindow pcb
+\i (00:00:35) zoom in -1.4660 -8.2718
+\i (00:00:35) trapsize 99
+\i (00:00:35) zoom in 1 
+\i (00:00:35) setwindow pcb
+\i (00:00:35) zoom in -1.4661 -8.2717
+\i (00:00:35) trapsize 49
+\i (00:00:56) trapsize 119
+\i (00:01:02) enved 
+\i (00:01:17) setwindow form.prfedit
+\i (00:01:17) FORM prfedit treelist  Library Paths 
+\i (00:02:46) FORM prfedit padpath  
+\i (00:03:12) FORM prfedit psmpath  
+\i (00:03:31) FORM prfedit apply  
+\i (00:03:31) FORM prfedit done  
+\i (00:10:36) setwindow pcb
+\i (00:10:36) exit 
+\e (00:10:36) Do you want to save the changes you made to newfootprintspv.dra?
+\i (00:10:41) fillin yes 
+\t (00:10:41) Symbol 'newfootprintspv.psm' created.
+\t (00:10:42)     Journal end - Wed Jan 15 16:50:55 2020
