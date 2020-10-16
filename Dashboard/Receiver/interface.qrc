@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Visu/Boussole/aiguille.svg</file>
+        <file>Visu/Boussole/cadran.svg</file>
+        <file>Visu/Fond.svg</file>
+        <file>Visu/Boussole/aiguille2.svg</file>
+        <file>Visu/Boussole/cadran2.svg</file>
+        <file>Boussole.qml</file>
+        <file>Visu/Accelero/aiguille2.svg</file>
+        <file>Visu/Accelero/cadran.svg</file>
+        <file>Visu/Accelero/cadran2.svg</file>
+        <file>Visu/Accelero/fond.svg</file>
+        <file>Visu/Vent/aiguille.svg</file>
+        <file>Visu/Vent/cadran.svg</file>
+    </qresource>
+</RCC>

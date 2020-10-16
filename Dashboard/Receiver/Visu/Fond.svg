@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1920 1080" style="enable-background:new 0 0 1920 1080;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#0A0A0A;}
+	.st1{display:none;}
+	.st2{display:inline;fill:none;stroke:#F12F0C;stroke-width:5;stroke-miterlimit:10;}
+	.st3{display:inline;fill:#F12F0C;}
+	.st4{display:inline;fill:none;stroke:#F12F0C;stroke-width:3;stroke-miterlimit:10;}
+</style>
+<g id="Fond">
+	<rect width="1920" height="1080"/>
+</g>
+<g id="ecran">
+	<rect x="324.87" y="172.69" class="st0" width="1270.25" height="522.8"/>
+</g>
+<g id="repere" class="st1">
+	<rect class="st2" width="324.87" height="1080"/>
+	
+		<rect x="873.65" y="-873.65" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 1046.3472 -873.6529)" class="st2" width="172.69" height="1920"/>
+	<rect x="1595.13" y="0" class="st2" width="324.87" height="1080"/>
+	<rect y="603.78" class="st2" width="1920" height="476.22"/>
+	<circle class="st3" cx="960" cy="841.89" r="238.11"/>
+	<circle class="st2" cx="1357.02" cy="841.89" r="238.11"/>
+	<circle class="st2" cx="562.98" cy="841.89" r="238.11"/>
+	<rect x="324.87" y="172.69" class="st4" width="1270.25" height="522.8"/>
+</g>
+</svg>
