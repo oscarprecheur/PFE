@@ -10,6 +10,8 @@
 #include <QGraphicsScene>
 
 #include <QFile>
+#include <QString>
+#include <QTextStream>
 
 class valcapt:public QObject
 {
@@ -33,12 +35,15 @@ class valcapt:public QObject
 public:
     valcapt(QObject *parent = nullptr);
 
+    float deltaTMemo=223; //fréquence de memorisation en ms
 
     float getvalGPS_Lat();
     float getvalGPS_Lon();
     float getvalTime();
     float getvalBoussole();
     float getvalAccelero();
+
+
 
     // 2) ----- ajout capteur : float get<nom_val_nouv_capt>(); -----
 
@@ -47,7 +52,12 @@ public:
 
     //-----
 
+    int getcptFile();
+    QString fileName = "D:/TRAVAIL/Polytech/PFE/Memorisation/memo.txt";
+    QFile memoFile;
+    QTextStream memoWrite;
 
+    float getTimeMemo();
 
 public slots:
    void updateGPS_Lat();
@@ -57,6 +67,7 @@ public slots:
    void updateAccelero();
    void initFile();
    void updateFile();
+   void updateTimeMemo();
 
    // 3) ----- ajout capteur : void update<nom_val_nouv_capt>(); -----
 
@@ -89,7 +100,10 @@ private:
    float valBoussole;
    float valAccelero;
 
+
    int cptFile=0;
+
+   float valTimeMemo;
 
    // 5) ----- ajout capteur : val<nom_val_nouv_capt>; -----
 
@@ -97,6 +111,8 @@ private:
    //float valCapt_Supp_2; //A décommenter si utilisé
 
    //-----
+
+
 
 };
 
