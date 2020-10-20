@@ -722,6 +722,8 @@ debug\moc_valcapt.cpp: valcapt.h \
 		D:\Programs\Qt\5.15.1\msvc2015_64\include\QtCore\QFile \
 		D:\Programs\Qt\5.15.1\msvc2015_64\include\QtCore\QString \
 		D:\Programs\Qt\5.15.1\msvc2015_64\include\QtCore\QTextStream \
+		D:\Programs\Qt\5.15.1\msvc2015_64\include\QtCore\QDate \
+		D:\Programs\Qt\5.15.1\msvc2015_64\include\QtCore\QTime \
 		debug\moc_predefs.h \
 		D:\Programs\Qt\5.15.1\msvc2015_64\bin\moc.exe
 	D:\Programs\Qt\5.15.1\msvc2015_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include D:/TRAVAIL/Polytech/PFE/Projet/Dashboard/Receiver/debug/moc_predefs.h -ID:/Programs/Qt/5.15.1/msvc2015_64/mkspecs/win32-msvc -ID:/TRAVAIL/Polytech/PFE/Projet/Dashboard/Receiver -ID:/Programs/Qt/5.15.1/msvc2015_64/include -ID:/Programs/Qt/5.15.1/msvc2015_64/include/QtSvg -ID:/Programs/Qt/5.15.1/msvc2015_64/include/QtWidgets -ID:/Programs/Qt/5.15.1/msvc2015_64/include/QtQuick -ID:/Programs/Qt/5.15.1/msvc2015_64/include/QtGui -ID:/Programs/Qt/5.15.1/msvc2015_64/include/QtANGLE -ID:/Programs/Qt/5.15.1/msvc2015_64/include/QtQmlModels -ID:/Programs/Qt/5.15.1/msvc2015_64/include/QtQml -ID:/Programs/Qt/5.15.1/msvc2015_64/include/QtNetwork -ID:/Programs/Qt/5.15.1/msvc2015_64/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt" valcapt.h -o debug\moc_valcapt.cpp
@@ -1256,7 +1258,9 @@ debug\main.obj: main.cpp mainwindow.h \
 		D:\Programs\Qt\5.15.1\msvc2015_64\include\QtCore\QFile \
 		valcapt.h \
 		D:\Programs\Qt\5.15.1\msvc2015_64\include\QtCore\QString \
-		D:\Programs\Qt\5.15.1\msvc2015_64\include\QtCore\QTextStream
+		D:\Programs\Qt\5.15.1\msvc2015_64\include\QtCore\QTextStream \
+		D:\Programs\Qt\5.15.1\msvc2015_64\include\QtCore\QDate \
+		D:\Programs\Qt\5.15.1\msvc2015_64\include\QtCore\QTime
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\main.obj main.cpp
 
 debug\memo.obj: memo.cpp memo.h
@@ -1827,6 +1831,8 @@ debug\valcapt.obj: valcapt.cpp valcapt.h \
 		D:\Programs\Qt\5.15.1\msvc2015_64\include\QtCore\QFile \
 		D:\Programs\Qt\5.15.1\msvc2015_64\include\QtCore\QString \
 		D:\Programs\Qt\5.15.1\msvc2015_64\include\QtCore\QTextStream \
+		D:\Programs\Qt\5.15.1\msvc2015_64\include\QtCore\QDate \
+		D:\Programs\Qt\5.15.1\msvc2015_64\include\QtCore\QTime \
 		D:\Programs\Qt\5.15.1\msvc2015_64\include\QtCore\QDebug \
 		D:\Programs\Qt\5.15.1\msvc2015_64\include\QtCore\QTimer \
 		D:\Programs\Qt\5.15.1\msvc2015_64\include\QtWidgets\QGridLayout

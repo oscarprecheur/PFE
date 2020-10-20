@@ -150,7 +150,17 @@ void valcapt::updateAccelero()
 
 void valcapt::initFile()
 {
-    memoFile.setFileName(fileName);
+    if (memoFile.exists(fileName))
+    {
+        qDebug()<<"ce fichier existe deja";
+        memoFile.setFileName(fileName+QString::number(cptTraining)+".txt");
+    }
+    else
+    {
+        qDebug()<<"Ce fichier n'existe pas encore";
+        memoFile.setFileName(fileName+".txt");
+    }
+
     memoWrite.setDevice(&memoFile);
     if (memoFile.open(QIODevice::WriteOnly | QIODevice::Text))
         qDebug()<<"Fichier "<<memoFile.fileName()<<" ouvert";
@@ -162,7 +172,7 @@ void valcapt::initFile()
 void valcapt::updateFile()
 {
 
-    memoWrite<<"T en s :"<<getTimeMemo()<<"\n";
+    memoWrite<<" T:"<<getTimeMemo()<<"//Compass:"<<getvalBoussole()<<"//Accelero:"<<getvalAccelero()<<"//LatGPS:"<<getvalGPS_Lat()<<"//LonGPS:"<<getvalGPS_Lon()<<"\n";
     cptFile++;
 }
 

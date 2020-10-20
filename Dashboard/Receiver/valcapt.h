@@ -12,6 +12,8 @@
 #include <QFile>
 #include <QString>
 #include <QTextStream>
+#include <QDate>
+#include <QTime>
 
 class valcapt:public QObject
 {
@@ -35,7 +37,7 @@ class valcapt:public QObject
 public:
     valcapt(QObject *parent = nullptr);
 
-    float deltaTMemo=223; //fréquence de memorisation en ms
+    float deltaTMemo=500; //fréquence de memorisation en ms
 
     float getvalGPS_Lat();
     float getvalGPS_Lon();
@@ -53,7 +55,7 @@ public:
     //-----
 
     int getcptFile();
-    QString fileName = "D:/TRAVAIL/Polytech/PFE/Memorisation/memo.txt";
+    QString fileName = "D:/TRAVAIL/Polytech/PFE/Memorisation/memoTraining ";
     QFile memoFile;
     QTextStream memoWrite;
 
@@ -102,6 +104,7 @@ private:
 
 
    int cptFile=0;
+   int cptTraining=1;
 
    float valTimeMemo;
 
