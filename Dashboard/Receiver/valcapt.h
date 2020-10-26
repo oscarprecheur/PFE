@@ -55,7 +55,7 @@ public:
     //-----
 
     int getcptFile();
-    QString fileName = "D:/TRAVAIL/Polytech/PFE/Memorisation/memoTraining ";
+    QString fileName = "./memoTraining";
     QFile memoFile;
     QTextStream memoWrite;
 
