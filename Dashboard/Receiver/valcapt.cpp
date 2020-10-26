@@ -10,10 +10,13 @@
 #include <QGridLayout>
 #include <QtWidgets>
 
-valcapt::valcapt(QObject *parent)
-{
-    auto timer = new QTimer();
 
+valcapt::valcapt(QObject *parent):QObject(parent)
+{
+    auto timerCapteur = new QTimer();
+    auto timerMemo = new QTimer();
+
+    initFile();
     //<<<<<<<<<<<<<<<<<<Connexion aux serveurs>>>>>>>>>>>>>>>>>>>
 
     receiverBoussole.Connexion(65431);//connexion d'un capteur (boussole) sur le port 65432
@@ -29,11 +32,11 @@ valcapt::valcapt(QObject *parent)
     //-----
 
 
-    connect(timer, SIGNAL(timeout()),this,SLOT(updateBoussole()));
-    connect(timer, SIGNAL(timeout()),this,SLOT(updateGPS_Lat()));
-    connect(timer, SIGNAL(timeout()),this,SLOT(updateGPS_Lon()));
-    connect(timer, SIGNAL(timeout()),this,SLOT(updateTime()));
-    connect(timer, SIGNAL(timeout()),this,SLOT(updateAccelero()));
+    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateBoussole()));
+    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateGPS_Lat()));
+    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateGPS_Lon()));
+    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTime()));
+    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateAccelero()));
 
 
 
@@ -43,7 +46,12 @@ valcapt::valcapt(QObject *parent)
 
     //-----
 
-    timer->start();
+    //Mémorisation des données d'entrainement dans un fichier
+    connect(timerMemo, SIGNAL(timeout()),this,SLOT(updateFile()));
+    connect(timerMemo, SIGNAL(timeout()),this,SLOT(updateTimeMemo()));
+    //Lancement des timers
+    timerCapteur->start();
+    timerMemo->start(deltaTMemo);// valeur en msec
 }
 
 //<<<<<<<<<<<<<<<<<<Mise à jour des valeur des capteurs>>>>>>>>>>>>>>>>>>>
@@ -140,6 +148,41 @@ void valcapt::updateAccelero()
 
 //-----
 
+void valcapt::initFile()
+{
+    if (memoFile.exists(fileName))
+    {
+        qDebug()<<"ce fichier existe deja";
+        memoFile.setFileName(fileName+QString::number(cptTraining)+".txt");
+    }
+    else
+    {
+        qDebug()<<"Ce fichier n'existe pas encore";
+        memoFile.setFileName(fileName+".txt");
+    }
+
+    memoWrite.setDevice(&memoFile);
+    if (memoFile.open(QIODevice::WriteOnly | QIODevice::Text))
+        qDebug()<<"Fichier "<<memoFile.fileName()<<" ouvert";
+    else
+        qDebug()<<"Erreur fichier "<<memoFile.fileName();
+
+}
+
+void valcapt::updateFile()
+{
+
+    memoWrite<<" T:"<<getTimeMemo()<<"//Compass:"<<getvalBoussole()<<"//Accelero:"<<getvalAccelero()<<"//LatGPS:"<<getvalGPS_Lat()<<"//LonGPS:"<<getvalGPS_Lon()<<"\n";
+    cptFile++;
+}
+
+void valcapt::updateTimeMemo()
+{
+    valTimeMemo=cptFile*(deltaTMemo/1000);
+    qDebug()<<cptFile;
+    qDebug()<<valTimeMemo;
+    qDebug()<<deltaTMemo;
+}
 
 
 
@@ -195,5 +238,13 @@ float valcapt::getvalBoussole()
 //-----
 
 
+int valcapt::getcptFile()
+{
+    return cptFile;
+}
 
+float valcapt::getTimeMemo()
+{
+    return valTimeMemo;
+}
 
