@@ -16,25 +16,41 @@ ApplicationWindow
     Rectangle
     {
         id: id_horizon_area
-        y: -240
+        y: -parent.width
+        rotation: 0
+
         anchors {
             horizontalCenter: parent.horizontalCenter
         }
+       // y:-parent.height/2
 
 
-        width: parent.width * 2
-        height: parent.height*2
+        width: parent.width *4
+        height: parent.height*4
         color: "#00000000"
         transformOrigin: Item.Center
         anchors.horizontalCenterOffset: 0
 
-        Horizon
-        {
-            id: id_horizon
+        Rectangle {
+                id: eau
+                x: 0
+                y: parent.height/2
+                width: parent.width
+                height: parent.height/2
 
-            anchors.fill: id_horizon_area
 
-        }
+            }
+
+            Rectangle {
+                id: ciel
+                x: 0
+                y: 0
+                width: parent.width
+                height: parent.height/2
+                color: "#f29d52"
+
+            }
+
     }
 
 
@@ -43,9 +59,6 @@ ApplicationWindow
         id:valeur
     }
 
-
-
-
     Timer//changement dynamaique des valeurs grace à un timer
         {
             property real rot: 0
@@ -53,14 +66,27 @@ ApplicationWindow
             interval:10; running:true;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
             onTriggered:
             {
-                id_horizon.rotation=valeur.getvalGite
-                id_horizon_area.y=-id_dashboard.height/2-(valeur.getvalTangage*4)
+
+                id_horizon_area.rotation=valeur.getvalGite
+                id_horizon_area.y=-1080-(valeur.getvalTangage*4)
 
 
+
+                if(valeur.getvalGite<50 && valeur.getvalGite>-50 && valeur.getvalTangage<50 && valeur.getvalTangage>-50)
+                {
+                    eau.color="#03738C"
+                }
+                else
+                {
+                    eau.color="#591902"
+                }
 
             }
 
         }
+
+
+
 
 }
 

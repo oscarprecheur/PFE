@@ -113,14 +113,14 @@ private:
    //-----
 
 
-   float valGPS_Lat;
-   float valGPS_Lon;
-   float valTime;
-   float valBoussole;
-   float valAccelero;
+   float valGPS_Lat=0;
+   float valGPS_Lon=0;
+   float valTime=0;
+   float valBoussole=0;
+   float valAccelero=0;
 
-   float valTangage;
-   float valGite;
+   float valTangage=0;
+   float valGite=0;
 
 
    int cptFile=0;
