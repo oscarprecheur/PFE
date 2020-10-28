@@ -31,8 +31,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Envoie de données
 ValVitesse = new servervitesse(65431,this);
-ValTangage = new servertangage(65434,this);
-ValGite = new servergite(65435,this);
+ValTangage = new servertangage(65436,this);
+ValGite = new servergite(65437,this);
 
     //Simu vitesse
 label_vitesse = new QLabel("Vitesse",this);
@@ -40,6 +40,7 @@ label_vitesse->setGeometry(0, 0,50,50);
 
 slider_vitesse = new QSlider(Qt::Horizontal, this);
 slider_vitesse->setGeometry(0, 50, 300, 40);
+slider_vitesse->setMinimum(0);
 slider_vitesse->setMaximum(120);
 
 LCD_vitesse = new QLCDNumber(this);
@@ -55,7 +56,8 @@ label_tangage->setGeometry(0, 100,50,50);
 
 slider_tangage = new QSlider(Qt::Horizontal, this);
 slider_tangage->setGeometry(0, 150, 300, 40);
-slider_tangage->setMaximum(360);
+slider_tangage->setMinimum(-180);
+slider_tangage->setMaximum(180);
 
 LCD_tangage = new QLCDNumber(this);
 LCD_tangage->setSegmentStyle(QLCDNumber::Flat);
@@ -70,7 +72,8 @@ label_gite->setGeometry(0, 200,50,50);
 
 slider_gite = new QSlider(Qt::Horizontal, this);
 slider_gite->setGeometry(0, 250, 300, 40);
-slider_gite->setMaximum(360);
+slider_gite->setMinimum(-180);
+slider_gite->setMaximum(180);
 
 LCD_gite = new QLCDNumber(this);
 LCD_gite->setSegmentStyle(QLCDNumber::Flat);
