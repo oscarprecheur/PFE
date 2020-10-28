@@ -53,8 +53,8 @@ ApplicationWindow
             interval:10; running:true;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
             onTriggered:
             {
-                id_horizon.rotation=valeur.getvalAccelero
-                id_horizon_area.y=-id_dashboard.height/2-valeur.getvalBoussole
+                id_horizon.rotation=valeur.getvalGite
+                id_horizon_area.y=-id_dashboard.height/2-valeur.getvalTangage
 
 
 

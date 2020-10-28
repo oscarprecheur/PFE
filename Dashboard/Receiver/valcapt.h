@@ -26,8 +26,8 @@ class valcapt:public QObject
     Q_PROPERTY(float getvalTime READ getvalTime )
     Q_PROPERTY(float getvalAccelero READ getvalAccelero )
 
-//    Q_PROPERTY(float getvalTangage READ getvalTangage )
-//    Q_PROPERTY(float getvalGite READ getvalGite )
+    Q_PROPERTY(float getvalTangage READ getvalTangage )
+    Q_PROPERTY(float getvalGite READ getvalGite )
 
     // 1) ----- ajout capteur : Q_PROPERTY(float get<nom_val_nouv_capt> READ <getnom_val_nouv_capt> ) -----
 
@@ -49,8 +49,8 @@ public:
     float getvalBoussole();//gite
     float getvalAccelero();//tangage
     
-//    float getvalTangage();
-//    float getvalGite();
+    float getvalTangage();
+    float getvalGite();
 
 
 
@@ -75,8 +75,8 @@ public slots:
    void updateBoussole();
    void updateAccelero();
 
-//   void updateTangage();
-//   void updateGite();
+   void updateTangage();
+   void updateGite();
    
    
    
@@ -101,8 +101,8 @@ private:
    SocketDataReceiver receiverTime;
    SocketDataReceiver receiverAccelero;//(65434) ;
 
-   //SocketDataReceiver receiverTangage;//(65432 )
-   //SocketDataReceiver receiverGite;//(65434) ;
+   SocketDataReceiver receiverTangage;//(65432 )
+   SocketDataReceiver receiverGite;//(65434) ;
    
 
    // 4) ----- ajout capteur : void receiver<nom_val_nouv_capt>(); -----
@@ -119,8 +119,8 @@ private:
    float valBoussole;
    float valAccelero;
 
-//   float valTangage;
-//   float valGite;
+   float valTangage;
+   float valGite;
 
 
    int cptFile=0;
