@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QObject>
 #include <QtWidgets>
+
 #include <QPushButton>
 #include "socketdatareceiver.h"
 #include <QSvgWidget>
@@ -25,6 +26,9 @@ class valcapt:public QObject
     Q_PROPERTY(float getvalTime READ getvalTime )
     Q_PROPERTY(float getvalAccelero READ getvalAccelero )
 
+//    Q_PROPERTY(float getvalTangage READ getvalTangage )
+//    Q_PROPERTY(float getvalGite READ getvalGite )
+
     // 1) ----- ajout capteur : Q_PROPERTY(float get<nom_val_nouv_capt> READ <getnom_val_nouv_capt> ) -----
 
     //Q_PROPERTY(float getvalCapt_Supp_1 READ getvalCapt_Supp_1 ) //A décommenter si utilisé
@@ -42,8 +46,11 @@ public:
     float getvalGPS_Lat();
     float getvalGPS_Lon();
     float getvalTime();
-    float getvalBoussole();
-    float getvalAccelero();
+    float getvalBoussole();//gite
+    float getvalAccelero();//tangage
+    
+//    float getvalTangage();
+//    float getvalGite();
 
 
 
@@ -67,9 +74,12 @@ public slots:
    void updateTime();
    void updateBoussole();
    void updateAccelero();
-   void initFile();
-   void updateFile();
-   void updateTimeMemo();
+
+//   void updateTangage();
+//   void updateGite();
+   
+   
+   
 
    // 3) ----- ajout capteur : void update<nom_val_nouv_capt>(); -----
 
@@ -78,15 +88,22 @@ public slots:
 
    //-----
 
+   void initFile();
+   void updateFile();
+   void updateTimeMemo();
 
 
 
 private:
-   SocketDataReceiver receiverBoussole;//(65432 ) ;
+   SocketDataReceiver receiverBoussole;
    SocketDataReceiver receiverGPS_Lat;//(65431) ;
    SocketDataReceiver receiverGPS_Lon;
    SocketDataReceiver receiverTime;
    SocketDataReceiver receiverAccelero;//(65434) ;
+
+   //SocketDataReceiver receiverTangage;//(65432 )
+   //SocketDataReceiver receiverGite;//(65434) ;
+   
 
    // 4) ----- ajout capteur : void receiver<nom_val_nouv_capt>(); -----
 
@@ -101,6 +118,9 @@ private:
    float valTime;
    float valBoussole;
    float valAccelero;
+
+//   float valTangage;
+//   float valGite;
 
 
    int cptFile=0;

@@ -19,11 +19,14 @@ valcapt::valcapt(QObject *parent):QObject(parent)
     initFile();
     //<<<<<<<<<<<<<<<<<<Connexion aux serveurs>>>>>>>>>>>>>>>>>>>
 
-    receiverBoussole.Connexion(65431);//connexion d'un capteur (boussole) sur le port 65432
-    receiverAccelero.Connexion(65434);//connexion d'un capteur (accelerometre lateral) sur le port 65434
+    receiverBoussole.Connexion(65434);//connexion d'un capteur (boussole) sur le port 65432
+    receiverAccelero.Connexion(65431);//connexion d'un capteur (accelerometre lateral) sur le port 65434
     receiverGPS_Lat.Connexion(65432);
     receiverGPS_Lon.Connexion(65433);
     receiverTime.Connexion(65435);
+
+    //receiverTangage.Connexion(65436);
+    //receiverGite.Connexion(65437);
 
     //1) ----- ajout de capteur :receiver<nom_val_nouv_capt>.Connexion(<port>); -----
     //receiverCapt_Supp_1.Connexion(65435); //A décommenter si utilisé
@@ -37,6 +40,9 @@ valcapt::valcapt(QObject *parent):QObject(parent)
     connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateGPS_Lon()));
     connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTime()));
     connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateAccelero()));
+
+//    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTangage()));
+//    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateGite()));
 
 
 
@@ -112,6 +118,32 @@ void valcapt::updateAccelero()
     qDebug()<<"Taille"<<sizeof(valAccelero);
     }
 }
+
+
+
+
+
+//void valcapt::updateTangage()
+//{
+//    if (receiverTangage.getNbByteAvailable()>0)
+//    {
+//    valAccelero=receiverTangage.readyRead();
+//    qDebug()<<"valTangage"<<valTangage;
+//    qDebug()<<"Taille"<<sizeof(valTangage);
+//    }
+//}
+
+
+
+//void valcapt::updateGite()
+//{
+//    if (receiverGite.getNbByteAvailable()>0)
+//    {
+//    valAccelero=receiverGite.readyRead();
+//    qDebug()<<"valGite"<<valGite;
+//    qDebug()<<"Taille"<<sizeof(valGite);
+//    }
+//}
 
 
 
@@ -215,6 +247,21 @@ float valcapt::getvalBoussole()
 {
     return valBoussole;
 }
+
+
+
+
+
+
+//float valcapt::getvalTangage()
+//{
+//    return valTangage;
+//}
+
+//float valcapt::getvalGite()
+//{
+//    return valGite;
+//}
 
 
 //4) ----- ajout de capteur : -----
