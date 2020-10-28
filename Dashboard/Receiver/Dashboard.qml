@@ -16,15 +16,17 @@ ApplicationWindow
     Rectangle
     {
         id: id_horizon_area
-
-        anchors
-        {
+        y: -240
+        anchors {
             horizontalCenter: parent.horizontalCenter
-            verticalCenter:  parent.verticalCenter
         }
+
 
         width: parent.width * 2
         height: parent.height*2
+        color: "#00000000"
+        transformOrigin: Item.Center
+        anchors.horizontalCenterOffset: 0
 
         Horizon
         {
@@ -41,6 +43,9 @@ ApplicationWindow
         id:valeur
     }
 
+
+
+
     Timer
         {
             property real rot: 0
@@ -49,6 +54,7 @@ ApplicationWindow
             onTriggered:
             {
                 id_horizon.rotation=valeur.getvalAccelero//animation du cadran de la boussole en influant sur la rotation de son aiguille
+                id_horizon_area.y=-id_dashboard.height/2-valeur.getvalBoussole
 
 
                 //ajout de capteur : faire évoluer les paramètres du dessins en fonction de valeur.get<nom_val_nouv_capt>
@@ -365,8 +371,8 @@ ApplicationWindow
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;height:540;width:960}D{i:1;invisible:false}D{i:7;anchors_y:313}
-D{i:10;anchors_height:559;anchors_width:557;anchors_x:672;anchors_y:502}D{i:3;anchors_y:850}
+    D{i:0;autoSize:true;formeditorZoom:0.20000000298023224;height:480;width:640}D{i:1;invisible:false}
+D{i:3}
 }
 ##^##*/
 
