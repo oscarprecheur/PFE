@@ -13,6 +13,8 @@ ApplicationWindow{
     id: applicationWindow
     visible: true
     //visibility: "Maximized"
+    width: 1080
+    height: 720
     title: qsTr("Dashboard_v1")
 
 
@@ -57,8 +59,7 @@ ApplicationWindow{
             id: vent
             x: 351
             y: 610
-            width: 220
-            height: 220
+
             anchors.verticalCenterOffset: 10
             anchors.horizontalCenterOffset: -230
             anchors.horizontalCenter: boussole.horizontalCenter
