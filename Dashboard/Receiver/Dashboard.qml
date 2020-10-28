@@ -54,7 +54,7 @@ ApplicationWindow
             onTriggered:
             {
                 id_horizon.rotation=valeur.getvalGite
-                id_horizon_area.y=-id_dashboard.height/2-valeur.getvalTangage
+                id_horizon_area.y=-id_dashboard.height/2-(valeur.getvalTangage*4)
 
 
 
