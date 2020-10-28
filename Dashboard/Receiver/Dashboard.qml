@@ -46,18 +46,18 @@ ApplicationWindow
 
 
 
-    Timer
+    Timer//changement dynamaique des valeurs grace à un timer
         {
             property real rot: 0
             id:timer
-            interval:10; running:true;repeat: true // on rafraichi l'écran toutes les 0,1 secondes
+            interval:10; running:true;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
             onTriggered:
             {
-                id_horizon.rotation=valeur.getvalAccelero//animation du cadran de la boussole en influant sur la rotation de son aiguille
+                id_horizon.rotation=valeur.getvalAccelero
                 id_horizon_area.y=-id_dashboard.height/2-valeur.getvalBoussole
 
 
-                //ajout de capteur : faire évoluer les paramètres du dessins en fonction de valeur.get<nom_val_nouv_capt>
+
             }
 
         }
