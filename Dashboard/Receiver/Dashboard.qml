@@ -20,25 +20,21 @@ ApplicationWindow
     Rectangle//zone horizon artificiel
     {
         id: id_horizon_area
-        y: -parent.width
-        rotation: 0
+        y: -(id_horizon_area.height-parent.height)/2
+        x: -(id_horizon_area.width-parent.width)/2
 
-        anchors
-        {
-            horizontalCenter: parent.horizontalCenter
-        }
-        width:  parent.width*4
-        height: parent.height*4
+        width:  1080*4
+        height: 1080*4
         color: "#00000000"
-        transformOrigin: Item.Center
-        anchors.horizontalCenterOffset: 0
+
 
         //description statique horizon artificiel
         Rectangle
         {
             id: eau
             x: 0
-            y: parent.height/2
+            y: ciel.height
+
             width: parent.width
             height: parent.height/2
         }
@@ -132,7 +128,7 @@ ApplicationWindow
 
                 //mouvmeent de l'horizon artificiel
                 id_horizon_area.rotation=valeur.getvalGite //rotation -> gite
-                id_horizon_area.y=-1080-(valeur.getvalTangage*4)//translation -> tangage
+                id_horizon_area.y=-((id_horizon_area.height-parent.height)/2)-(valeur.getvalTangage*4)//translation -> tangage
 
 
                 //changement de couleur selon les valeur de gite et de tangage
@@ -464,8 +460,7 @@ ApplicationWindow
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;formeditorZoom:0.20000000298023224;height:480;width:640}D{i:1;invisible:false}
-D{i:3}
+    D{i:0;autoSize:true;formeditorZoom:0.25;height:480;width:640}D{i:1;invisible:false}
 }
 ##^##*/
 
