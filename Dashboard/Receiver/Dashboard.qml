@@ -107,6 +107,42 @@ ApplicationWindow
 
         }
     }
+
+    //-----------Cadran digital Taganage------------------
+    Rectangle
+    {
+        id: id_digit_tangage
+        transformOrigin: Item.Center
+        x:parent.width/3,5
+        y:parent.height/2.6
+
+        width:  parent.width*0.3
+        height: parent.height*0.1
+        border.color: "#00000000"
+        color: "#00000000"
+
+        DigitTangage
+        {
+            id: id_text_digit_tangage
+            horizontalAlignment: Text.AlignHCenter
+
+            anchors
+            {
+                horizontalCenter: parent.horizontalCenter
+                verticalCenter: parent.verticalCenter
+            }
+
+        }
+
+    }
+
+
+
+
+
+
+
+
     //<<<<<<<<<<<<<<<<<<<<<<<DESCRIPTION DYNAMIQUE>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     //-----------RECUPERATION VALEURS CAPTEUR------------------
@@ -118,19 +154,12 @@ ApplicationWindow
 
     //-----------FCT DYNAMIQUE DU SYSTEME------------------
 
-    Timer//changement dynamaique des valeurs grace à un timer
+    Timer//COULEUR HORIZON
         {
-            property real rot: 0
-            id:timer
+            id:timercolor
             interval:10; running:true;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
             onTriggered:
             {
-
-                //mouvmeent de l'horizon artificiel
-                id_horizon_area.rotation=valeur.getvalGite //rotation -> gite
-                id_horizon_area.y=-((id_horizon_area.height-parent.height)/2)-(valeur.getvalTangage*(id_dashboard.height/270))//translation -> tangage
-
-
                 //changement de couleur selon les valeur de gite et de tangage
                 if(valeur.getvalGite<50 && valeur.getvalGite>-50 && valeur.getvalTangage<50 && valeur.getvalTangage>-50)
                 {
@@ -148,6 +177,35 @@ ApplicationWindow
 
         }
 
+    Timer//TANGAGE
+        {
+            id:timertangage
+            interval:1; running:true;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
+            onTriggered:
+            {
+
+                //mouvmeent de l'horizon artificiel
+                id_horizon_area.y=-((id_horizon_area.height-parent.height)/2)-(valeur.getvalTangage*(id_dashboard.height/270))//translation -> tangage
+
+                //cadran digital
+                id_text_digit_tangage.text=valeur.getvalTangage.toFixed(3)
+
+            }
+
+        }
+    Timer//GITE
+        {
+            id:timergite
+            interval:1; running:true;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
+            onTriggered:
+            {
+
+                //mouvmeent de l'horizon artificiel
+                id_horizon_area.rotation=valeur.getvalGite //rotation -> gite
+
+            }
+
+        }
 
 
 
