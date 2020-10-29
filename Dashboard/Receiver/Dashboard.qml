@@ -47,7 +47,7 @@ ApplicationWindow
                 y: 0
                 width: parent.width
                 height: parent.height/2
-                color: "#f29d52"
+
 
             }
 
@@ -75,10 +75,13 @@ ApplicationWindow
                 if(valeur.getvalGite<50 && valeur.getvalGite>-50 && valeur.getvalTangage<50 && valeur.getvalTangage>-50)
                 {
                     eau.color="#03738C"
+                    ciel.color="#f29d52"
                 }
                 else
                 {
                     eau.color="#591902"
+                    ciel.color="#f23005"
+
                 }
 
             }
