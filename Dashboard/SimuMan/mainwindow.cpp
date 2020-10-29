@@ -30,7 +30,7 @@ MainWindow::MainWindow(QWidget *parent)
 //    m_text->move(800,30);
 
     //Envoie de données
-ValVitesse = new servervitesse(65431,this);
+ValVitesse = new servervitesse(65438,this);
 ValTangage = new servertangage(65436,this);
 ValGite = new servergite(65437,this);
 
