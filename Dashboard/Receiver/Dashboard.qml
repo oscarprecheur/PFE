@@ -275,7 +275,18 @@ ApplicationWindow
             {
 
                 //cadran digital vitesse instantannée
-                //id_text_digit_vitesse_instant.text=valeur.getvalVitesse.toFixed(3)+"°"
+                id_text_digit_vitesse_instant.text=valeur.getvalVitesse.toFixed(3)
+
+                if(valeur.getvalGite<50 && valeur.getvalGite>-50 && valeur.getvalTangage<50 && valeur.getvalTangage>-50)
+                {
+                    id_text_digit_vitesse_instant.color="#e95454"
+
+                }
+                else
+                {
+                    id_text_digit_vitesse_instant.color="#03738C"
+
+                }
 
             }
 
