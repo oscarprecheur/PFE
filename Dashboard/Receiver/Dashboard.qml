@@ -54,6 +54,63 @@ ApplicationWindow
 
     }
 
+    //-----------REPERE BATEAU------------------
+
+    Rectangle//repert verticale
+    {
+        id: id_repereVert_bateau_area
+
+        anchors
+        {
+            horizontalCenter: parent.horizontalCenter
+            verticalCenter: parent.verticalCenter
+        }
+
+        width:  parent.width
+        height: parent.height
+        color: "#00000000"
+        transformOrigin: Item.Center
+        anchors.horizontalCenterOffset: 0
+
+        RepereVert
+        {
+
+            anchors
+            {
+                horizontalCenter: parent.horizontalCenter
+                verticalCenter: parent.verticalCenter
+            }
+
+        }
+    }
+
+    Rectangle//repert verticale
+    {
+        id: id_repereHori_bateau_area
+
+        anchors
+        {
+            horizontalCenter: parent.horizontalCenter
+            verticalCenter: parent.verticalCenter
+        }
+
+        width:  parent.width
+        height: parent.height
+        color: "#00000000"
+        transformOrigin: Item.Center
+        anchors.horizontalCenterOffset: 0
+
+        RepereHori
+        {
+
+            anchors
+            {
+                horizontalCenter: parent.horizontalCenter
+                verticalCenter: parent.verticalCenter
+            }
+
+        }
+    }
     //<<<<<<<<<<<<<<<<<<<<<<<DESCRIPTION DYNAMIQUE>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     //-----------RECUPERATION VALEURS CAPTEUR------------------
