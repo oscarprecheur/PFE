@@ -137,6 +137,35 @@ ApplicationWindow
     }
 
 
+    //-----------Cadran digital Gite------------------
+    Rectangle
+    {
+        id: id_digit_gite
+        transformOrigin: Item.Center
+        x:(parent.width-width)/2
+        y:parent.height/200
+
+        width:  parent.width*0.3
+        height: parent.height*0.1
+        border.color: "#00000000"
+        color: "#00000000"
+
+        DigitTangage
+        {
+            id: id_text_digit_gite
+            horizontalAlignment: Text.AlignHCenter
+
+            anchors
+            {
+                horizontalCenter: parent.horizontalCenter
+                verticalCenter: parent.verticalCenter
+            }
+
+        }
+
+    }
+
+
 
 
 
@@ -202,6 +231,8 @@ ApplicationWindow
 
                 //mouvmeent de l'horizon artificiel
                 id_horizon_area.rotation=valeur.getvalGite //rotation -> gite
+                //cadran digital
+                id_text_digit_gite.text=valeur.getvalGite.toFixed(3)
 
             }
 
