@@ -13,51 +13,57 @@ ApplicationWindow
 {
     id: id_dashboard
 
-    Rectangle
+    //<<<<<<<<<<<<<<<<<<<<<<<DESCRIPTION STATIQUE>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //-----------HORIZON ARTIFICIEL------------------
+
+    Rectangle//zone horizon artificiel
     {
         id: id_horizon_area
         y: -parent.width
         rotation: 0
 
-        anchors {
+        anchors
+        {
             horizontalCenter: parent.horizontalCenter
         }
-       // y:-parent.height/2
-
-
-        width: parent.width *4
+        width:  parent.width*4
         height: parent.height*4
         color: "#00000000"
         transformOrigin: Item.Center
         anchors.horizontalCenterOffset: 0
 
-        Rectangle {
-                id: eau
-                x: 0
-                y: parent.height/2
-                width: parent.width
-                height: parent.height/2
+        //description statique horizon artificiel
+        Rectangle
+        {
+            id: eau
+            x: 0
+            y: parent.height/2
+            width: parent.width
+            height: parent.height/2
+        }
 
-
-            }
-
-            Rectangle {
-                id: ciel
-                x: 0
-                y: 0
-                width: parent.width
-                height: parent.height/2
-
-
-            }
+        Rectangle
+        {
+            id: ciel
+            x: 0
+            y: 0
+            width: parent.width
+            height: parent.height/2
+        }
 
     }
 
+    //<<<<<<<<<<<<<<<<<<<<<<<DESCRIPTION DYNAMIQUE>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //-----------RECUPERATION VALEURS CAPTEUR------------------
 
     VALCAPT//appel de valcapt directement dans le programme qml sous le nom de "valeur"
     {
         id:valeur
     }
+
+    //-----------FCT DYNAMIQUE DU SYSTEME------------------
 
     Timer//changement dynamaique des valeurs grace à un timer
         {
@@ -67,11 +73,12 @@ ApplicationWindow
             onTriggered:
             {
 
-                id_horizon_area.rotation=valeur.getvalGite
-                id_horizon_area.y=-1080-(valeur.getvalTangage*4)
+                //mouvmeent de l'horizon artificiel
+                id_horizon_area.rotation=valeur.getvalGite //rotation -> gite
+                id_horizon_area.y=-1080-(valeur.getvalTangage*4)//translation -> tangage
 
 
-
+                //changement de couleur selon les valeur de gite et de tangage
                 if(valeur.getvalGite<50 && valeur.getvalGite>-50 && valeur.getvalTangage<50 && valeur.getvalTangage>-50)
                 {
                     eau.color="#03738C"
