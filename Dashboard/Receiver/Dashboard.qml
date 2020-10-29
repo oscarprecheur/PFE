@@ -302,8 +302,8 @@ ApplicationWindow
                 }
                 else
                 {
-                    id_text_digit_vitesse_instant.color="#03738C"
-                    id_text_unite.color="#77C7D9"
+                    id_text_digit_vitesse_instant.color="#77C7D9"
+                    id_text_unite.color="#03738C"
 
                 }
 
