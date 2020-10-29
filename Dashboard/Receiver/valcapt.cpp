@@ -27,6 +27,7 @@ valcapt::valcapt(QObject *parent):QObject(parent)
 
     receiverTangage.Connexion(65436);
     receiverGite.Connexion(65437);
+    receiverVitesse.Connexion(65438);
 
     //1) ----- ajout de capteur :receiver<nom_val_nouv_capt>.Connexion(<port>); -----
     //receiverCapt_Supp_1.Connexion(65435); //A décommenter si utilisé
@@ -43,7 +44,7 @@ valcapt::valcapt(QObject *parent):QObject(parent)
 
     connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTangage()));
     connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateGite()));
-
+    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateVitesse()));
 
 
     //2) ----- ajout de capteur :connect(timer, SIGNAL(timeout()),this,SLOT(update<nom_val_nouv_capt>())); -----
@@ -142,6 +143,17 @@ void valcapt::updateGite()
     valGite=receiverGite.readyRead();
     qDebug()<<"valGite"<<valGite;
     qDebug()<<"Taille"<<sizeof(valGite);
+    }
+}
+
+
+void valcapt::updateVitesse()
+{
+    if (receiverVitesse.getNbByteAvailable()>0)
+    {
+    valVitesse=receiverVitesse.readyRead();
+    qDebug()<<"valVitesse"<<valVitesse;
+    qDebug()<<"Taille"<<sizeof(valVitesse);
     }
 }
 
@@ -261,6 +273,11 @@ float valcapt::getvalTangage()
 float valcapt::getvalGite()
 {
     return valGite;
+}
+
+float valcapt::getvalVitesse()
+{
+    return valVitesse;
 }
 
 
