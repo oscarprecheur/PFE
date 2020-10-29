@@ -166,6 +166,35 @@ ApplicationWindow
     }
 
 
+    //-----------Cadran digital Vitesse Instant------------------
+    Rectangle
+    {
+        id: id_digit_vitesse_instant
+        transformOrigin: Item.Center
+        x:(parent.width-width)/2
+        y:parent.height*0.6
+
+        width:  parent.width*0.3
+        height: parent.height*0.1
+        border.color: "#00000000"
+        color: "#00000000"
+
+        DigitVitInst
+        {
+            id: id_text_digit_vitesse_instant
+            horizontalAlignment: Text.AlignHCenter
+
+            anchors
+            {
+                horizontalCenter: parent.horizontalCenter
+                verticalCenter: parent.verticalCenter
+            }
+
+        }
+
+    }
+
+
 
 
 
@@ -217,7 +246,7 @@ ApplicationWindow
                 id_horizon_area.y=-((id_horizon_area.height-parent.height)/2)-(valeur.getvalTangage*(id_dashboard.height/270))//translation -> tangage
 
                 //cadran digital
-                id_text_digit_tangage.text=valeur.getvalTangage.toFixed(3)
+                id_text_digit_tangage.text=valeur.getvalTangage.toFixed(3)+"°"
 
             }
 
@@ -232,7 +261,21 @@ ApplicationWindow
                 //mouvmeent de l'horizon artificiel
                 id_horizon_area.rotation=valeur.getvalGite //rotation -> gite
                 //cadran digital
-                id_text_digit_gite.text=valeur.getvalGite.toFixed(3)
+                id_text_digit_gite.text=valeur.getvalGite.toFixed(3)+"°"
+
+            }
+
+        }
+
+    Timer//VITESSE
+        {
+            id:timervitesse
+            interval:1; running:true;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
+            onTriggered:
+            {
+
+                //cadran digital vitesse instantannée
+                //id_text_digit_vitesse_instant.text=valeur.getvalVitesse.toFixed(3)+"°"
 
             }
 
