@@ -128,7 +128,7 @@ ApplicationWindow
 
                 //mouvmeent de l'horizon artificiel
                 id_horizon_area.rotation=valeur.getvalGite //rotation -> gite
-                id_horizon_area.y=-((id_horizon_area.height-parent.height)/2)-(valeur.getvalTangage*4)//translation -> tangage
+                id_horizon_area.y=-((id_horizon_area.height-parent.height)/2)-(valeur.getvalTangage*(id_dashboard.height/270))//translation -> tangage
 
 
                 //changement de couleur selon les valeur de gite et de tangage
