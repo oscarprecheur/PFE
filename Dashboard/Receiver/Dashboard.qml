@@ -192,6 +192,23 @@ ApplicationWindow
 
         }
 
+        //Unité (noeud)
+        Text {
+            id: id_text_unite
+
+            horizontalAlignment: Text.AlignHCenter
+
+            anchors
+            {
+                horizontalCenter: parent.horizontalCenter
+            }
+            y:id_text_digit_vitesse_instant.paintedHeight-parent.height*0.3
+            width: parent.width
+            height: parent.height
+            text: qsTr("nd")
+            font.pixelSize: parent.height*0.8
+        }
+
     }
 
 
@@ -280,11 +297,13 @@ ApplicationWindow
                 if(valeur.getvalGite<50 && valeur.getvalGite>-50 && valeur.getvalTangage<50 && valeur.getvalTangage>-50)
                 {
                     id_text_digit_vitesse_instant.color="#e95454"
+                    id_text_unite.color="#C07680"
 
                 }
                 else
                 {
                     id_text_digit_vitesse_instant.color="#03738C"
+                    id_text_unite.color="#77C7D9"
 
                 }
 
