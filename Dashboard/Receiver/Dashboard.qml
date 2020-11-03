@@ -195,7 +195,7 @@ ApplicationWindow
         }
 
         width: id_digit_vitesse_instant.width
-        height:id_digit_vitesse_instant.height*3
+        height:id_digit_vitesse_instant.height*3.5
         border.color: "#00000000"
         color: "#00000000"
 
@@ -258,7 +258,7 @@ ApplicationWindow
                 width: parent.width
                 height: parent.height
                 text: qsTr("nd")
-                font.pixelSize: id_dashboard.height/10
+                font.pixelSize: id_dashboard.height/9
             }
         }
 
@@ -270,7 +270,7 @@ ApplicationWindow
             {
                 top:id_digit_vitesse_unit.bottom
                 right:parent.horizontalCenter
-                rightMargin : id_dashboard.height/10
+                rightMargin : id_dashboard.height/15
             }
 
             width:  id_text_digit_vitesse_max_10sec.paintedWidth
@@ -303,7 +303,7 @@ ApplicationWindow
             {
                 top:id_digit_vitesse_unit.bottom
                 left:parent.horizontalCenter
-                leftMargin : id_dashboard.height/10
+                leftMargin : id_dashboard.height/15
             }
 
             width:  id_text_digit_vitesse_max_10sec.paintedWidth
@@ -325,6 +325,34 @@ ApplicationWindow
                 font.pixelSize: id_dashboard.height/15
 
             }
+        }
+
+        Text//moy 500M
+        {
+            id: id_text_500m
+
+            horizontalAlignment: Text.AlignHCenter
+            anchors
+            {
+                top: id_digit_vitesse_moy_500m.bottom
+                horizontalCenter: id_digit_vitesse_moy_500m.horizontalCenter
+            }
+            text: qsTr("moy 500m")
+            font.pixelSize: id_dashboard.height/20
+        }
+
+        Text//max 10sec
+        {
+            id: id_text_10sec
+
+            horizontalAlignment: Text.AlignHCenter
+            anchors
+            {
+                top: id_digit_vitesse_max_10sec.bottom
+                horizontalCenter: id_digit_vitesse_max_10sec.horizontalCenter
+            }
+            text: qsTr("max 10sec")
+            font.pixelSize: id_dashboard.height/20
         }
 
 
@@ -398,7 +426,7 @@ ApplicationWindow
 
         }
 
-    Timer//VITESSE INSTANT
+    Timer//VITESSE
         {
             id:timervitesse
             interval:1; running:true;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
@@ -418,7 +446,9 @@ ApplicationWindow
                     id_text_digit_vitesse_instant.color="#e95454"
                     id_text_unite.color="#C07680"
                     id_text_digit_vitesse_max_10sec.color="#e95454"
-                   id_text_digit_vitesse_moy_500m.color="#e95454"
+                    id_text_digit_vitesse_moy_500m.color="#e95454"
+                    id_text_500m.color="#C07680"
+                    id_text_10sec.color="#C07680"
 
                 }
                 else
@@ -427,6 +457,8 @@ ApplicationWindow
                     id_text_unite.color="#03738C"
                     id_text_digit_vitesse_max_10sec.color="#77C7D9"
                     id_text_digit_vitesse_moy_500m.color="#77C7D9"
+                    id_text_500m.color="#03738C"
+                    id_text_10sec.color="#03738C"
 
                 }
 
