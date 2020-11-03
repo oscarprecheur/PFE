@@ -80,7 +80,7 @@ ApplicationWindow
         }
     }
 
-    Rectangle//repert verticale
+    Rectangle//repert horizontal
     {
         id: id_repereHori_bateau_area
 
@@ -113,8 +113,14 @@ ApplicationWindow
     {
         id: id_digit_tangage
         transformOrigin: Item.Center
-        x:parent.width/3,5
-        y:parent.height/2.6
+        //x:parent.width/3,5
+        //y:parent.height/2.6
+
+        anchors
+        {
+            left: parent.left
+            bottom: parent.verticalCenter
+        }
 
         width:  parent.width*0.3
         height: parent.height*0.1
@@ -129,8 +135,10 @@ ApplicationWindow
             anchors
             {
                 horizontalCenter: parent.horizontalCenter
-                verticalCenter: parent.verticalCenter
+
+                bottom: parent.verticalCenter
             }
+
 
         }
 
@@ -142,15 +150,21 @@ ApplicationWindow
     {
         id: id_digit_gite
         transformOrigin: Item.Center
-        x:(parent.width-width)/2
-        y:parent.height/200
+       //x:(parent.width-width)/2
+        //y:parent.height/200
+
+        anchors
+        {
+            horizontalCenter: parent.horizontalCenter
+            top: parent.top
+        }
 
         width:  parent.width*0.3
         height: parent.height*0.1
         border.color: "#00000000"
         color: "#00000000"
 
-        DigitTangage
+        DigitGite
         {
             id: id_text_digit_gite
             horizontalAlignment: Text.AlignHCenter
@@ -166,13 +180,19 @@ ApplicationWindow
     }
 
 
-    //-----------Cadran digital Vitesse Instant------------------
+    //-----------Cadran digital Vitesse Instantanee------------------
     Rectangle
     {
         id: id_digit_vitesse_instant
         transformOrigin: Item.Center
-        x:(parent.width-width)/2
-        y:parent.height*0.6
+        //x:(parent.width-width)/2
+        //y:parent.height*0.6
+
+        anchors
+        {
+            horizontalCenter: parent.horizontalCenter
+            bottom: parent.bottom
+        }
 
         width:  parent.width*0.3
         height: parent.height*0.1
@@ -202,11 +222,57 @@ ApplicationWindow
             {
                 horizontalCenter: parent.horizontalCenter
             }
-            y:id_text_digit_vitesse_instant.paintedHeight-parent.height*0.3
+            y:id_text_digit_vitesse_instant.paintedHeight//-parent.height*0.3
             width: parent.width
             height: parent.height
             text: qsTr("nd")
-            font.pixelSize: parent.height*0.8
+            font.pixelSize: parent.height
+        }
+
+    }
+
+
+
+    //-----------Cadran digital Vitesse Max 10 sec------------------
+    Rectangle
+    {
+        id: id_digit_vitesse_max_10sec
+        anchors.right: parent.horizontalCenter
+        transformOrigin: Item.Right
+
+        width:  parent.width*0.225
+        height: parent.height*0.075
+        border.color: "#00000000"
+        color: "#00000000"
+
+        DigitVitMax10
+        {
+            id: id_text_digit_vitesse_max_10sec
+            horizontalAlignment: Text.AlignHCenter
+
+            anchors
+            {
+                horizontalCenter: parent.horizontalCenter
+                verticalCenter: parent.verticalCenter
+            }
+
+        }
+
+        //Unité (noeud)
+        Text {
+            id: id_text_max10
+
+            horizontalAlignment: Text.AlignHCenter
+
+            anchors
+            {
+                horizontalCenter: parent.horizontalCenter
+            }
+            y:id_text_digit_vitesse_max_10sec.paintedHeight-parent.height*0
+            width: parent.width
+            height: parent.height
+            text: qsTr("max 10sec")
+            font.pixelSize: parent.height*0.6
         }
 
     }
@@ -284,7 +350,7 @@ ApplicationWindow
 
         }
 
-    Timer//VITESSE
+    Timer//VITESSE INSTANT
         {
             id:timervitesse
             interval:1; running:true;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
@@ -310,6 +376,34 @@ ApplicationWindow
             }
 
         }
+
+    Timer//VITESSE MAX 10SEC
+        {
+            id:timervitessemax10
+            interval:1; running:true;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
+            onTriggered:
+            {
+
+                //cadran digital vitesse instantannée
+                id_text_digit_vitesse_instant.text=valeur.getvalVitesse.toFixed(3)
+
+                if(valeur.getvalGite<50 && valeur.getvalGite>-50 && valeur.getvalTangage<50 && valeur.getvalTangage>-50)
+                {
+                    id_text_digit_vitesse_max_10sec.color="#e95454"
+                    id_text_max10.color="#C07680"
+
+                }
+                else
+                {
+                    id_text_digit_vitesse_max_10sec.color="#77C7D9"
+                    id_text_max10.color="#03738C"
+
+                }
+
+            }
+
+        }
+
 
 
 
