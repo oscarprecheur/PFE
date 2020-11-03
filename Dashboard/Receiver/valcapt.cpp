@@ -15,8 +15,13 @@ valcapt::valcapt(QObject *parent):QObject(parent)
 {
     auto timerCapteur = new QTimer();
     auto timerMemo = new QTimer();
+    auto timerSimuMeter = new QTimer();
+
+    //<<<<<<<<<<<<<<<<<<INITIALISATIONS>>>>>>>>>>>>>>>>>>>
 
     initFile();
+    initTab500();
+
     //<<<<<<<<<<<<<<<<<<Connexion aux serveurs>>>>>>>>>>>>>>>>>>>
 
     receiverBoussole.Connexion(65434);//connexion d'un capteur (boussole) sur le port 65432
@@ -46,6 +51,8 @@ valcapt::valcapt(QObject *parent):QObject(parent)
     connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateGite()));
     connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateVitesse()));
 
+    connect(timerSimuMeter, SIGNAL(timeout()),this,SLOT(updateTab500()));
+
 
     //2) ----- ajout de capteur :connect(timer, SIGNAL(timeout()),this,SLOT(update<nom_val_nouv_capt>())); -----
     //connect(timer, SIGNAL(timeout()),this,SLOT(updateCapt_Supp_2())); //A décommenter si utilisé
@@ -59,6 +66,7 @@ valcapt::valcapt(QObject *parent):QObject(parent)
     //Lancement des timers
     timerCapteur->start();
     timerMemo->start(deltaTMemo);// valeur en msec
+    timerSimuMeter->start(200);//simualtaiton metre parcouru
 }
 
 //<<<<<<<<<<<<<<<<<<Mise à jour des valeur des capteurs>>>>>>>>>>>>>>>>>>>
@@ -68,8 +76,8 @@ void valcapt::updateGPS_Lat()
     if (receiverGPS_Lat.getNbByteAvailable()>0)
     {
     valGPS_Lat=receiverGPS_Lat.readyRead();
-    qDebug()<<"valGPS_Lat"<<valGPS_Lat;
-    qDebug()<<"Taille"<<sizeof(valGPS_Lat);
+//    qDebug()<<"valGPS_Lat"<<valGPS_Lat;
+//    qDebug()<<"Taille"<<sizeof(valGPS_Lat);
     }
 
 }
@@ -79,8 +87,8 @@ void valcapt::updateGPS_Lon()
     if (receiverGPS_Lon.getNbByteAvailable()>0)
     {
     valGPS_Lat=receiverGPS_Lon.readyRead();
-    qDebug()<<"valGPS_Lon"<<valGPS_Lon;
-    qDebug()<<"Taille"<<sizeof(valGPS_Lon);
+//    qDebug()<<"valGPS_Lon"<<valGPS_Lon;
+//    qDebug()<<"Taille"<<sizeof(valGPS_Lon);
     }
 
 }
@@ -90,8 +98,8 @@ void valcapt::updateTime()
     if (receiverTime.getNbByteAvailable()>0)
     {
     valGPS_Lat=receiverTime.readyRead();
-    qDebug()<<"valGPS_Lon"<<valTime;
-    qDebug()<<"Taille"<<sizeof(valTime);
+//    qDebug()<<"valGPS_Lon"<<valTime;
+//    qDebug()<<"Taille"<<sizeof(valTime);
     }
 
 }
@@ -103,8 +111,8 @@ void valcapt::updateBoussole()
  if (receiverBoussole.getNbByteAvailable()>0)
  {
     valBoussole=receiverBoussole.readyRead();
-    qDebug()<<"valBoussole"<<valBoussole;
-    qDebug()<<"Taille"<<sizeof(valBoussole);
+//    qDebug()<<"valBoussole"<<valBoussole;
+//    qDebug()<<"Taille"<<sizeof(valBoussole);
  }
 
 
@@ -115,8 +123,8 @@ void valcapt::updateAccelero()
     if (receiverAccelero.getNbByteAvailable()>0)
     {
     valAccelero=receiverAccelero.readyRead();
-    qDebug()<<"valAccelero"<<valAccelero;
-    qDebug()<<"Taille"<<sizeof(valAccelero);
+//    qDebug()<<"valAccelero"<<valAccelero;
+//    qDebug()<<"Taille"<<sizeof(valAccelero);
     }
 }
 
@@ -129,8 +137,8 @@ void valcapt::updateTangage()
     if (receiverTangage.getNbByteAvailable()>0)
     {
     valTangage=receiverTangage.readyRead();
-    qDebug()<<"valTangage"<<valTangage;
-    qDebug()<<"Taille"<<sizeof(valTangage);
+//    qDebug()<<"valTangage"<<valTangage;
+//    qDebug()<<"Taille"<<sizeof(valTangage);
     }
 }
 
@@ -141,8 +149,8 @@ void valcapt::updateGite()
     if (receiverGite.getNbByteAvailable()>0)
     {
     valGite=receiverGite.readyRead();
-    qDebug()<<"valGite"<<valGite;
-    qDebug()<<"Taille"<<sizeof(valGite);
+//    qDebug()<<"valGite"<<valGite;
+//    qDebug()<<"Taille"<<sizeof(valGite);
     }
 }
 
@@ -152,8 +160,8 @@ void valcapt::updateVitesse()
     if (receiverVitesse.getNbByteAvailable()>0)
     {
     valVitesse=receiverVitesse.readyRead();
-    qDebug()<<"valVitesse"<<valVitesse;
-    qDebug()<<"Taille"<<sizeof(valVitesse);
+//    qDebug()<<"valVitesse"<<valVitesse;
+//    qDebug()<<"Taille"<<sizeof(valVitesse);
     }
 }
 
@@ -223,13 +231,37 @@ void valcapt::updateFile()
 void valcapt::updateTimeMemo()
 {
     valTimeMemo=cptFile*(deltaTMemo/1000);
-    qDebug()<<cptFile;
-    qDebug()<<valTimeMemo;
-    qDebug()<<deltaTMemo;
+//    qDebug()<<cptFile;
+//    qDebug()<<valTimeMemo;
+//    qDebug()<<deltaTMemo;
 }
 
 
 
+
+void valcapt::initTab500()
+{
+    for(int cpt=0;cpt<500;cpt++)
+    {
+        tab500[cpt]=0;
+        qDebug()<<"init Tab "<<cpt<<": "<<tab500[cpt];
+    }
+}
+
+void valcapt::updateTab500()
+{
+    for(int cpt=499;cpt>0;cpt--)
+    {
+        tab500[cpt]=tab500[cpt-1];
+    }
+    tab500[0]=getvalVitesse();
+
+    for(int cpt=0;cpt<500;cpt++)
+    {
+        qDebug()<<"update Tab "<<cpt<<": "<<tab500[cpt];
+    }
+
+}
 
 
 
@@ -311,4 +343,12 @@ float valcapt::getTimeMemo()
 {
     return valTimeMemo;
 }
+
+
+
+
+
+
+
+
 

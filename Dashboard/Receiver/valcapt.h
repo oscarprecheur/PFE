@@ -16,6 +16,8 @@
 #include <QDate>
 #include <QTime>
 
+#include <QMatrix>
+
 class valcapt:public QObject
 {
     Q_OBJECT
@@ -29,6 +31,8 @@ class valcapt:public QObject
     Q_PROPERTY(float getvalTangage READ getvalTangage )
     Q_PROPERTY(float getvalGite READ getvalGite )
     Q_PROPERTY(float getvalVitesse READ getvalVitesse )
+
+
 
     // 1) ----- ajout capteur : Q_PROPERTY(float get<nom_val_nouv_capt> READ <getnom_val_nouv_capt> ) -----
 
@@ -54,6 +58,8 @@ public:
     float getvalGite();
     float getvalVitesse();
 
+    float tab500[500];
+    void initTab500();
 
     // 2) ----- ajout capteur : float get<nom_val_nouv_capt>(); -----
 
@@ -69,6 +75,7 @@ public:
 
     float getTimeMemo();
 
+
 public slots:
    void updateGPS_Lat();
    void updateGPS_Lon();
@@ -80,6 +87,7 @@ public slots:
    void updateGite();
    void updateVitesse();
    
+   void updateTab500();
    
    
 
@@ -93,8 +101,6 @@ public slots:
    void initFile();
    void updateFile();
    void updateTimeMemo();
-
-
 
 private:
    SocketDataReceiver receiverBoussole;
