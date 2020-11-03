@@ -151,7 +151,7 @@ ApplicationWindow
         id: id_digit_gite
         transformOrigin: Item.Center
        //x:(parent.width-width)/2
-        //y:parent.height/200
+       //y:parent.height/200
 
         anchors
         {
@@ -180,10 +180,10 @@ ApplicationWindow
     }
 
 
-    //-----------Cadran digital Vitesse Instantanee------------------
+    //-----------Cadran digital Vitesse (Instantanee+10sec+500m)------------------
     Rectangle
     {
-        id: id_digit_vitesse_instant
+        id: id_cadran_vitesse
         transformOrigin: Item.Center
         //x:(parent.width-width)/2
         //y:parent.height*0.6
@@ -194,93 +194,141 @@ ApplicationWindow
             bottom: parent.bottom
         }
 
-        width:  parent.width*0.3
-        height: parent.height*0.1
+        width: id_digit_vitesse_instant.width
+        height:id_digit_vitesse_instant.height*3
         border.color: "#00000000"
         color: "#00000000"
 
-        DigitVitInst
+        Rectangle//vitesse istantanée
         {
-            id: id_text_digit_vitesse_instant
-            horizontalAlignment: Text.AlignHCenter
+            id: id_digit_vitesse_instant
+
+            width:id_text_digit_vitesse_instant.paintedWidth
+            height:id_text_digit_vitesse_instant.paintedHeight
+            border.color: "#00000000"
+            color: "#00000000"
+
 
             anchors
             {
+                top: parent.top
                 horizontalCenter: parent.horizontalCenter
-                verticalCenter: parent.verticalCenter
             }
 
+            DigitVitInst
+            {
+                id: id_text_digit_vitesse_instant
+                horizontalAlignment: Text.AlignHCenter
+
+                anchors
+                {
+                    horizontalCenter: parent.horizontalCenter
+                    verticalCenter: parent.verticalCenter
+                }
+                font.pixelSize: id_dashboard.height/10
+
+            }
         }
 
-        //Unité (noeud)
-        Text {
-            id: id_text_unite
+        Rectangle//Unité noeud
+        {
+            id: id_digit_vitesse_unit
 
-            horizontalAlignment: Text.AlignHCenter
-
+            width:id_text_digit_vitesse_instant.paintedWidth
+            height:id_text_digit_vitesse_instant.paintedHeight
+            border.color: "#00000000"
+            color: "#00000000"
             anchors
             {
                 horizontalCenter: parent.horizontalCenter
+                top: id_digit_vitesse_instant.bottom
             }
-            y:id_text_digit_vitesse_instant.paintedHeight//-parent.height*0.3
-            width: parent.width
-            height: parent.height
-            text: qsTr("nd")
-            font.pixelSize: parent.height
+            Text
+            {
+                id: id_text_unite
+
+                horizontalAlignment: Text.AlignHCenter
+                anchors
+                {
+                    top: parent.top
+                    horizontalCenter: parent.horizontalCenter
+                }
+
+
+                width: parent.width
+                height: parent.height
+                text: qsTr("nd")
+                font.pixelSize: id_dashboard.height/10
+            }
         }
+
+        Rectangle//vitesse max 10 sec
+        {
+            id: id_digit_vitesse_max_10sec
+
+            anchors
+            {
+                top:id_digit_vitesse_unit.bottom
+                right:parent.horizontalCenter
+                rightMargin : id_dashboard.height/10
+            }
+
+            width:  id_text_digit_vitesse_max_10sec.paintedWidth
+            height: id_text_digit_vitesse_max_10sec.paintedHeight
+            border.color: "#00000000"
+            color: "#00000000"
+
+            DigitVitMax10
+            {
+                id: id_text_digit_vitesse_max_10sec
+                horizontalAlignment: Text.AlignHCenter
+
+                anchors
+                {
+                    horizontalCenter: parent.horizontalCenter
+                    verticalCenter: parent.verticalCenter
+
+                }
+                font.pixelSize: id_dashboard.height/15
+
+            }
+        }
+
+
+        Rectangle//vitesse moy 500 m
+        {
+            id: id_digit_vitesse_moy_500m
+
+            anchors
+            {
+                top:id_digit_vitesse_unit.bottom
+                left:parent.horizontalCenter
+                leftMargin : id_dashboard.height/10
+            }
+
+            width:  id_text_digit_vitesse_max_10sec.paintedWidth
+            height: id_text_digit_vitesse_max_10sec.paintedHeight
+            border.color: "#00000000"
+            color: "#00000000"
+
+            DigitVitMoy500
+            {
+                id: id_text_digit_vitesse_moy_500m
+                horizontalAlignment: Text.AlignHCenter
+
+                anchors
+                {
+                    horizontalCenter: parent.horizontalCenter
+                    verticalCenter: parent.verticalCenter
+
+                }
+                font.pixelSize: id_dashboard.height/15
+
+            }
+        }
+
 
     }
-
-
-
-    //-----------Cadran digital Vitesse Max 10 sec------------------
-    Rectangle
-    {
-        id: id_digit_vitesse_max_10sec
-        anchors.right: parent.horizontalCenter
-        transformOrigin: Item.Right
-
-        width:  parent.width*0.225
-        height: parent.height*0.075
-        border.color: "#00000000"
-        color: "#00000000"
-
-        DigitVitMax10
-        {
-            id: id_text_digit_vitesse_max_10sec
-            horizontalAlignment: Text.AlignHCenter
-
-            anchors
-            {
-                horizontalCenter: parent.horizontalCenter
-                verticalCenter: parent.verticalCenter
-            }
-
-        }
-
-        //Unité (noeud)
-        Text {
-            id: id_text_max10
-
-            horizontalAlignment: Text.AlignHCenter
-
-            anchors
-            {
-                horizontalCenter: parent.horizontalCenter
-            }
-            y:id_text_digit_vitesse_max_10sec.paintedHeight-parent.height*0
-            width: parent.width
-            height: parent.height
-            text: qsTr("max 10sec")
-            font.pixelSize: parent.height*0.6
-        }
-
-    }
-
-
-
-
-
 
 
 
@@ -360,43 +408,25 @@ ApplicationWindow
                 //cadran digital vitesse instantannée
                 id_text_digit_vitesse_instant.text=valeur.getvalVitesse.toFixed(3)
 
+                //cadran digital vitesse max 10sec
+
+                //cadran digital vitesse moy 500M
+
+                //adaptation couleur
                 if(valeur.getvalGite<50 && valeur.getvalGite>-50 && valeur.getvalTangage<50 && valeur.getvalTangage>-50)
                 {
                     id_text_digit_vitesse_instant.color="#e95454"
                     id_text_unite.color="#C07680"
+                    id_text_digit_vitesse_max_10sec.color="#e95454"
+                   id_text_digit_vitesse_moy_500m.color="#e95454"
 
                 }
                 else
                 {
                     id_text_digit_vitesse_instant.color="#77C7D9"
                     id_text_unite.color="#03738C"
-
-                }
-
-            }
-
-        }
-
-    Timer//VITESSE MAX 10SEC
-        {
-            id:timervitessemax10
-            interval:1; running:true;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
-            onTriggered:
-            {
-
-                //cadran digital vitesse instantannée
-                id_text_digit_vitesse_instant.text=valeur.getvalVitesse.toFixed(3)
-
-                if(valeur.getvalGite<50 && valeur.getvalGite>-50 && valeur.getvalTangage<50 && valeur.getvalTangage>-50)
-                {
-                    id_text_digit_vitesse_max_10sec.color="#e95454"
-                    id_text_max10.color="#C07680"
-
-                }
-                else
-                {
                     id_text_digit_vitesse_max_10sec.color="#77C7D9"
-                    id_text_max10.color="#03738C"
+                    id_text_digit_vitesse_moy_500m.color="#77C7D9"
 
                 }
 

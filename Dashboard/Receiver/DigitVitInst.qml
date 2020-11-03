@@ -6,7 +6,7 @@ import QtQuick 2.0
             height: parent.height
             //color: "#e95454"
             font.bold:true
-            text: qsTr("000.000")
+            text: qsTr("---.---")
             font.pixelSize: parent.height
             horizontalAlignment: Text.AlignHCenter
         }
