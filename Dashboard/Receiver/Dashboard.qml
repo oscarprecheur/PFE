@@ -108,7 +108,7 @@ ApplicationWindow
         }
     }
 
-    //-----------Cadran digital Taganage------------------
+    //-----------Cadran digital Tangage------------------
     Rectangle
     {
         id: id_digit_tangage
@@ -143,6 +143,70 @@ ApplicationWindow
         }
 
     }
+
+    //-----------Tendance Tangage------------------
+   Rectangle
+   {
+       id: id_Tendance_Tangage_Up
+       transformOrigin: Item.Center
+      //x:(parent.width-width)/2
+      //y:parent.height/200
+
+
+       anchors
+       {
+           top : id_digit_tangage.top
+           left : id_digit_tangage.right
+       }
+       border.color: "#00000000"
+       color: "#00000000"
+
+       TendanceUpTangage
+       {
+           id: id_Tangage_Up
+
+
+           anchors
+           {
+               horizontalCenter: parent.horizontalCenter
+               verticalCenter: parent.verticalCenter
+               topMargin: parent.height*0.3
+           }
+
+       }
+   }
+
+
+   Rectangle
+   {
+       id: id_Tendance_Tangage_Down
+       transformOrigin: Item.Center
+      //x:(parent.width-width)/2
+      //y:parent.height/200
+
+
+       anchors
+       {
+           top:id_Tendance_Tangage_Up.top
+           horizontalCenter:id_Tendance_Tangage_Up.horizontalCenter
+       }
+       border.color: "#00000000"
+       color: "#00000000"
+
+       TendanceDownTangage
+       {
+           id: id_Tangage_Down
+
+
+           anchors
+           {
+               horizontalCenter: parent.horizontalCenter
+               verticalCenter: parent.verticalCenter
+               topMargin: parent.height*0.3
+           }
+
+       }
+   }
 
 
     //-----------Cadran digital Gite------------------
@@ -473,15 +537,15 @@ ApplicationWindow
                 //cadran digital
                 id_text_digit_tangage.text=valeur.getvalTangage.toFixed(3)+"°"
 
-                if(valeur.getTendanceGite==2)
+                if(valeur.getTendanceTangage==2)
                 {
-                    id_Tendance_Gite_Droite.clip=false
-                    id_Tendance_Gite_Gauche.clip=true
+                    id_Tendance_Tangage_Up.clip=false
+                    id_Tendance_Tangage_Down.clip=true
                 }
                 else
                 {
-                    id_Tendance_Gite_Droite.clip=true
-                    id_Tendance_Gite_Gauche.clip=false
+                    id_Tendance_Tangage_Up.clip=true
+                    id_Tendance_Tangage_Down.clip=false
                 }
 
             }
@@ -498,6 +562,18 @@ ApplicationWindow
                 id_horizon_area.rotation=valeur.getvalGite //rotation -> gite
                 //cadran digital
                 id_text_digit_gite.text=valeur.getvalGite.toFixed(3)+"°"
+
+                if(valeur.getTendanceGite==2)
+                {
+                    id_Tendance_Gite_Droite.clip=false
+                    id_Tendance_Gite_Gauche.clip=true
+                }
+                else
+                {
+                    id_Tendance_Gite_Droite.clip=true
+                    id_Tendance_Gite_Gauche.clip=false
+                }
+
 
             }
 
