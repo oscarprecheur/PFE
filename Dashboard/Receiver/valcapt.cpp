@@ -20,7 +20,6 @@ valcapt::valcapt(QObject *parent):QObject(parent)
     //<<<<<<<<<<<<<<<<<<INITIALISATIONS>>>>>>>>>>>>>>>>>>>
 
     initFile();
-    initTab500();
 
     //<<<<<<<<<<<<<<<<<<Connexion aux serveurs>>>>>>>>>>>>>>>>>>>
 
@@ -33,6 +32,8 @@ valcapt::valcapt(QObject *parent):QObject(parent)
     receiverTangage.Connexion(65436);
     receiverGite.Connexion(65437);
     receiverVitesse.Connexion(65438);
+
+
 
     //1) ----- ajout de capteur :receiver<nom_val_nouv_capt>.Connexion(<port>); -----
     //receiverCapt_Supp_1.Connexion(65435); //A décommenter si utilisé
@@ -50,8 +51,6 @@ valcapt::valcapt(QObject *parent):QObject(parent)
     connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTangage()));
     connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateGite()));
     connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateVitesse()));
-
-    connect(timerSimuMeter, SIGNAL(timeout()),this,SLOT(updateTab500()));
 
 
     //2) ----- ajout de capteur :connect(timer, SIGNAL(timeout()),this,SLOT(update<nom_val_nouv_capt>())); -----
@@ -167,6 +166,8 @@ void valcapt::updateVitesse()
 
 
 
+
+
 //3) ----- ajout de capteur : -----
                 /*
                 void valcapt::update<nom_val_nouv_capt>()
@@ -236,32 +237,6 @@ void valcapt::updateTimeMemo()
 //    qDebug()<<deltaTMemo;
 }
 
-
-
-
-void valcapt::initTab500()
-{
-    for(int cpt=0;cpt<500;cpt++)
-    {
-        tab500[cpt]=0;
-        qDebug()<<"init Tab "<<cpt<<": "<<tab500[cpt];
-    }
-}
-
-void valcapt::updateTab500()
-{
-    for(int cpt=499;cpt>0;cpt--)
-    {
-        tab500[cpt]=tab500[cpt-1];
-    }
-    tab500[0]=getvalVitesse();
-
-    for(int cpt=0;cpt<500;cpt++)
-    {
-        qDebug()<<"update Tab "<<cpt<<": "<<tab500[cpt];
-    }
-
-}
 
 
 
