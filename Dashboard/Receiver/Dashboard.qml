@@ -179,6 +179,72 @@ ApplicationWindow
 
     }
 
+     //-----------Tendance Gite------------------
+    Rectangle
+    {
+        id: id_Tendance_Gite_Droite
+        transformOrigin: Item.Center
+       //x:(parent.width-width)/2
+       //y:parent.height/200
+
+
+        anchors
+        {
+            left: id_digit_gite.right
+            leftMargin:id_text_digit_gite.paintedWidth/2
+            top: parent.top
+        }
+        border.color: "#00000000"
+        color: "#00000000"
+
+        TendanceRightGite
+        {
+            id: id_Gite_Droite
+
+
+            anchors
+            {
+                horizontalCenter: parent.horizontalCenter
+                verticalCenter: parent.verticalCenter
+                topMargin: parent.height*0.3
+            }
+
+        }
+    }
+
+
+    Rectangle
+    {
+        id: id_Tendance_Gite_Gauche
+        transformOrigin: Item.Center
+       //x:(parent.width-width)/2
+       //y:parent.height/200
+
+
+        anchors
+        {
+            right: id_digit_gite.left
+            rightMargin:id_text_digit_gite.paintedWidth/2
+            top: parent.top
+        }
+        border.color: "#00000000"
+        color: "#00000000"
+
+        TendanceLeftGite
+        {
+            id: id_Gite_Gauche
+
+
+            anchors
+            {
+                horizontalCenter: parent.horizontalCenter
+                verticalCenter: parent.verticalCenter
+                topMargin: parent.height*0.3
+            }
+
+        }
+    }
+
 
     //-----------Cadran digital Vitesse (Instantanee+10sec+500m)------------------
     Rectangle
@@ -406,6 +472,17 @@ ApplicationWindow
 
                 //cadran digital
                 id_text_digit_tangage.text=valeur.getvalTangage.toFixed(3)+"°"
+
+                if(valeur.getTendanceGite==2)
+                {
+                    id_Tendance_Gite_Droite.clip=false
+                    id_Tendance_Gite_Gauche.clip=true
+                }
+                else
+                {
+                    id_Tendance_Gite_Droite.clip=true
+                    id_Tendance_Gite_Gauche.clip=false
+                }
 
             }
 
