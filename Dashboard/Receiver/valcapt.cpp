@@ -52,6 +52,10 @@ valcapt::valcapt(QObject *parent):QObject(parent)
     connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateGite()));
     connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateVitesse()));
 
+    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTendanceTangage()));
+    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTendanceGite()));
+    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTendanceVitesse()));
+
     //2) ----- ajout de capteur :connect(timer, SIGNAL(timeout()),this,SLOT(update<nom_val_nouv_capt>())); -----
     //connect(timer, SIGNAL(timeout()),this,SLOT(updateCapt_Supp_2())); //A décommenter si utilisé
     //connect(timer, SIGNAL(timeout()),this,SLOT(updateCapt_Supp_1())); //A décommenter si utilisé
@@ -136,8 +140,8 @@ void valcapt::updateTangage()
     {
     MemoValTangage=valTangage;//mémorisation
     valTangage=receiverTangage.readyRead();
-    qDebug()<<"valTangage"<<valTangage;
-    qDebug()<<"valTangageMEMO"<<MemoValTangage;
+//    qDebug()<<"valTangage"<<valTangage;
+//    qDebug()<<"valTangageMEMO"<<MemoValTangage;
 //    qDebug()<<"Taille"<<sizeof(valTangage);
     }
 }
@@ -150,8 +154,8 @@ void valcapt::updateGite()
     {
     MemoValGite=valGite;//mémorisation
     valGite=receiverGite.readyRead();
-    qDebug()<<"valGite"<<valGite;
-    qDebug()<<"valTangageGITE"<<MemoValGite;
+//    qDebug()<<"valGite"<<valGite;
+//    qDebug()<<"valTangageGITE"<<MemoValGite;
 //    qDebug()<<"Taille"<<sizeof(valGite);
     }
 }
@@ -163,10 +167,50 @@ void valcapt::updateVitesse()
     {
     MemoValVitesse=valVitesse;//mémorisation
     valVitesse=receiverVitesse.readyRead();
-    qDebug()<<"valVitesse"<<valVitesse;
-    qDebug()<<"valTangageVITESSE"<<MemoValVitesse;
+    //qDebug()<<"valVitesse"<<valVitesse;
+    //qDebug()<<"valTangageVITESSE"<<MemoValVitesse;
 //    qDebug()<<"Taille"<<sizeof(valVitesse);
     }
+}
+
+//Tendance
+
+void valcapt::updateTendanceGite()
+{
+    if(valGite>MemoValGite)
+        TendanceGite=2;
+    else if (valGite<MemoValGite)
+        TendanceGite=0;
+    else
+        TendanceGite=1;
+
+    //qDebug()<<"TendanceGite"<<TendanceGite;
+}
+
+void valcapt::updateTendanceTangage()
+{
+    if(valTangage>MemoValTangage)
+        TendanceTangage=2;
+    else if (valTangage<MemoValTangage)
+        TendanceTangage=0;
+    else
+        TendanceTangage=1;
+
+    //qDebug()<<"TendanceTangage"<<TendanceTangage;
+}
+
+void valcapt::updateTendanceVitesse()
+{
+    if(valVitesse>MemoValVitesse)
+        TendanceVitesse=2;
+    else if (valVitesse<MemoValVitesse)
+        TendanceVitesse=0;
+    else
+        TendanceVitesse=1;
+
+    qDebug()<<"Vitesse"<<valVitesse;
+    qDebug()<<"Vitesse+1"<<MemoValVitesse;
+    qDebug()<<"TendanceVitesse"<<TendanceVitesse;
 }
 
 
@@ -290,6 +334,25 @@ float valcapt::getvalVitesse()
 {
     return valVitesse;
 }
+
+
+
+int valcapt::getTendanceTangage()
+{
+    return TendanceTangage;
+}
+
+int valcapt::getTendanceGite()
+{
+    return TendanceGite;
+}
+
+int valcapt::getTendanceVitesse()
+{
+    return TendanceVitesse;
+}
+
+
 
 
 //4) ----- ajout de capteur : -----

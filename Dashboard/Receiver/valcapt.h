@@ -32,6 +32,10 @@ class valcapt:public QObject
     Q_PROPERTY(float getvalGite READ getvalGite )
     Q_PROPERTY(float getvalVitesse READ getvalVitesse )
 
+    Q_PROPERTY(int getTendanceTangage READ getTendanceTangage )
+    Q_PROPERTY(int getTendanceGite READ getTendanceGite )
+    Q_PROPERTY(int getTendanceVitesse READ getTendanceVitesse )
+
 
     // 1) ----- ajout capteur : Q_PROPERTY(float get<nom_val_nouv_capt> READ <getnom_val_nouv_capt> ) -----
 
@@ -61,6 +65,14 @@ public:
     float getMemoValTangage();
     float getMemoValGite();
     float getMemoValVitesse();
+
+    int getTendanceTangage();
+    int getTendanceGite();
+    int getTendanceVitesse();
+
+
+
+
     // 2) ----- ajout capteur : float get<nom_val_nouv_capt>(); -----
 
     //float getvalCapt_Supp_1(); //A décommenter si utilisé
@@ -87,6 +99,10 @@ public slots:
    void updateGite();
    void updateVitesse();
 
+   //tendances
+   void updateTendanceTangage();
+   void updateTendanceGite();
+   void updateTendanceVitesse();
    
    
 
@@ -137,7 +153,9 @@ private:
    float MemoValGite=0;
    float MemoValVitesse=0;
 
-
+   int TendanceTangage=1;
+   int TendanceGite=1;
+   int TendanceVitesse=1;
 
 
    int cptFile=0;
