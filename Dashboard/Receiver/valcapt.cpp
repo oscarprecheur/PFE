@@ -52,7 +52,6 @@ valcapt::valcapt(QObject *parent):QObject(parent)
     connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateGite()));
     connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateVitesse()));
 
-
     //2) ----- ajout de capteur :connect(timer, SIGNAL(timeout()),this,SLOT(update<nom_val_nouv_capt>())); -----
     //connect(timer, SIGNAL(timeout()),this,SLOT(updateCapt_Supp_2())); //A décommenter si utilisé
     //connect(timer, SIGNAL(timeout()),this,SLOT(updateCapt_Supp_1())); //A décommenter si utilisé
@@ -135,8 +134,10 @@ void valcapt::updateTangage()
 {
     if (receiverTangage.getNbByteAvailable()>0)
     {
+    MemoValTangage=valTangage;//mémorisation
     valTangage=receiverTangage.readyRead();
-//    qDebug()<<"valTangage"<<valTangage;
+    qDebug()<<"valTangage"<<valTangage;
+    qDebug()<<"valTangageMEMO"<<MemoValTangage;
 //    qDebug()<<"Taille"<<sizeof(valTangage);
     }
 }
@@ -147,8 +148,10 @@ void valcapt::updateGite()
 {
     if (receiverGite.getNbByteAvailable()>0)
     {
+    MemoValGite=valGite;//mémorisation
     valGite=receiverGite.readyRead();
-//    qDebug()<<"valGite"<<valGite;
+    qDebug()<<"valGite"<<valGite;
+    qDebug()<<"valTangageGITE"<<MemoValGite;
 //    qDebug()<<"Taille"<<sizeof(valGite);
     }
 }
@@ -158,12 +161,13 @@ void valcapt::updateVitesse()
 {
     if (receiverVitesse.getNbByteAvailable()>0)
     {
+    MemoValVitesse=valVitesse;//mémorisation
     valVitesse=receiverVitesse.readyRead();
-//    qDebug()<<"valVitesse"<<valVitesse;
+    qDebug()<<"valVitesse"<<valVitesse;
+    qDebug()<<"valTangageVITESSE"<<MemoValVitesse;
 //    qDebug()<<"Taille"<<sizeof(valVitesse);
     }
 }
-
 
 
 
