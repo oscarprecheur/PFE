@@ -363,6 +363,76 @@ ApplicationWindow
             }
         }
 
+
+
+        //-----------Tendance Vitesse Instantanée------------------
+       Rectangle
+       {
+           id: id_Tendance_Vitesse_Up
+           transformOrigin: Item.Center
+          //x:(parent.width-width)/2
+          //y:parent.height/200
+
+
+           anchors
+           {
+               left: id_digit_vitesse_instant.right
+               leftMargin:id_text_digit_vitesse_instant.paintedWidth/3
+               top: id_digit_vitesse_instant.top
+           }
+           border.color: "#00000000"
+           color: "#00000000"
+
+           TendanceVItesseUp
+           {
+               id: id_Vitesse_Up
+
+
+               anchors
+               {
+                   horizontalCenter: parent.horizontalCenter
+                   verticalCenter: parent.verticalCenter
+                   topMargin: parent.height*0.3
+               }
+
+           }
+       }
+
+
+       Rectangle
+       {
+           id: id_Tendance_Vitesse_Down
+           transformOrigin: Item.Center
+          //x:(parent.width-width)/2
+          //y:parent.height/200
+
+
+           anchors
+           {
+               left: id_digit_vitesse_instant.right
+               leftMargin:id_text_digit_vitesse_instant.paintedWidth/3
+               bottom: id_digit_vitesse_instant.bottom
+               bottomMargin:id_text_digit_vitesse_instant.paintedHeight/2
+           }
+           border.color: "#00000000"
+           color: "#00000000"
+
+           TendanceVitesseDown
+           {
+               id: id_Vitesse_Down
+
+
+               anchors
+               {
+                   horizontalCenter: parent.horizontalCenter
+                   verticalCenter: parent.verticalCenter
+                   topMargin: parent.height*0.3
+               }
+
+           }
+       }
+
+
         Rectangle//Unité noeud
         {
             id: id_digit_vitesse_unit
@@ -616,6 +686,18 @@ ApplicationWindow
                     id_text_500m.color="#03738C"
                     id_text_10sec.color="#03738C"
 
+                }
+
+                if(valeur.getTendanceVitesse==2)
+                {
+
+                    id_Tendance_Vitesse_Down.clip=true
+                    id_Tendance_Vitesse_Up.clip=false
+                }
+                else
+                {
+                    id_Tendance_Vitesse_Down.clip=false
+                    id_Tendance_Vitesse_Up.clip=true
                 }
 
             }
