@@ -22,12 +22,6 @@ class valcapt:public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(float getvalBoussole READ getvalBoussole )
-    Q_PROPERTY(float getvalGPS_Lat READ getvalGPS_Lat )
-    Q_PROPERTY(float getvalGPS_Lon READ getvalGPS_Lon )
-    Q_PROPERTY(float getvalTime READ getvalTime )
-    Q_PROPERTY(float getvalAccelero READ getvalAccelero )
-
     Q_PROPERTY(float getvalTangage READ getvalTangage )
     Q_PROPERTY(float getvalGite READ getvalGite )
     Q_PROPERTY(float getvalVitesse READ getvalVitesse )
@@ -50,12 +44,6 @@ public:
     valcapt(QObject *parent = nullptr);
 
     float deltaTMemo=500; //fréquence de memorisation en ms
-
-    float getvalGPS_Lat();
-    float getvalGPS_Lon();
-    float getvalTime();
-    float getvalBoussole();//gite
-    float getvalAccelero();//tangage
     
     float getvalTangage();
     float getvalGite();
@@ -89,11 +77,6 @@ public:
 
 
 public slots:
-   void updateGPS_Lat();
-   void updateGPS_Lon();
-   void updateTime();
-   void updateBoussole();
-   void updateAccelero();
 
    void updateTangage();
    void updateGite();
@@ -118,11 +101,6 @@ public slots:
    void updateTimeMemo();
 
 private:
-   SocketDataReceiver receiverBoussole;
-   SocketDataReceiver receiverGPS_Lat;
-   SocketDataReceiver receiverGPS_Lon;
-   SocketDataReceiver receiverTime;
-   SocketDataReceiver receiverAccelero;
 
    SocketDataReceiver receiverTangage;
    SocketDataReceiver receiverGite;
@@ -137,13 +115,6 @@ private:
    //SocketDataReceiver receiverCapt_Supp_2; //A décommenter si utilisé (65436) ;
 
    //-----
-
-
-   float valGPS_Lat=0;
-   float valGPS_Lon=0;
-   float valTime=0;
-   float valBoussole=0;
-   float valAccelero=0;
 
    float valTangage=0;
    float valGite=0;

@@ -23,12 +23,6 @@ valcapt::valcapt(QObject *parent):QObject(parent)
 
     //<<<<<<<<<<<<<<<<<<Connexion aux serveurs>>>>>>>>>>>>>>>>>>>
 
-    receiverBoussole.Connexion(65434);//connexion d'un capteur (boussole) sur le port 65432
-    receiverAccelero.Connexion(65431);//connexion d'un capteur (accelerometre lateral) sur le port 65434
-    receiverGPS_Lat.Connexion(65432);
-    receiverGPS_Lon.Connexion(65433);
-    receiverTime.Connexion(65435);
-
     receiverTangage.Connexion(65436);
     receiverGite.Connexion(65437);
     receiverVitesse.Connexion(65438);
@@ -40,13 +34,6 @@ valcapt::valcapt(QObject *parent):QObject(parent)
     //receiverCapt_Supp_2.Connexion(65436); //A décommenter si utilisé
 
     //-----
-
-
-    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateBoussole()));
-    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateGPS_Lat()));
-    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateGPS_Lon()));
-    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTime()));
-    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateAccelero()));
 
     connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTangage()));
     connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateGite()));
@@ -65,6 +52,8 @@ valcapt::valcapt(QObject *parent):QObject(parent)
     //Mémorisation des données d'entrainement dans un fichier
     connect(timerMemo, SIGNAL(timeout()),this,SLOT(updateFile()));
     connect(timerMemo, SIGNAL(timeout()),this,SLOT(updateTimeMemo()));
+
+
     //Lancement des timers
     timerCapteur->start();
     timerMemo->start(deltaTMemo);// valeur en msec
@@ -72,67 +61,6 @@ valcapt::valcapt(QObject *parent):QObject(parent)
 }
 
 //<<<<<<<<<<<<<<<<<<Mise à jour des valeur des capteurs>>>>>>>>>>>>>>>>>>>
-
-void valcapt::updateGPS_Lat()
-{
-    if (receiverGPS_Lat.getNbByteAvailable()>0)
-    {
-    valGPS_Lat=receiverGPS_Lat.readyRead();
-//    qDebug()<<"valGPS_Lat"<<valGPS_Lat;
-//    qDebug()<<"Taille"<<sizeof(valGPS_Lat);
-    }
-
-}
-
-void valcapt::updateGPS_Lon()
-{
-    if (receiverGPS_Lon.getNbByteAvailable()>0)
-    {
-    valGPS_Lat=receiverGPS_Lon.readyRead();
-//    qDebug()<<"valGPS_Lon"<<valGPS_Lon;
-//    qDebug()<<"Taille"<<sizeof(valGPS_Lon);
-    }
-
-}
-
-void valcapt::updateTime()
-{
-    if (receiverTime.getNbByteAvailable()>0)
-    {
-    valGPS_Lat=receiverTime.readyRead();
-//    qDebug()<<"valGPS_Lon"<<valTime;
-//    qDebug()<<"Taille"<<sizeof(valTime);
-    }
-
-}
-
-void valcapt::updateBoussole()
-{
-
-
- if (receiverBoussole.getNbByteAvailable()>0)
- {
-    valBoussole=receiverBoussole.readyRead();
-//    qDebug()<<"valBoussole"<<valBoussole;
-//    qDebug()<<"Taille"<<sizeof(valBoussole);
- }
-
-
-}
-
-void valcapt::updateAccelero()
-{
-    if (receiverAccelero.getNbByteAvailable()>0)
-    {
-    valAccelero=receiverAccelero.readyRead();
-//    qDebug()<<"valAccelero"<<valAccelero;
-//    qDebug()<<"Taille"<<sizeof(valAccelero);
-    }
-}
-
-
-
-
 
 void valcapt::updateTangage()
 {
@@ -273,7 +201,7 @@ void valcapt::initFile()
 void valcapt::updateFile()
 {
 
-    memoWrite<<" T:"<<getTimeMemo()<<"//Compass:"<<getvalBoussole()<<"//Accelero:"<<getvalAccelero()<<"//LatGPS:"<<getvalGPS_Lat()<<"//LonGPS:"<<getvalGPS_Lon()<<"\n";
+    memoWrite<<" T:"<<getTimeMemo()<<"/AnglePitch:"<<getvalGite()<<"/AngleRoll:"<<getvalTangage()<<"/ValInstSpeed:"<<getvalVitesse()<<"\n";
     cptFile++;
 }
 
@@ -289,36 +217,6 @@ void valcapt::updateTimeMemo()
 
 
 //<<<<<<<<<<<<<<<<<<Getter des valeurs des capteurs>>>>>>>>>>>>>>>>>>>
-
-float valcapt::getvalGPS_Lat()
-{
-    return valGPS_Lat;
-}
-
-float valcapt::getvalGPS_Lon()
-{
-    return valGPS_Lon;
-}
-
-float valcapt::getvalTime()
-{
-    return valTime;
-}
-
-float valcapt::getvalAccelero()
-{
-    return valAccelero;
-}
-
-float valcapt::getvalBoussole()
-{
-    return valBoussole;
-}
-
-
-
-
-
 
 float valcapt::getvalTangage()
 {
