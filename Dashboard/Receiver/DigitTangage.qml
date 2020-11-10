@@ -7,5 +7,5 @@ import QtQuick 2.0
             color: "#ffffff"
             text: qsTr("---.---")
             font.pixelSize: parent.height
-            horizontalAlignment: Text.AlignHCenter
+            horizontalAlignment: Text.AlignLeft
         }

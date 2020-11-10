@@ -112,31 +112,35 @@ ApplicationWindow
     Rectangle
     {
         id: id_digit_tangage
+        x: 48
+        y: 176
         transformOrigin: Item.Center
         //x:parent.width/3,5
         //y:parent.height/2.6
 
         anchors
         {
-            left: parent.left
             bottom: parent.verticalCenter
         }
 
         width:  parent.width*0.3
         height: parent.height*0.1
         border.color: "#00000000"
+        anchors.bottomMargin: 16
         color: "#00000000"
 
         DigitTangage
         {
             id: id_text_digit_tangage
-            horizontalAlignment: Text.AlignHCenter
+            horizontalAlignment: Text.AlignLeft
 
             anchors
             {
-                horizontalCenter: parent.horizontalCenter
+                //left: id_Tendance_Tangage_Up.right
 
-                bottom: parent.verticalCenter
+                //leftMargin: id_text_digit_tangage.paintedWidth/2
+                verticalCenter: parent.verticalCenter
+                horizontalCenter:parent.horizontalCenter
             }
 
 
@@ -149,14 +153,13 @@ ApplicationWindow
    {
        id: id_Tendance_Tangage_Up
        transformOrigin: Item.Center
-      //x:(parent.width-width)/2
-      //y:parent.height/200
+
 
 
        anchors
        {
-           top : id_digit_tangage.top
-           left : id_digit_tangage.right
+           top : id_digit_tangage.verticalCenter
+           left: id_dashboard.left
        }
        border.color: "#00000000"
        color: "#00000000"
@@ -170,7 +173,6 @@ ApplicationWindow
            {
                horizontalCenter: parent.horizontalCenter
                verticalCenter: parent.verticalCenter
-               topMargin: parent.height*0.3
            }
 
        }
@@ -187,8 +189,9 @@ ApplicationWindow
 
        anchors
        {
-           top:id_Tendance_Tangage_Up.top
-           horizontalCenter:id_Tendance_Tangage_Up.horizontalCenter
+           top : id_digit_tangage.verticalCenter
+           left: id_dashboard.left
+
        }
        border.color: "#00000000"
        color: "#00000000"
