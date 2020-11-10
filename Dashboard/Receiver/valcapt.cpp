@@ -23,9 +23,9 @@ valcapt::valcapt(QObject *parent):QObject(parent)
 
     //<<<<<<<<<<<<<<<<<<Connexion aux serveurs>>>>>>>>>>>>>>>>>>>
 
-    receiverTangage.Connexion(65436);
-    receiverGite.Connexion(65437);
-    receiverVitesse.Connexion(65438);
+    receiverTangage.Connexion(65430);
+    receiverGite.Connexion(65431);
+    receiverVitesse.Connexion(65432);
 
 
 
