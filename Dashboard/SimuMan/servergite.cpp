@@ -16,7 +16,7 @@ servergite::servergite(quint16 port, QObject *parent):QObject(parent)
 
         qDebug() << "Server could not start !" ;
     } else {
-         qDebug() << "Server Accelero started !" << _server->serverAddress() ;
+         qDebug() << "Server Gite started !" << _server->serverAddress() ;
     }
 }
 
@@ -39,12 +39,11 @@ void servergite::bytesWritten(qint64 nb){
 void servergite::update(int newval)
 {
 
-//    while(1) {
-
         float f = (float)newval;
          qDebug() <<f;
         QByteArray x(reinterpret_cast<const char *>(&f), sizeof(f)) ;
         a=x;
+        qDebug()<<"git "<<a;
 
 
            _socket->write(a);
@@ -55,22 +54,10 @@ void servergite::update(int newval)
 
 
 
-//    }
-
 
 }
 
-float servergite::getNextValue() //Return valeur capteur exploitable
-{
 
-    updatecpt();
-
-    return 180*sin(cpt/10) ;
-
-
-
-    //return (float)2;//a remplacer
-}
 
 void servergite::startStreamingData() //frequence timer à regler
 {
@@ -83,10 +70,5 @@ void servergite::startStreamingData() //frequence timer à regler
 
 }
 
-void servergite::updatecpt()
-{
-    cpt++;
-
-}
 
 

@@ -15,7 +15,7 @@ servervitesse::servervitesse(quint16 port, QObject *parent):QObject(parent)
 
         qDebug() << "Server could not start !" ;
     } else {
-         qDebug() << "Server Accelero started !" << _server->serverAddress() ;
+         qDebug() << "Server Vitesse started !" << _server->serverAddress() ;
     }
 }
 
@@ -38,12 +38,12 @@ void servervitesse::bytesWritten(qint64 nb){
 void servervitesse::update(int newval)
 {
 
-//    while(1) {
 
         float f = (float)newval;
          qDebug() <<f;
         QByteArray x(reinterpret_cast<const char *>(&f), sizeof(f)) ;
         a=x;
+        qDebug()<<"vit "<<a;
 
 
            _socket->write(a);
@@ -53,23 +53,8 @@ void servervitesse::update(int newval)
            _socket->flush();
 
 
-
-//    }
-
-
 }
 
-float servervitesse::getNextValue() //Return valeur capteur exploitable
-{
-
-    updatecpt();
-
-    return 180*sin(cpt/10) ;
-
-
-
-    //return (float)2;//a remplacer
-}
 
 void servervitesse::startStreamingData() //frequence timer à regler
 {
@@ -82,10 +67,6 @@ void servervitesse::startStreamingData() //frequence timer à regler
 
 }
 
-void servervitesse::updatecpt()
-{
-    cpt++;
 
-}
 
 

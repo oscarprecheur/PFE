@@ -16,7 +16,7 @@ servertangage::servertangage(quint16 port, QObject *parent):QObject(parent)
 
         qDebug() << "Server could not start !" ;
     } else {
-         qDebug() << "Server Accelero started !" << _server->serverAddress() ;
+         qDebug() << "Server Tangage started !" << _server->serverAddress() ;
     }
 }
 
@@ -38,14 +38,11 @@ void servertangage::bytesWritten(qint64 nb){
 
 void servertangage::update(int newval)
 {
-
-//    while(1) {
-
         float f = (float)newval;
          qDebug() <<f;
         QByteArray x(reinterpret_cast<const char *>(&f), sizeof(f)) ;
         a=x;
-
+        qDebug()<<"tan "<<a;
 
            _socket->write(a);
 
@@ -54,22 +51,6 @@ void servertangage::update(int newval)
            _socket->flush();
 
 
-
-//    }
-
-
-}
-
-float servertangage::getNextValue() //Return valeur capteur exploitable
-{
-
-    updatecpt();
-
-    return 180*sin(cpt/10) ;
-
-
-
-    //return (float)2;//a remplacer
 }
 
 void servertangage::startStreamingData() //frequence timer à regler
@@ -83,10 +64,5 @@ void servertangage::startStreamingData() //frequence timer à regler
 
 }
 
-void servertangage::updatecpt()
-{
-    cpt++;
-
-}
 
 

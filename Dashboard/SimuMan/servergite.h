@@ -14,8 +14,6 @@ public:
    explicit servergite(quint16 port, QObject *parent=nullptr);
 
 
-signals:
-    void cptchange();
 
 public slots:
     void newConnection();
@@ -23,7 +21,7 @@ public slots:
 
 
     void update(int);
-    void updatecpt();
+
 
 
 private:
@@ -31,8 +29,6 @@ private:
     QTcpSocket *_socket ;
 
     void startStreamingData();
-    float getNextValue();
-    float cpt=1;
     QByteArray a;
 };
 #endif // SERVERGITE_H
