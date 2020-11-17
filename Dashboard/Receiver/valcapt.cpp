@@ -5,6 +5,7 @@
 #include <QObject>
 #include <QTimer>
 #include "socketdatareceiver.h"
+#include "memo.h"
 #include <QSvgWidget>
 #include <QWidget>
 #include <QGridLayout>
@@ -17,9 +18,11 @@ valcapt::valcapt(QObject *parent):QObject(parent)
     auto timerMemo = new QTimer();
     auto timerSimuMeter = new QTimer();
 
+
+
     //<<<<<<<<<<<<<<<<<<INITIALISATIONS>>>>>>>>>>>>>>>>>>>
 
-    initFile();
+    memorisation.initFile(deltaTMemo);
 
     //<<<<<<<<<<<<<<<<<<Connexion aux serveurs>>>>>>>>>>>>>>>>>>>
 
@@ -50,9 +53,8 @@ valcapt::valcapt(QObject *parent):QObject(parent)
     //-----
 
     //Mémorisation des données d'entrainement dans un fichier
-    connect(timerMemo, SIGNAL(timeout()),this,SLOT(updateFile()));
-    connect(timerMemo, SIGNAL(timeout()),this,SLOT(updateTimeMemo()));
-
+    connect(timerMemo, SIGNAL(timeout()),this,SLOT(slotUpdateFile()));
+    connect(timerMemo, SIGNAL(timeout()),&memorisation,SLOT(updateTimeMemo()));
 
     //Lancement des timers
     timerCapteur->start();
@@ -136,11 +138,15 @@ void valcapt::updateTendanceVitesse()
     else
         TendanceVitesse=1;
 
-    qDebug()<<"Vitesse"<<valVitesse;
-    qDebug()<<"Vitesse+1"<<MemoValVitesse;
-    qDebug()<<"TendanceVitesse"<<TendanceVitesse;
+   // qDebug()<<"Vitesse"<<valVitesse;
+    //qDebug()<<"Vitesse+1"<<MemoValVitesse;
+    //qDebug()<<"TendanceVitesse"<<TendanceVitesse;
 }
 
+void valcapt::slotUpdateFile()
+{
+    memorisation.updateFile(valGite,valTangage,valVitesse);
+}
 
 
 
@@ -177,41 +183,7 @@ void valcapt::updateTendanceVitesse()
 
 //-----
 
-void valcapt::initFile()
-{
-    if (memoFile.exists(fileName))
-    {
-        qDebug()<<"ce fichier existe deja";
-        memoFile.setFileName(fileName+QString::number(cptTraining)+".txt");
-    }
-    else
-    {
-        qDebug()<<"Ce fichier n'existe pas encore";
-        memoFile.setFileName(fileName+".txt");
-    }
 
-    memoWrite.setDevice(&memoFile);
-    if (memoFile.open(QIODevice::WriteOnly | QIODevice::Text))
-        qDebug()<<"Fichier "<<memoFile.fileName()<<" ouvert";
-    else
-        qDebug()<<"Erreur fichier "<<memoFile.fileName();
-
-}
-
-void valcapt::updateFile()
-{
-
-    memoWrite<<" T:"<<getTimeMemo()<<"/AnglePitch:"<<getvalGite()<<"/AngleRoll:"<<getvalTangage()<<"/ValInstSpeed:"<<getvalVitesse()<<"\n";
-    cptFile++;
-}
-
-void valcapt::updateTimeMemo()
-{
-    valTimeMemo=cptFile*(deltaTMemo/1000);
-//    qDebug()<<cptFile;
-//    qDebug()<<valTimeMemo;
-//    qDebug()<<deltaTMemo;
-}
 
 
 
@@ -274,15 +246,7 @@ int valcapt::getTendanceVitesse()
 //-----
 
 
-int valcapt::getcptFile()
-{
-    return cptFile;
-}
 
-float valcapt::getTimeMemo()
-{
-    return valTimeMemo;
-}
 
 
 

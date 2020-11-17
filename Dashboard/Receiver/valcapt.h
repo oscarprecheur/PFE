@@ -7,6 +7,7 @@
 
 #include <QPushButton>
 #include "socketdatareceiver.h"
+#include "memo.h"
 #include <QSvgWidget>
 #include <QGraphicsScene>
 
@@ -43,7 +44,7 @@ class valcapt:public QObject
 public:
     valcapt(QObject *parent = nullptr);
 
-    float deltaTMemo=500; //fréquence de memorisation en ms
+    float deltaTMemo=250; //fréquence de memorisation en ms
     
     float getvalTangage();
     float getvalGite();
@@ -58,7 +59,7 @@ public:
     int getTendanceGite();
     int getTendanceVitesse();
 
-
+    memo memorisation;
 
 
     // 2) ----- ajout capteur : float get<nom_val_nouv_capt>(); -----
@@ -68,12 +69,6 @@ public:
 
     //-----
 
-    int getcptFile();
-    QString fileName = "./memoTraining";
-    QFile memoFile;
-    QTextStream memoWrite;
-
-    float getTimeMemo();
 
 
 public slots:
@@ -86,6 +81,8 @@ public slots:
    void updateTendanceTangage();
    void updateTendanceGite();
    void updateTendanceVitesse();
+
+   void slotUpdateFile();
    
    
 
@@ -96,15 +93,12 @@ public slots:
 
    //-----
 
-   void initFile();
-   void updateFile();
-   void updateTimeMemo();
-
 private:
 
    SocketDataReceiver receiverTangage;
    SocketDataReceiver receiverGite;
    SocketDataReceiver receiverVitesse;
+
 
 
    
@@ -129,10 +123,7 @@ private:
    int TendanceVitesse=1;
 
 
-   int cptFile=0;
-   int cptTraining=1;
 
-   float valTimeMemo;
 
 
    // 5) ----- ajout capteur : val<nom_val_nouv_capt>; -----
