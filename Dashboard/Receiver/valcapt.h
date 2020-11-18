@@ -46,6 +46,7 @@ public:
     valcapt(QObject *parent = nullptr);
 
     float deltaTMemo=250; //fréquence de memorisation en ms
+    float deltaTAquisition=1;
     
     float getvalTangage();
     float getvalGite();
@@ -76,14 +77,12 @@ public:
 
 public slots:
 
+   void start();
+
    void updateTangage();
    void updateGite();
    void updateVitesse();
 
-   //tendances
-   void updateTendanceTangage();
-   void updateTendanceGite();
-   void updateTendanceVitesse();
 
    void slotUpdateFile();
 
