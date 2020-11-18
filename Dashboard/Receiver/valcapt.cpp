@@ -23,6 +23,9 @@ valcapt::valcapt(QObject *parent):QObject(parent)
     //<<<<<<<<<<<<<<<<<<INITIALISATIONS>>>>>>>>>>>>>>>>>>>
 
     memorisation.initFile(deltaTMemo);
+    tendanceGite.initTendance(0.1);
+    tendanceTangage.initTendance(0.1);
+    tendanceVitesse.initTendance(0.1);
 
     //<<<<<<<<<<<<<<<<<<Connexion aux serveurs>>>>>>>>>>>>>>>>>>>
 
@@ -38,14 +41,17 @@ valcapt::valcapt(QObject *parent):QObject(parent)
 
     //-----
 
+    //mise à jour des valeurs capteurs
     connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTangage()));
     connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateGite()));
     connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateVitesse()));
 
-    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTendanceTangage()));
-    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTendanceGite()));
-    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTendanceVitesse()));
+    //mise à jour des valeurs de tendance
+//    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTendanceTangage()));
+//    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTendanceGite()));
+//    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTendanceVitesse()));
 
+    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(slotCalcTendance()));
     //2) ----- ajout de capteur :connect(timer, SIGNAL(timeout()),this,SLOT(update<nom_val_nouv_capt>())); -----
     //connect(timer, SIGNAL(timeout()),this,SLOT(updateCapt_Supp_2())); //A décommenter si utilisé
     //connect(timer, SIGNAL(timeout()),this,SLOT(updateCapt_Supp_1())); //A décommenter si utilisé
@@ -66,9 +72,10 @@ valcapt::valcapt(QObject *parent):QObject(parent)
 
 void valcapt::updateTangage()
 {
+    MemoValTangage=valTangage;//mémorisation
     if (receiverTangage.getNbByteAvailable()>0)
     {
-    MemoValTangage=valTangage;//mémorisation
+
     valTangage=receiverTangage.readyRead();
 //    qDebug()<<"valTangage"<<valTangage;
 //    qDebug()<<"valTangageMEMO"<<MemoValTangage;
@@ -80,9 +87,10 @@ void valcapt::updateTangage()
 
 void valcapt::updateGite()
 {
+    MemoValGite=valGite;//mémorisation
     if (receiverGite.getNbByteAvailable()>0)
     {
-    MemoValGite=valGite;//mémorisation
+
     valGite=receiverGite.readyRead();
 //    qDebug()<<"valGite"<<valGite;
 //    qDebug()<<"valTangageGITE"<<MemoValGite;
@@ -93,9 +101,11 @@ void valcapt::updateGite()
 
 void valcapt::updateVitesse()
 {
+
+    MemoValVitesse=valVitesse;//mémorisation
+
     if (receiverVitesse.getNbByteAvailable()>0)
     {
-    MemoValVitesse=valVitesse;//mémorisation
     valVitesse=receiverVitesse.readyRead();
     //qDebug()<<"valVitesse"<<valVitesse;
     //qDebug()<<"valTangageVITESSE"<<MemoValVitesse;
@@ -143,10 +153,7 @@ void valcapt::updateTendanceVitesse()
     //qDebug()<<"TendanceVitesse"<<TendanceVitesse;
 }
 
-void valcapt::slotUpdateFile()
-{
-    memorisation.updateFile(valGite,valTangage,valVitesse);
-}
+
 
 
 
@@ -245,13 +252,22 @@ int valcapt::getTendanceVitesse()
 
 //-----
 
+//<<<<<<<<<<<<<<<<<<Deviation des slots avec paramètres>>>>>>>>>>>>>>>>>>>
 
 
+void valcapt::slotUpdateFile()
+{
+    memorisation.updateFile(valGite,valTangage,valVitesse);
+}
 
+void valcapt::slotCalcTendance()
+{
+    TendanceGite=tendanceGite.calcTendance(valGite,MemoValGite);
+    TendanceTangage=tendanceTangage.calcTendance(valTangage,MemoValTangage);
+    TendanceVitesse=tendanceVitesse.calcTendance(valVitesse,MemoValVitesse);
 
-
-
-
+    qDebug()<<TendanceGite;
+}
 
 
 

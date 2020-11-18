@@ -8,6 +8,7 @@
 #include <QPushButton>
 #include "socketdatareceiver.h"
 #include "memo.h"
+#include "tendance.h"
 #include <QSvgWidget>
 #include <QGraphicsScene>
 
@@ -60,7 +61,9 @@ public:
     int getTendanceVitesse();
 
     memo memorisation;
-
+    tendance tendanceGite;
+    tendance tendanceTangage;
+    tendance tendanceVitesse;
 
     // 2) ----- ajout capteur : float get<nom_val_nouv_capt>(); -----
 
@@ -83,6 +86,8 @@ public slots:
    void updateTendanceVitesse();
 
    void slotUpdateFile();
+
+   void slotCalcTendance();
    
    
 
