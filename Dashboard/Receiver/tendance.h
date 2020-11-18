@@ -19,7 +19,7 @@ public slots:
 private:
     int Tendance=1;
     float detectChange;
-    float tab_val[10];
+    float tab_val[100];
     float newval;
     float memoMoy;
     float actuMoy;
