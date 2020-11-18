@@ -615,10 +615,15 @@ ApplicationWindow
                     id_Tendance_Tangage_Up.clip=false
                     id_Tendance_Tangage_Down.clip=true
                 }
-                else
+                else if(valeur.getTendanceTangage==0)
                 {
                     id_Tendance_Tangage_Up.clip=true
                     id_Tendance_Tangage_Down.clip=false
+                }
+                else
+                {
+                    id_Tendance_Tangage_Down.clip=true
+                    id_Tendance_Tangage_Up.clip=true
                 }
 
             }
@@ -641,10 +646,15 @@ ApplicationWindow
                     id_Tendance_Gite_Droite.clip=false
                     id_Tendance_Gite_Gauche.clip=true
                 }
-                else
+                else if(valeur.getTendanceGite==0)
                 {
                     id_Tendance_Gite_Droite.clip=true
                     id_Tendance_Gite_Gauche.clip=false
+                }
+                else
+                {
+                    id_Tendance_Gite_Gauche.clip=true
+                    id_Tendance_Gite_Droite.clip=true
                 }
 
 
@@ -694,9 +704,14 @@ ApplicationWindow
                     id_Tendance_Vitesse_Down.clip=true
                     id_Tendance_Vitesse_Up.clip=false
                 }
-                else
+                else if(valeur.getTendanceVitesse==0)
                 {
                     id_Tendance_Vitesse_Down.clip=false
+                    id_Tendance_Vitesse_Up.clip=true
+                }
+                else
+                {
+                    id_Tendance_Vitesse_Down.clip=true
                     id_Tendance_Vitesse_Up.clip=true
                 }
 
