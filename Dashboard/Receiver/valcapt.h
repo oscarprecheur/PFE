@@ -32,6 +32,11 @@ class valcapt:public QObject
     Q_PROPERTY(int getTendanceGite READ getTendanceGite )
     Q_PROPERTY(int getTendanceVitesse READ getTendanceVitesse )
 
+    Q_PROPERTY(float getvalTangageMax READ getvalTangageMax )
+    Q_PROPERTY(float getvalTangageMin READ getvalTangageMin )
+    Q_PROPERTY(float getvalGiteMax READ getvalGiteMax )
+    Q_PROPERTY(float getvalGiteMin READ getvalGiteMin )
+
 
     // 1) ----- ajout capteur : Q_PROPERTY(float get<nom_val_nouv_capt> READ <getnom_val_nouv_capt> ) -----
 
@@ -45,8 +50,8 @@ class valcapt:public QObject
 public:
     valcapt(QObject *parent = nullptr);
 
-    float deltaTMemo=250; //fréquence de memorisation en ms
-    float deltaTAquisition=1;
+    float deltaTMemo; //fréquence de memorisation en ms
+    float deltaTAquisition;
     
     float getvalTangage();
     float getvalGite();
@@ -60,6 +65,11 @@ public:
     int getTendanceTangage();
     int getTendanceGite();
     int getTendanceVitesse();
+
+    float getvalTangageMax();
+    float getvalTangageMin();
+    float getvalGiteMax();
+    float getvalGiteMin();
 
     memo memorisation;
     tendance tendanceGite;
@@ -77,6 +87,7 @@ public:
 
 public slots:
 
+   void init();
    void start();
 
    void updateTangage();
@@ -114,20 +125,23 @@ private:
 
    //-----
 
-   float valTangage=0;
-   float valGite=0;
-   float valVitesse=0;
+   float valTangage;
+   float valGite;
+   float valVitesse;
 
-   float MemoValTangage=0;
-   float MemoValGite=0;
-   float MemoValVitesse=0;
+   float MemoValTangage;
+   float MemoValGite;
+   float MemoValVitesse;
 
-   int TendanceTangage=1;
-   int TendanceGite=1;
-   int TendanceVitesse=1;
+   int TendanceTangage;
+   int TendanceGite;
+   int TendanceVitesse;
 
 
-
+    float valTangageMax;
+    float valTangageMin;
+    float valGiteMax;
+    float valGiteMin;
 
 
    // 5) ----- ajout capteur : val<nom_val_nouv_capt>; -----

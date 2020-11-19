@@ -14,32 +14,56 @@
 
 valcapt::valcapt(QObject *parent):QObject(parent)
 {
-    start();
+    init();
+}
+
+void valcapt::init()
+{
+
+   deltaTMemo=250;//temps de mémorisation des données en ms[A PARAMETER]
+   deltaTAquisition=1;//temps d'aquisition des données en ms[A PARAMETER]
+
+   //initialisation des valeurs capteurs
+   valTangage=0;
+   valGite=0;
+   valVitesse=0;
+
+   //inititialisation des valeurs de mémorisation
+   MemoValTangage=0;
+   MemoValGite=0;
+   MemoValVitesse=0;
+
+   //initialisation des tendances (1= aucune évolution)
+   TendanceTangage=1;
+   TendanceGite=1;
+   TendanceVitesse=1;
+
+   //initialisation des seuils de tangage et gite [A PARAMETER]
+   valTangageMax=50;
+   valTangageMin=50;
+   valGiteMax=50;
+   valGiteMin=50;
+
+   //initialisation du fichier de mémorisation
+   memorisation.initFile(deltaTMemo);
+
+   //connexion aux serveurs des données capteurs
+
+   receiverTangage.Connexion(65430);
+   receiverGite.Connexion(65431);
+   receiverVitesse.Connexion(65432);
+
+
+   start();
 }
 
 void valcapt::start()
 {
+
     auto timerCapteur = new QTimer();
     auto timerMemo = new QTimer();
     auto timerSimuMeter = new QTimer();
     auto timerTendance = new QTimer();
-
-
-
-    //<<<<<<<<<<<<<<<<<<INITIALISATIONS>>>>>>>>>>>>>>>>>>>
-
-    memorisation.initFile(deltaTMemo);
-    tendanceGite.initTendance(0.1);
-    tendanceTangage.initTendance(0.1);
-    tendanceVitesse.initTendance(0.1);
-
-    //<<<<<<<<<<<<<<<<<<Connexion aux serveurs>>>>>>>>>>>>>>>>>>>
-
-    receiverTangage.Connexion(65430);
-    receiverGite.Connexion(65431);
-    receiverVitesse.Connexion(65432);
-
-
 
     //1) ----- ajout de capteur :receiver<nom_val_nouv_capt>.Connexion(<port>); -----
     //receiverCapt_Supp_1.Connexion(65435); //A décommenter si utilisé
@@ -197,6 +221,26 @@ int valcapt::getTendanceVitesse()
 }
 
 
+
+float valcapt::getvalGiteMax()
+{
+    return valGiteMax;
+}
+
+float valcapt::getvalGiteMin()
+{
+    return valGiteMin;
+}
+
+float valcapt::getvalTangageMax()
+{
+    return valTangageMax;
+}
+
+float valcapt::getvalTangageMin()
+{
+    return valTangageMin;
+}
 
 
 //4) ----- ajout de capteur : -----
