@@ -581,7 +581,7 @@ ApplicationWindow
             onTriggered:
             {
                 //changement de couleur selon les valeur de gite et de tangage
-                if(valeur.getvalGite<50 && valeur.getvalGite>-50 && valeur.getvalTangage<50 && valeur.getvalTangage>-50)
+                if(valeur.getvalGite<valeur.getvalGiteMax && valeur.getvalGite>valeur.getvalGiteMin && valeur.getvalTangage<valeur.getvalTangageMax && valeur.getvalTangage>valeur.getvalTangageMin)
                 {
                     eau.color="#03738C"
                     ciel.color="#f29d52"
