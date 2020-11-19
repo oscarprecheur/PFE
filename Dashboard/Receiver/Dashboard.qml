@@ -677,7 +677,7 @@ ApplicationWindow
                 //cadran digital vitesse moy 500M
 
                 //adaptation couleur
-                if(valeur.getvalGite<50 && valeur.getvalGite>-50 && valeur.getvalTangage<50 && valeur.getvalTangage>-50)
+                if(valeur.getvalGite<valeur.getvalGiteMax && valeur.getvalGite>valeur.getvalGiteMin && valeur.getvalTangage<valeur.getvalTangageMax && valeur.getvalTangage>valeur.getvalTangageMin)
                 {
                     id_text_digit_vitesse_instant.color="#e95454"
                     id_text_unite.color="#C07680"
