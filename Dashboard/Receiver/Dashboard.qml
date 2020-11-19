@@ -28,6 +28,7 @@ ApplicationWindow
         color: "#00000000"
 
 
+
         //description statique horizon artificiel
         Rectangle
         {
