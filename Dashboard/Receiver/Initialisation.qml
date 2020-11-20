@@ -13,6 +13,7 @@ ApplicationWindow
     property var giteMax:slider_gite_max.value
     property var tangageMin:slider_tangage_min.value
     property var tangageMax:slider_tangage_max.value
+    property bool test
 
 
 
@@ -49,8 +50,11 @@ ApplicationWindow
 
         onClicked:
         {
+            if (test==true)
+            {
             var component =Qt.createComponent("qrc:/openDashboard.qml")
             win = component.createObject(id_init)
+            }
 
         }
 
@@ -539,6 +543,11 @@ ApplicationWindow
                     id_text_val_tangage_max.color="black"
                     id_text_val_tangage_min.color="black"
                 }
+
+                if (tangageMax<tangageMin || giteMax<giteMin)
+                    test=false
+                else
+                    test=true
 
             }
         }
