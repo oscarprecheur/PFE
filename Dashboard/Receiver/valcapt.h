@@ -24,6 +24,7 @@ class valcapt:public QObject
 {
     Q_OBJECT
 
+
     Q_PROPERTY(float getvalTangage READ getvalTangage )
     Q_PROPERTY(float getvalGite READ getvalGite )
     Q_PROPERTY(float getvalVitesse READ getvalVitesse )
@@ -83,6 +84,13 @@ public:
 
     //-----
 
+    Q_INVOKABLE void initValTangageMax(float);
+    Q_INVOKABLE void initValTangageMin(float);
+    Q_INVOKABLE void initValGiteMax(float);
+    Q_INVOKABLE void initValGiteMin(float);
+
+    Q_INVOKABLE void initDeltaTMemo(float);//temps de mémorisation des données en ms[A PARAMETER]
+    Q_INVOKABLE void initDeltaTAquisition(float);//temps d'aquisition des données en ms[A PARAMETER]
 
 
 public slots:

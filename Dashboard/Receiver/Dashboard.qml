@@ -568,10 +568,7 @@ ApplicationWindow
 
     //-----------RECUPERATION VALEURS CAPTEUR------------------
 
-    VALCAPT//appel de valcapt directement dans le programme qml sous le nom de "valeur"
-    {
-        id:valeur
-    }
+
 
     //-----------FCT DYNAMIQUE DU SYSTEME------------------
 

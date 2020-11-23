@@ -7,12 +7,14 @@ ApplicationWindow
 {
     id: id_init
 
-     property var timeAquisition:slider_aquisition.value
-     property var timeMemo:slider_memo.value
-     property var giteMin:slider_gite_min.value
-    property var giteMax:slider_gite_max.value
-    property var tangageMin:slider_tangage_min.value
-    property var tangageMax:slider_tangage_max.value
+
+
+     property real timeAquisition:slider_aquisition.value
+     property real timeMemo:slider_memo.value
+     property real giteMin:slider_gite_min.value
+    property real giteMax:slider_gite_max.value
+    property real tangageMin:slider_tangage_min.value
+    property real tangageMax:slider_tangage_max.value
     property bool test
 
 
@@ -38,6 +40,10 @@ ApplicationWindow
     {
         id:id_start_button
 
+
+        objectName: "id_start_button"
+        signal clickedButton(real giteMax, real giteMin, real tangageMax, real tangageMin, real timeMemo,real timeAquisition)
+
         anchors
         {
             left:parent.left
@@ -53,10 +59,22 @@ ApplicationWindow
             if (test==true)
             {
             var component =Qt.createComponent("qrc:/openDashboard.qml")
-            win = component.createObject(id_init)
+            component.createObject(id_init)
+            //init
+                valeur.initValGiteMax(giteMax)
+                valeur.initValGiteMin(giteMin)
+                valeur.initValTangageMax(tangageMax)
+                valeur.initValTangageMin(tangageMin)
+                valeur.initDeltaTMemo(timeMemo)
+                valeur.initDeltaTAquisition(timeAquisition)
+                valeur.start()
+
             }
 
+
         }
+
+
 
 
 

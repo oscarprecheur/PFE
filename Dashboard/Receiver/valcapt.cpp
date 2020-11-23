@@ -10,6 +10,8 @@
 #include <QWidget>
 #include <QGridLayout>
 #include <QtWidgets>
+#include <initialisation.h>
+#include <QDebug>
 
 
 valcapt::valcapt(QObject *parent):QObject(parent)
@@ -19,6 +21,8 @@ valcapt::valcapt(QObject *parent):QObject(parent)
 
 void valcapt::init()
 {
+
+
 
    deltaTMemo=250;//temps de mémorisation des données en ms[A PARAMETER]
    deltaTAquisition=1;//temps d'aquisition des données en ms[A PARAMETER]
@@ -40,9 +44,9 @@ void valcapt::init()
 
    //initialisation des seuils de tangage et gite [A PARAMETER]
    valTangageMax=50;
-   valTangageMin=50;
+   valTangageMin=-50;
    valGiteMax=50;
-   valGiteMin=50;
+   valGiteMin=-50;
 
    //initialisation du fichier de mémorisation
    memorisation.initFile(deltaTMemo);
@@ -54,7 +58,7 @@ void valcapt::init()
    receiverVitesse.Connexion(65432);
 
 
-   start();
+
 }
 
 void valcapt::start()
@@ -93,10 +97,10 @@ void valcapt::start()
     connect(timerMemo, SIGNAL(timeout()),&memorisation,SLOT(updateTimeMemo()));
 
     //Lancement des timers
-    timerCapteur->start(deltaTAquisition);
-    timerMemo->start(deltaTMemo);// valeur en msec
+    timerCapteur->start((int)deltaTAquisition);
+    timerMemo->start((int)deltaTMemo);// valeur en msec
     timerSimuMeter->start(200);//simualtaiton metre parcouru
-    timerTendance->start(deltaTAquisition);
+    timerTendance->start((int)deltaTAquisition);
 }
 
 //<<<<<<<<<<<<<<<<<<Mise à jour des valeur des capteurs>>>>>>>>>>>>>>>>>>>
@@ -143,7 +147,6 @@ void valcapt::updateVitesse()
 //    qDebug()<<"Taille"<<sizeof(valVitesse);
     }
 }
-
 
 
 
@@ -243,6 +246,42 @@ float valcapt::getvalTangageMin()
 }
 
 
+
+
+Q_INVOKABLE void valcapt::initDeltaTAquisition(float newval)
+{
+    deltaTAquisition=newval;
+}
+
+Q_INVOKABLE void valcapt::initDeltaTMemo(float newval)
+{
+    deltaTMemo=newval;
+}
+
+Q_INVOKABLE void valcapt::initValGiteMax(float newval)
+{
+    valGiteMax=newval;
+}
+
+
+Q_INVOKABLE void valcapt::initValGiteMin(float newval)
+{
+    valGiteMin=newval;
+}
+
+
+Q_INVOKABLE void valcapt::initValTangageMax(float newval)
+{
+    valTangageMax=newval;
+}
+
+
+Q_INVOKABLE void valcapt::initValTangageMin(float newval)
+{
+    valTangageMin=newval;
+}
+
+
 //4) ----- ajout de capteur : -----
                 /*
                 float valcapt::get<nom_val_nouv_capt>()
@@ -269,6 +308,7 @@ float valcapt::getvalTangageMin()
 void valcapt::slotUpdateFile()
 {
     memorisation.updateFile(valGite,valTangage,valVitesse);
+    qDebug()<<"updateFile";
 }
 
 void valcapt::slotCalcTendance()
