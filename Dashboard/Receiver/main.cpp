@@ -54,7 +54,6 @@
 #include <QApplication>
 #include "socketdatareceiver.h"
 #include "valcapt.h"
-#include "initialisation.h"
 
 
 int main(int argc, char *argv[])

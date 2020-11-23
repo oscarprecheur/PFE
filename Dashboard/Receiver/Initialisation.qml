@@ -40,10 +40,6 @@ ApplicationWindow
     {
         id:id_start_button
 
-
-        objectName: "id_start_button"
-        signal clickedButton(real giteMax, real giteMin, real tangageMax, real tangageMin, real timeMemo,real timeAquisition)
-
         anchors
         {
             left:parent.left
