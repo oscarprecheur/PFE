@@ -10,7 +10,6 @@
 #include <QWidget>
 #include <QGridLayout>
 #include <QtWidgets>
-#include <initialisation.h>
 #include <QDebug>
 
 
@@ -21,11 +20,6 @@ valcapt::valcapt(QObject *parent):QObject(parent)
 
 void valcapt::init()
 {
-
-
-
-   deltaTMemo=250;//temps de mémorisation des données en ms[A PARAMETER]
-   deltaTAquisition=1;//temps d'aquisition des données en ms[A PARAMETER]
 
    //initialisation des valeurs capteurs
    valTangage=0;
@@ -42,12 +36,6 @@ void valcapt::init()
    TendanceGite=1;
    TendanceVitesse=1;
 
-   //initialisation des seuils de tangage et gite [A PARAMETER]
-   valTangageMax=50;
-   valTangageMin=-50;
-   valGiteMax=50;
-   valGiteMin=-50;
-
    //initialisation du fichier de mémorisation
    memorisation.initFile(deltaTMemo);
 
@@ -56,7 +44,7 @@ void valcapt::init()
    receiverTangage.Connexion(65430);
    receiverGite.Connexion(65431);
    receiverVitesse.Connexion(65432);
-
+   start();
 
 
 }
@@ -251,11 +239,13 @@ float valcapt::getvalTangageMin()
 Q_INVOKABLE void valcapt::initDeltaTAquisition(float newval)
 {
     deltaTAquisition=newval;
+    qDebug()<<deltaTAquisition;
 }
 
 Q_INVOKABLE void valcapt::initDeltaTMemo(float newval)
 {
     deltaTMemo=newval;
+    qDebug()<<deltaTMemo;
 }
 
 Q_INVOKABLE void valcapt::initValGiteMax(float newval)

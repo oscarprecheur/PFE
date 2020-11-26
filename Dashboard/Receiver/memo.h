@@ -25,6 +25,8 @@ public:
     QString fileName = "./memoTraining";
     QFile memoFile;
     QTextStream memoWrite;
+    QDate date;
+    QTime time;
 
     float getTimeMemo();
 
