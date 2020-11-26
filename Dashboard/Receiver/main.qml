@@ -18,19 +18,14 @@ import QtQuick.Layouts 1.0
 
 
 
-
     Initialisation{
 
-
+        id: id_start_init
         width: 1080
         height: 720
         visible: true
 
-
-
-
-    }
-
+}
 /*##^##
 Designer {
     D{i:0;autoSize:true;height:540;width:960}D{i:1;invisible:false}D{i:7;anchors_y:313}
