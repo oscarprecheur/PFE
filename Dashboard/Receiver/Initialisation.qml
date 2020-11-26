@@ -55,7 +55,7 @@ ApplicationWindow
             if (test==true)
             {
             var component =Qt.createComponent("qrc:/openDashboard.qml")
-            component.createObject(id_init)
+            component.createObject(id_start_init)
             //init
                 valeur.initValGiteMax(giteMax)
                 valeur.initValGiteMin(giteMin)
@@ -63,7 +63,7 @@ ApplicationWindow
                 valeur.initValTangageMin(tangageMin)
                 valeur.initDeltaTMemo(timeMemo)
                 valeur.initDeltaTAquisition(timeAquisition)
-                valeur.start()
+                valeur.init()
 
             }
 
