@@ -8,6 +8,21 @@ memo::memo(QObject *parent):QObject(parent)
 void memo::initFile(float deltaTime)
 {
     //delta ecriture
+
+    if (memoDir.exists(dirName))
+    {
+        qDebug()<<"Ce dossier existe";
+    }
+    else
+    {
+        qDebug()<<"Ce dossier n'existe pas encore, création du dossier...";
+        memoDir.mkdir(dirName);
+    }
+
+    fileName = dirName+"/memoTraining";
+
+
+
     deltaTMemo=deltaTime;
     time = time.currentTime();
     date = date.currentDate();

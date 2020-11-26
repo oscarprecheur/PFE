@@ -6,6 +6,8 @@
 #include <QtWidgets>
 
 #include <QFile>
+#include <QDir>
+
 #include <QString>
 #include <QTextStream>
 #include <QDate>
@@ -22,8 +24,10 @@ public:
     float deltaTMemo; //fréquence de memorisation en ms
 
     int getcptFile();
-    QString fileName = "./memoTraining";
+    QString fileName;
+    QString dirName = "./training_saves";
     QFile memoFile;
+    QDir memoDir;
     QTextStream memoWrite;
     QDate date;
     QTime time;
