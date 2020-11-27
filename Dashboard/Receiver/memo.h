@@ -36,7 +36,8 @@ public:
 
 public slots:
     void initFile(float);
-    void updateFile(float,float,float);
+    void initTimeMemo();
+    void updateFile(float,float,float,float);
     void updateTimeMemo();
 
 private:

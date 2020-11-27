@@ -48,10 +48,16 @@ void memo::initFile(float deltaTime)
 
 }
 
-void memo::updateFile(float gite, float tangage, float vitesse)
+void memo::initTimeMemo()
+{
+    cptFile=0;
+    valTimeMemo=0;
+}
+
+void memo::updateFile(float distance,float gite, float tangage, float vitesse)
 {
     memoFile.open(QIODevice::WriteOnly |QIODevice::Append| QIODevice::Text);
-    memoWrite<<" T:"<<getTimeMemo()<<"/AnglePitch:"<<gite<<"/AngleRoll:"<<tangage<<"/ValInstSpeed:"<<vitesse<<"\n";
+    memoWrite<<" T:"<<getTimeMemo()<<"/Distance:"<<distance<<"/AnglePitch:"<<gite<<"/AngleRoll:"<<tangage<<"/ValInstSpeed:"<<vitesse<<"\n";
     cptFile++;
     memoFile.close();
 }
