@@ -8,7 +8,7 @@ Button {
         background: Rectangle {
             implicitWidth: 100
             implicitHeight: 100
-            color: if(valeur.getOnTraining==false) {button.down ? "#B7282A" : "#E85454"} else {button.down ? "blue" : "green"}
+            color: if(valeur.getOnTraining==false){button.down ? "#31BA47" : "#E85454"} else {button.down ? "#B7282A" : "#269A3C"}
             border.color: "#00000000"
             border.width: 1
             radius: 1000
