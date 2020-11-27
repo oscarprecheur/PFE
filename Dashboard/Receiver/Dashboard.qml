@@ -570,11 +570,24 @@ ApplicationWindow
         {
             left: parent.left
             bottom: parent.bottom
+            leftMargin: parent.width/20
+            bottomMargin: parent.height/10
         }
+        text: "Start Training"
 
         onClicked:
         {
             valeur.lauchStopTraining();
+            if(valeur.getOnTraining==true)
+            {
+               text= /*"Stop Training"*/ valeur.getOnTraining.toString
+            }
+            else
+            {
+               text= "Start Training"
+            }
+
+
         }
     }
 
