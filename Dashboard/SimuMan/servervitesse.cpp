@@ -16,18 +16,19 @@ servervitesse::servervitesse(quint16 port, QObject *parent):QObject(parent)
         qDebug() << "Server could not start !" ;
     } else {
          qDebug() << "Server Vitesse started !" << _server->serverAddress() ;
+
     }
 }
 
 void servervitesse::newConnection() {
 
     _socket = _server->nextPendingConnection();
-
+    qDebug()<<_server->hasPendingConnections();
     qDebug() << "Someone connected !!";
 
     connect(_socket, SIGNAL(bytesWritten(qint64)),this, SLOT(bytesWritten(qint64)));
 
-    startStreamingData() ;
+        startStreamingData() ;
 
 }
 
@@ -45,12 +46,11 @@ void servervitesse::update(int newval)
         a=x;
         qDebug()<<"vit "<<a;
 
-
+        if(_server->hasPendingConnections())
+        {
            _socket->write(a);
-
-
-
            _socket->flush();
+        }
 
 
 }

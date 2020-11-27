@@ -28,7 +28,7 @@ void servertangage::newConnection() {
 
     connect(_socket, SIGNAL(bytesWritten(qint64)),this, SLOT(bytesWritten(qint64)));
 
-    startStreamingData() ;
+        startStreamingData() ;
 
 }
 
@@ -44,11 +44,11 @@ void servertangage::update(int newval)
         a=x;
         qDebug()<<"tan "<<a;
 
+        if(_server->hasPendingConnections())
+        {
            _socket->write(a);
-
-
-
            _socket->flush();
+        }
 
 
 }

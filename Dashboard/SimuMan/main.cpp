@@ -1,5 +1,4 @@
 #include "mainwindow.h"
-#include "servervitesse.h"
 
 #include <QApplication>
 

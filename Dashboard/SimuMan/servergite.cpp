@@ -28,7 +28,7 @@ void servergite::newConnection() {
 
     connect(_socket, SIGNAL(bytesWritten(qint64)),this, SLOT(bytesWritten(qint64)));
 
-    startStreamingData() ;
+        startStreamingData() ;
 
 }
 
@@ -44,16 +44,11 @@ void servergite::update(int newval)
         QByteArray x(reinterpret_cast<const char *>(&f), sizeof(f)) ;
         a=x;
         qDebug()<<"git "<<a;
-
-
+        if(_server->hasPendingConnections())
+        {
            _socket->write(a);
-
-
-
            _socket->flush();
-
-
-
+        }
 
 }
 

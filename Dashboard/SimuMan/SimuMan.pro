@@ -18,12 +18,14 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    serverdistance.cpp \
     servergite.cpp \
     servertangage.cpp \
     servervitesse.cpp
 
 HEADERS += \
     mainwindow.h \
+    serverdistance.h \
     servergite.h \
     servertangage.h \
     servervitesse.h

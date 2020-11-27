@@ -27,7 +27,8 @@ void serverdistance::newConnection() {
 
     connect(_socket, SIGNAL(bytesWritten(qint64)),this, SLOT(bytesWritten(qint64)));
 
-    startStreamingData() ;
+
+        startStreamingData() ;
 
 }
 
@@ -43,10 +44,11 @@ void serverdistance::update(int newval)
         QByteArray x(reinterpret_cast<const char *>(&f), sizeof(f)) ;
         a=x;
 
-
+        if(_server->hasPendingConnections())
+        {
            _socket->write(a);
-
            _socket->flush();
+        }
 }
 
 
