@@ -29,8 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
     LCD_vitesse->setSegmentStyle(QLCDNumber::Flat);
     LCD_vitesse->move(200, 20);
 
-    QObject::connect(slider_vitesse, SIGNAL(valueChanged(int)), LCD_vitesse, SLOT(display(int))) ;
-    QObject::connect(slider_vitesse, SIGNAL(valueChanged(int)), this, SLOT(update_val_vitesse())) ;
+    QObject::connect(&timer, SIGNAL(timeout()), this, SLOT(update_val_vitesse())) ;
 
     //Simu tangage
     label_tangage = new QLabel("Tangage (en °) :",this);
@@ -45,8 +44,7 @@ MainWindow::MainWindow(QWidget *parent)
     LCD_tangage->setSegmentStyle(QLCDNumber::Flat);
     LCD_tangage->move(200, 120);
 
-    QObject::connect(slider_tangage, SIGNAL(valueChanged(int)), LCD_tangage, SLOT(display(int))) ;
-    QObject::connect(slider_tangage, SIGNAL(valueChanged(int)), this, SLOT(update_val_tangage())) ;
+    QObject::connect(&timer, SIGNAL(timeout()), this, SLOT(update_val_tangage())) ;
 
     //Simu gite
     label_gite = new QLabel("Gite (en °) :",this);
@@ -61,8 +59,7 @@ MainWindow::MainWindow(QWidget *parent)
     LCD_gite->setSegmentStyle(QLCDNumber::Flat);
     LCD_gite->move(200, 220);
 
-    QObject::connect(slider_gite, SIGNAL(valueChanged(int)), LCD_gite, SLOT(display(int))) ;
-    QObject::connect(slider_gite, SIGNAL(valueChanged(int)), this, SLOT(update_val_gite())) ;
+    QObject::connect(&timer, SIGNAL(timeout()), this, SLOT(update_val_gite())) ;
 
     //simu disatnce
     LCD_distance = new QLCDNumber(this);
@@ -72,16 +69,12 @@ MainWindow::MainWindow(QWidget *parent)
     label_distance = new QLabel("Distance (en m) :",this);
     label_distance->setGeometry(0, 300,150,50);
 
-    QObject::connect(&timerDist, SIGNAL(timeout()),this, SLOT(update_val_distance()));
+    QObject::connect(&timer, SIGNAL(timeout()),this, SLOT(update_val_distance()));
 
 
     //envoie des valeurs
-    connect(slider_vitesse, SIGNAL(valueChanged(int)), ValVitesse, SLOT(update(int))) ;
-    connect(slider_tangage, SIGNAL(valueChanged(int)), ValTangage, SLOT(update(int))) ;
-    connect(slider_gite, SIGNAL(valueChanged(int)), ValGite, SLOT(update(int))) ;
 
-
-    timerDist.start(1);
+    timer.start(1);
 
 }
 
@@ -99,18 +92,24 @@ void MainWindow::update_val_vitesse()
 {
     val_vitesse=slider_vitesse->value();
     qDebug()<<"VITESSE "<<val_vitesse;
+    LCD_vitesse->display(val_vitesse);
+    ValVitesse->update(val_vitesse);
 }
 
 void MainWindow::update_val_tangage()
 {
     val_tangage=slider_tangage->value();
     qDebug()<<"TANGAGE "<<val_tangage;
+    LCD_tangage->display(val_tangage);
+    ValTangage->update(val_tangage);
 }
 
 void MainWindow::update_val_gite()
 {
     val_gite=slider_gite->value();
     qDebug()<<"GITE "<<val_gite;
+    LCD_gite->display(val_gite);
+    ValGite->update(val_gite);
 }
 
 

@@ -26,7 +26,7 @@ public:
    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    QTimer timerDist;
+    QTimer timer;
 
 public slots:
     void update_val_vitesse();
