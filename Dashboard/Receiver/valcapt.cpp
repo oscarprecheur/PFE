@@ -254,6 +254,10 @@ float valcapt::getvalTangageMin()
     return valTangageMin;
 }
 
+bool valcapt:: getOnTraining()
+{
+    return onTraining;
+}
 
 
 

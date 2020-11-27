@@ -38,7 +38,7 @@ class valcapt:public QObject
     Q_PROPERTY(float getvalGiteMax READ getvalGiteMax )
     Q_PROPERTY(float getvalGiteMin READ getvalGiteMin )
 
-
+    Q_PROPERTY(bool getOnTraining READ getOnTraining)
     // 1) ----- ajout capteur : Q_PROPERTY(float get<nom_val_nouv_capt> READ <getnom_val_nouv_capt> ) -----
 
     //Q_PROPERTY(float getvalCapt_Supp_1 READ getvalCapt_Supp_1 ) //A décommenter si utilisé
@@ -80,6 +80,8 @@ public:
     float getvalTangageMin();
     float getvalGiteMax();
     float getvalGiteMin();
+
+    bool getOnTraining();
 
     memo memorisation;
     tendance tendanceGite;

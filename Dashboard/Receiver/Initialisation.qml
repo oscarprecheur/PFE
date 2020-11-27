@@ -9,9 +9,9 @@ ApplicationWindow
 
 
 
-     property real timeAquisition:slider_aquisition.value
-     property real timeMemo:slider_memo.value
-     property real giteMin:slider_gite_min.value
+    property real timeAquisition:slider_aquisition.value
+    property real timeMemo:slider_memo.value
+    property real giteMin:slider_gite_min.value
     property real giteMax:slider_gite_max.value
     property real tangageMin:slider_tangage_min.value
     property real tangageMax:slider_tangage_max.value
@@ -35,7 +35,7 @@ ApplicationWindow
         color:"#f29d52"
     }
 
-//------------------------------------BOUTON START/STOP--------------------------------------
+    //------------------------------------BOUTON START/STOP--------------------------------------
     StartInitButton
     {
         id:id_start_button
@@ -54,9 +54,9 @@ ApplicationWindow
         {
             if (test==true)
             {
-            var component =Qt.createComponent("qrc:/openDashboard.qml")
-            component.createObject(id_start_init)
-            //init
+                var component =Qt.createComponent("qrc:/openDashboard.qml")
+                component.createObject(id_start_init)
+                //init
                 valeur.initValGiteMax(giteMax)
                 valeur.initValGiteMin(giteMin)
                 valeur.initValTangageMax(tangageMax)
@@ -74,8 +74,8 @@ ApplicationWindow
 
 
 
-     }
-//----------------------------------------AQUISITION----------------------------------------
+    }
+    //----------------------------------------AQUISITION----------------------------------------
     Rectangle
     {
         id: init_aquisition_area
@@ -132,7 +132,7 @@ ApplicationWindow
         }
     }
 
-//---------------------------------------------MEMO------------------------------------------
+    //---------------------------------------------MEMO------------------------------------------
     Rectangle
     {
         id: init_memo_area
@@ -190,7 +190,7 @@ ApplicationWindow
         }
     }
 
-//-------------------------Slider GIte Min------------------------------------------
+    //-------------------------Slider GIte Min------------------------------------------
 
     Rectangle
     {
@@ -255,316 +255,316 @@ ApplicationWindow
         }
     }
 
-//----------------------------------SEUIL GITE MAX---------------------------------
+    //----------------------------------SEUIL GITE MAX---------------------------------
 
 
-        Rectangle
+    Rectangle
+    {
+        id: seuil_gite_max_area
+
+        anchors
         {
-            id: seuil_gite_max_area
+            left:parent.left
+            top:init_memo_area.bottom
+            topMargin:parent.height/10
+        }
+        width:parent.width
+        height: id_text_gite_max.paintedHeight+slider_gite_max.height
+        color: "#00000000"
+
+        Text
+        {
+            id: id_text_gite_max
+
+            //horizontalAlignment: Text.AlignHCenter
+            anchors
+            {
+                top: parent.top
+                left: parent.left
+                leftMargin: parent.width/10
+            }
+            text: qsTr("Seuil gite max:")
+            font.pixelSize: parent.height/2
+        }
+
+        SliderSeuils
+        {
+            id: slider_gite_max
+            anchors
+            {
+                top: id_text_gite_max.bottom
+                //topMargin:parent.height
+                left: parent.left
+                leftMargin: parent.width/20
+            }
+            onValueChanged:
+            {
+                giteMax=value
+
+            }
+        }
+
+        Text
+        {
+            id: id_text_val_gite_max
+
 
             anchors
             {
-                left:parent.left
-                top:init_memo_area.bottom
-                topMargin:parent.height/10
+
+                left: slider_gite_max.right
+                verticalCenter:slider_gite_max.vaerticalCenter
             }
-            width:parent.width
-            height: id_text_gite_max.paintedHeight+slider_gite_max.height
-            color: "#00000000"
+            text: qsTr("--.--")
+            font.pixelSize: parent.height/2
+        }
+    }
 
-            Text
+    //-------------------------Slider tangage Min------------------------------------------
+
+    Rectangle
+    {
+        id: seuil_tangage_min_area
+
+        anchors
+        {
+            left:parent.left
+            top:seuil_tangage_max_area.bottom
+            //topMargin:parent.height/10
+        }
+        width:parent.width
+        height: id_text_tangage_min.paintedHeight+slider_tangage_min.height
+        color: "#00000000"
+
+        Text
+        {
+            id: id_text_tangage_min
+
+            //horizontalAlignment: Text.AlignHCenter
+            anchors
             {
-                id: id_text_gite_max
+                top: parent.top
+                left: parent.left
+                leftMargin: parent.width/10
+            }
+            text: qsTr("Seuil tangage min:")
+            font.pixelSize: parent.height/2
+        }
 
-                //horizontalAlignment: Text.AlignHCenter
-                anchors
-                {
-                    top: parent.top
-                    left: parent.left
-                    leftMargin: parent.width/10
-                }
-                text: qsTr("Seuil gite max:")
-                font.pixelSize: parent.height/2
+        SliderSeuils
+        {
+            id: slider_tangage_min
+            anchors
+            {
+                top: id_text_tangage_min.bottom
+                //topMargin:parent.height
+                left: parent.left
+                leftMargin: parent.width/20
+            }
+            onValueChanged:
+            {
+                tangageMin=value
+
             }
 
-            SliderSeuils
-            {
-                id: slider_gite_max
-                anchors
-                {
-                    top: id_text_gite_max.bottom
-                    //topMargin:parent.height
-                    left: parent.left
-                    leftMargin: parent.width/20
-                }
-                onValueChanged:
-                {
-                    giteMax=value
+        }
 
-                }
+        Text
+        {
+            id: id_text_val_tangage_min
+
+
+            anchors
+            {
+
+                left: slider_tangage_min.right
+                verticalCenter:slider_tangage_min.vaerticalCenter
             }
+            text: qsTr("--.--")
+            font.pixelSize: parent.height/2
+        }
+    }
 
-            Text
+    //----------------------------------SEUIL tangage MAX---------------------------------
+
+
+    Rectangle
+    {
+        id: seuil_tangage_max_area
+
+        anchors
+        {
+            left:parent.left
+            top:seuil_gite_min_area.bottom
+            topMargin:parent.height/10
+        }
+        width:parent.width
+        height: id_text_tangage_max.paintedHeight+slider_tangage_max.height
+        color: "#00000000"
+
+        Text
+        {
+            id: id_text_tangage_max
+
+            //horizontalAlignment: Text.AlignHCenter
+            anchors
             {
-                id: id_text_val_gite_max
+                top: parent.top
+                left: parent.left
+                leftMargin: parent.width/10
+            }
+            text: qsTr("Seuil tangage max:")
+            font.pixelSize: parent.height/2
+        }
 
+        SliderSeuils
+        {
+            id: slider_tangage_max
+            anchors
+            {
+                top: id_text_tangage_max.bottom
+                //topMargin:parent.height
+                left: parent.left
+                leftMargin: parent.width/20
+            }
+            onValueChanged:
+            {
+                tangageMax=value
 
-                anchors
-                {
-
-                    left: slider_gite_max.right
-                    verticalCenter:slider_gite_max.vaerticalCenter
-                }
-                text: qsTr("--.--")
-                font.pixelSize: parent.height/2
             }
         }
 
-        //-------------------------Slider tangage Min------------------------------------------
+        Text
+        {
+            id: id_text_val_tangage_max
 
-            Rectangle
+
+            anchors
             {
-                id: seuil_tangage_min_area
 
-                anchors
-                {
-                    left:parent.left
-                    top:seuil_tangage_max_area.bottom
-                    //topMargin:parent.height/10
-                }
-                width:parent.width
-                height: id_text_tangage_min.paintedHeight+slider_tangage_min.height
-                color: "#00000000"
-
-                Text
-                {
-                    id: id_text_tangage_min
-
-                    //horizontalAlignment: Text.AlignHCenter
-                    anchors
-                    {
-                        top: parent.top
-                        left: parent.left
-                        leftMargin: parent.width/10
-                    }
-                    text: qsTr("Seuil tangage min:")
-                    font.pixelSize: parent.height/2
-                }
-
-                SliderSeuils
-                {
-                    id: slider_tangage_min
-                    anchors
-                    {
-                        top: id_text_tangage_min.bottom
-                        //topMargin:parent.height
-                        left: parent.left
-                        leftMargin: parent.width/20
-                    }
-                    onValueChanged:
-                    {
-                        tangageMin=value
-
-                    }
-
-                }
-
-                Text
-                {
-                    id: id_text_val_tangage_min
-
-
-                    anchors
-                    {
-
-                        left: slider_tangage_min.right
-                        verticalCenter:slider_tangage_min.vaerticalCenter
-                    }
-                    text: qsTr("--.--")
-                    font.pixelSize: parent.height/2
-                }
+                left: slider_tangage_max.right
+                verticalCenter:slider_tangage_max.vaerticalCenter
             }
-
-        //----------------------------------SEUIL tangage MAX---------------------------------
-
-
-                Rectangle
-                {
-                    id: seuil_tangage_max_area
-
-                    anchors
-                    {
-                        left:parent.left
-                        top:seuil_gite_min_area.bottom
-                        topMargin:parent.height/10
-                    }
-                    width:parent.width
-                    height: id_text_tangage_max.paintedHeight+slider_tangage_max.height
-                    color: "#00000000"
-
-                    Text
-                    {
-                        id: id_text_tangage_max
-
-                        //horizontalAlignment: Text.AlignHCenter
-                        anchors
-                        {
-                            top: parent.top
-                            left: parent.left
-                            leftMargin: parent.width/10
-                        }
-                        text: qsTr("Seuil tangage max:")
-                        font.pixelSize: parent.height/2
-                    }
-
-                    SliderSeuils
-                    {
-                        id: slider_tangage_max
-                        anchors
-                        {
-                            top: id_text_tangage_max.bottom
-                            //topMargin:parent.height
-                            left: parent.left
-                            leftMargin: parent.width/20
-                        }
-                        onValueChanged:
-                        {
-                            tangageMax=value
-
-                        }
-                    }
-
-                    Text
-                    {
-                        id: id_text_val_tangage_max
+            text: qsTr("--.--")
+            font.pixelSize: parent.height/2
+        }
+    }
 
 
-                        anchors
-                        {
-
-                            left: slider_tangage_max.right
-                            verticalCenter:slider_tangage_max.vaerticalCenter
-                        }
-                        text: qsTr("--.--")
-                        font.pixelSize: parent.height/2
-                    }
-                }
-
-
-//FONCTIONNMENT DYNAMIQUE///////////////////////////////////////////////////////////////////////////////////////////////////////
+    //FONCTIONNMENT DYNAMIQUE///////////////////////////////////////////////////////////////////////////////////////////////////////
 
     Timer//Aquisition
+    {
+        id:timeraquisition
+        interval:1; running:true;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
+        onTriggered:
         {
-            id:timeraquisition
-            interval:1; running:true;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
-            onTriggered:
+            switch(slider_aquisition.value)
             {
-                switch(slider_aquisition.value)
-                {
-                case 0:
-                    id_text_val_aquisition.text="1 ms"
-                    timeAquisition=1
-                    break
-                case 25:
-                    id_text_val_aquisition.text="10 ms"
-                    timeAquisition=10
-                    break
-                case 50:
-                    id_text_val_aquisition.text="100 ms"
-                    timeAquisition=100
-                    break
-                case 75:
-                    id_text_val_aquisition.text="1000 ms"
-                    timeAquisition=1000
-                    break
-                default:
-                    id_text_val_aquisition.text="10000 ms"
-                    timeAquisition=10000
-                    break
+            case 0:
+                id_text_val_aquisition.text="1 ms"
+                timeAquisition=1
+                break
+            case 25:
+                id_text_val_aquisition.text="10 ms"
+                timeAquisition=10
+                break
+            case 50:
+                id_text_val_aquisition.text="100 ms"
+                timeAquisition=100
+                break
+            case 75:
+                id_text_val_aquisition.text="1000 ms"
+                timeAquisition=1000
+                break
+            default:
+                id_text_val_aquisition.text="10000 ms"
+                timeAquisition=10000
+                break
 
 
-                }
             }
         }
+    }
 
 
 
 
     Timer//Memo
+    {
+        id:timermemo
+        interval:1; running:true;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
+        onTriggered:
         {
-            id:timermemo
-            interval:1; running:true;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
-            onTriggered:
+            switch(slider_memo.value)
             {
-                switch(slider_memo.value)
-                {
-                case 0:
-                    id_text_val_memo.text="1 ms"
-                    timeMemo=1
-                    break
-                case 25:
-                    id_text_val_memo.text="10 ms"
-                    timeMemo=10
-                    break
-                case 50:
-                    id_text_val_memo.text="100 ms"
-                    timeMemo=100
-                    break
-                case 75:
-                    id_text_val_memo.text="1000 ms"
-                    timeMemo=1000
-                    break
-                default:
-                    id_text_val_memo.text="10000 ms"
-                    timeMemo=10000
-                    break
+            case 0:
+                id_text_val_memo.text="1 ms"
+                timeMemo=1
+                break
+            case 25:
+                id_text_val_memo.text="10 ms"
+                timeMemo=10
+                break
+            case 50:
+                id_text_val_memo.text="100 ms"
+                timeMemo=100
+                break
+            case 75:
+                id_text_val_memo.text="1000 ms"
+                timeMemo=1000
+                break
+            default:
+                id_text_val_memo.text="10000 ms"
+                timeMemo=10000
+                break
 
 
-                }
             }
         }
+    }
 
     Timer//Seuils
+    {
+        id:timerseuil
+        interval:1; running:true;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
+        onTriggered:
         {
-            id:timerseuil
-            interval:1; running:true;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
-            onTriggered:
+            id_text_val_gite_max.text=giteMax.toFixed(3)+"°"
+            id_text_val_gite_min.text=giteMin.toFixed(3)+"°"
+
+            id_text_val_tangage_max.text=tangageMax.toFixed(3)+"°"
+            id_text_val_tangage_min.text=tangageMin.toFixed(3)+"°"
+
+            if (giteMax<giteMin)
             {
-                id_text_val_gite_max.text=giteMax.toFixed(3)+"°"
-                id_text_val_gite_min.text=giteMin.toFixed(3)+"°"
-
-                id_text_val_tangage_max.text=tangageMax.toFixed(3)+"°"
-                id_text_val_tangage_min.text=tangageMin.toFixed(3)+"°"
-
-                if (giteMax<giteMin)
-                {
-                    id_text_val_gite_max.color="#e95454"
-                    id_text_val_gite_min.color="#e95454"
-                }
-                else
-                {
-                    id_text_val_gite_max.color="black"
-                    id_text_val_gite_min.color="black"
-                }
-
-                if (tangageMax<tangageMin)
-                {
-                    id_text_val_tangage_max.color="#e95454"
-                    id_text_val_tangage_min.color="#e95454"
-                }
-                else
-                {
-                    id_text_val_tangage_max.color="black"
-                    id_text_val_tangage_min.color="black"
-                }
-
-                if (tangageMax<tangageMin || giteMax<giteMin)
-                    test=false
-                else
-                    test=true
-
+                id_text_val_gite_max.color="#e95454"
+                id_text_val_gite_min.color="#e95454"
             }
+            else
+            {
+                id_text_val_gite_max.color="black"
+                id_text_val_gite_min.color="black"
+            }
+
+            if (tangageMax<tangageMin)
+            {
+                id_text_val_tangage_max.color="#e95454"
+                id_text_val_tangage_min.color="#e95454"
+            }
+            else
+            {
+                id_text_val_tangage_max.color="black"
+                id_text_val_tangage_min.color="black"
+            }
+
+            if (tangageMax<tangageMin || giteMax<giteMin)
+                test=false
+            else
+                test=true
+
         }
+    }
 
 
 }
