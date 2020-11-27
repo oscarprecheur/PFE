@@ -12,7 +12,7 @@ class servergite : public QObject
     Q_OBJECT
 public:
    explicit servergite(quint16 port, QObject *parent=nullptr);
-
+bool isconnected=false;
 
 
 public slots:
@@ -21,6 +21,7 @@ public slots:
 
 
     void update(int);
+
 
 
 

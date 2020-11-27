@@ -89,7 +89,7 @@ void MainWindow::update_val_distance()
 {
     float vit_kmpms=0.539957*val_vitesse/3600;
     val_distance= vit_kmpms+val_distance;
-    qDebug()<<"DISTANCE "<<val_distance;
+    //qDebug()<<"DISTANCE "<<val_distance;
     LCD_distance->display(val_distance);
     ValDist->update(val_distance);
 }

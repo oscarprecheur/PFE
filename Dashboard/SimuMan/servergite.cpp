@@ -24,11 +24,14 @@ void servergite::newConnection() {
 
     _socket = _server->nextPendingConnection();
 
-    qDebug() << "Someone connected !!";
 
+    qDebug() << "Someone connected !!";
+    isconnected=true;
     connect(_socket, SIGNAL(bytesWritten(qint64)),this, SLOT(bytesWritten(qint64)));
 
-        startStreamingData() ;
+
+        //startStreamingData() ;
+
 
 }
 
@@ -39,16 +42,16 @@ void servergite::bytesWritten(qint64 nb){
 void servergite::update(int newval)
 {
 
+    if (isconnected==true){
+
         float f = (float)newval;
-         qDebug() <<f;
+         //qDebug() <<f;
         QByteArray x(reinterpret_cast<const char *>(&f), sizeof(f)) ;
         a=x;
-        qDebug()<<"git "<<a;
-        if(_server->hasPendingConnections())
-        {
            _socket->write(a);
            _socket->flush();
-        }
+    }
+
 
 }
 

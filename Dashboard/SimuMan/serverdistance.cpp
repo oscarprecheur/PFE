@@ -17,18 +17,20 @@ serverdistance::serverdistance(quint16 port, QObject *parent):QObject(parent)
     } else {
          qDebug() << "Server distance started !" << _server->serverAddress() ;
     }
+
 }
 
 void serverdistance::newConnection() {
 
     _socket = _server->nextPendingConnection();
 
-    qDebug() << "Someone connected !!";
+    qDebug() << "Someone connected ijoij!!";
+    isconnected=true;
 
     connect(_socket, SIGNAL(bytesWritten(qint64)),this, SLOT(bytesWritten(qint64)));
 
 
-        startStreamingData() ;
+        //startStreamingData() ;
 
 }
 
@@ -38,17 +40,15 @@ void serverdistance::bytesWritten(qint64 nb){
 
 void serverdistance::update(int newval)
 {
+    if (isconnected==true){
 
         float f = (float)newval;
-         qDebug() <<f;
+         //qDebug() <<f;
         QByteArray x(reinterpret_cast<const char *>(&f), sizeof(f)) ;
         a=x;
-
-        if(_server->hasPendingConnections())
-        {
            _socket->write(a);
            _socket->flush();
-        }
+    }
 }
 
 

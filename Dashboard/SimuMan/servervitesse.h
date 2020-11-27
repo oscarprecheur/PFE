@@ -11,7 +11,7 @@ class servervitesse : public QObject
     Q_OBJECT
 public:
    explicit servervitesse(quint16 port, QObject *parent=nullptr);
-
+bool isconnected=false;
 
 
 
@@ -21,6 +21,7 @@ public slots:
 
 
     void update(int);
+
 
 
 private:

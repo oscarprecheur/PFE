@@ -25,30 +25,30 @@ void servertangage::newConnection() {
     _socket = _server->nextPendingConnection();
 
     qDebug() << "Someone connected !!";
-
+    isconnected=true;
     connect(_socket, SIGNAL(bytesWritten(qint64)),this, SLOT(bytesWritten(qint64)));
 
-        startStreamingData() ;
+
+        //startStreamingData() ;
+
 
 }
-
 void servertangage::bytesWritten(qint64 nb){
      qDebug() << "" << nb << " Bytes sent ..." ;
 }
 
 void servertangage::update(int newval)
 {
+    if (isconnected==true){
+
         float f = (float)newval;
-         qDebug() <<f;
+         //qDebug() <<f;
         QByteArray x(reinterpret_cast<const char *>(&f), sizeof(f)) ;
         a=x;
-        qDebug()<<"tan "<<a;
-
-        if(_server->hasPendingConnections())
-        {
            _socket->write(a);
            _socket->flush();
-        }
+    }
+
 
 
 }
