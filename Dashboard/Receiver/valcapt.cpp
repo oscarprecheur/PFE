@@ -25,11 +25,13 @@ void valcapt::init()
    valTangage=0;
    valGite=0;
    valVitesse=0;
+   valDistance=0;
 
    //inititialisation des valeurs de mémorisation
    MemoValTangage=0;
    MemoValGite=0;
    MemoValVitesse=0;
+   MemoValDistance=0;
 
    //initialisation des tendances (1= aucune évolution)
    TendanceTangage=1;
@@ -37,13 +39,17 @@ void valcapt::init()
    TendanceVitesse=1;
 
    //initialisation du fichier de mémorisation
-   memorisation.initFile(deltaTMemo);
+   memorisation.initTimeMemo();
+
+   //initialisation de l'etat d'entrainement
+   onTraining=false;
 
    //connexion aux serveurs des données capteurs
 
    receiverTangage.Connexion(65430);
    receiverGite.Connexion(65431);
    receiverVitesse.Connexion(65432);
+   receiverDistance.Connexion(65433);
    start();
 
 
@@ -52,10 +58,7 @@ void valcapt::init()
 void valcapt::start()
 {
 
-    auto timerCapteur = new QTimer();
-    auto timerMemo = new QTimer();
-    auto timerSimuMeter = new QTimer();
-    auto timerTendance = new QTimer();
+
 
     //1) ----- ajout de capteur :receiver<nom_val_nouv_capt>.Connexion(<port>); -----
     //receiverCapt_Supp_1.Connexion(65435); //A décommenter si utilisé
@@ -64,16 +67,17 @@ void valcapt::start()
     //-----
 
     //mise à jour des valeurs capteurs
-    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTangage()));
-    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateGite()));
-    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateVitesse()));
+    connect(&timerCapteur, SIGNAL(timeout()),this,SLOT(updateTangage()));
+    connect(&timerCapteur, SIGNAL(timeout()),this,SLOT(updateGite()));
+    connect(&timerCapteur, SIGNAL(timeout()),this,SLOT(updateVitesse()));
+    connect(&timerCapteur, SIGNAL(timeout()),this,SLOT(updateDistance()));
 
     //mise à jour des valeurs de tendance
 //    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTendanceTangage()));
 //    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTendanceGite()));
 //    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTendanceVitesse()));
 
-    connect(timerTendance, SIGNAL(timeout()),this,SLOT(slotCalcTendance()));
+    connect(&timerTendance, SIGNAL(timeout()),this,SLOT(slotCalcTendance()));
     //2) ----- ajout de capteur :connect(timer, SIGNAL(timeout()),this,SLOT(update<nom_val_nouv_capt>())); -----
     //connect(timer, SIGNAL(timeout()),this,SLOT(updateCapt_Supp_2())); //A décommenter si utilisé
     //connect(timer, SIGNAL(timeout()),this,SLOT(updateCapt_Supp_1())); //A décommenter si utilisé
@@ -81,14 +85,13 @@ void valcapt::start()
     //-----
 
     //Mémorisation des données d'entrainement dans un fichier
-    connect(timerMemo, SIGNAL(timeout()),this,SLOT(slotUpdateFile()));
-    connect(timerMemo, SIGNAL(timeout()),&memorisation,SLOT(updateTimeMemo()));
+
 
     //Lancement des timers
-    timerCapteur->start((int)deltaTAquisition);
-    timerMemo->start((int)deltaTMemo);// valeur en msec
-    timerSimuMeter->start(200);//simualtaiton metre parcouru
-    timerTendance->start((int)deltaTAquisition);
+    timerCapteur.start((int)deltaTAquisition);
+    timerMemo.start((int)deltaTMemo);// valeur en msec
+    timerSimuMeter.start(200);//simualtaiton metre parcouru
+    timerTendance.start((int)deltaTAquisition);
 }
 
 //<<<<<<<<<<<<<<<<<<Mise à jour des valeur des capteurs>>>>>>>>>>>>>>>>>>>
@@ -116,7 +119,7 @@ void valcapt::updateGite()
 
     valGite=receiverGite.readyRead();
 //    qDebug()<<"valGite"<<valGite;
-//    qDebug()<<"valTangageGITE"<<MemoValGite;
+//    qDebug()<<"valGiteMEMO"<<MemoValGite;
 //    qDebug()<<"Taille"<<sizeof(valGite);
     }
 }
@@ -131,8 +134,22 @@ void valcapt::updateVitesse()
     {
     valVitesse=receiverVitesse.readyRead();
     //qDebug()<<"valVitesse"<<valVitesse;
-    //qDebug()<<"valTangageVITESSE"<<MemoValVitesse;
+    //qDebug()<<"valVitesseMEMO"<<MemoValVitesse;
 //    qDebug()<<"Taille"<<sizeof(valVitesse);
+    }
+}
+
+void valcapt::updateDistance()
+{
+
+    MemoValDistance=valDistance;//mémorisation
+
+    if (receiverDistance.getNbByteAvailable()>0)
+    {
+    valDistance=receiverDistance.readyRead();
+    //qDebug()<<"valDistance"<<valDistance;
+    //qDebug()<<"valDistanceMEMO"<<MemoValDistance;
+    //qDebug()<<"Taille"<<sizeof(valDistance);
     }
 }
 
@@ -193,8 +210,12 @@ float valcapt::getvalVitesse()
 {
     return valVitesse;
 }
+float valcapt::getvalDistance()
+{
+    return valDistance;
+}
 
-
+//<<<<<<<<<<<<<<<<<<<<<<<Getter des valeurs des tendances>>>>>>>>>>>>>>>>>>>>>>>>>
 
 int valcapt::getTendanceTangage()
 {
@@ -271,6 +292,29 @@ Q_INVOKABLE void valcapt::initValTangageMin(float newval)
     valTangageMin=newval;
 }
 
+Q_INVOKABLE void valcapt::lauchStopTraining()
+{
+    if (onTraining==false)
+    {
+           memorisation.initFile(deltaTMemo);
+           memorisation.initTimeMemo();
+           connect(&timerMemo, SIGNAL(timeout()),this,SLOT(slotUpdateFile()));
+           connect(&timerMemo, SIGNAL(timeout()),&memorisation,SLOT(updateTimeMemo()));
+           onTraining=true;
+    }
+    else
+    {
+           memorisation.initTimeMemo();
+           disconnect(&timerMemo, SIGNAL(timeout()),this,SLOT(slotUpdateFile()));
+           disconnect(&timerMemo, SIGNAL(timeout()),&memorisation,SLOT(updateTimeMemo()));
+           onTraining=false;
+    }
+
+
+
+
+}
+
 
 //4) ----- ajout de capteur : -----
                 /*
@@ -297,7 +341,7 @@ Q_INVOKABLE void valcapt::initValTangageMin(float newval)
 
 void valcapt::slotUpdateFile()
 {
-    memorisation.updateFile(valGite,valTangage,valVitesse);
+    memorisation.updateFile(valDistance,valGite,valTangage,valVitesse);
     qDebug()<<"updateFile";
 }
 

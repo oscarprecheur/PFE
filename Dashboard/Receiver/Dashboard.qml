@@ -562,6 +562,22 @@ ApplicationWindow
 
     }
 
+    //---------------------Bouton Entrainement--------------
+
+    TrainingButton
+    {
+        anchors
+        {
+            left: parent.left
+            bottom: parent.bottom
+        }
+
+        onClicked:
+        {
+            valeur.lauchStopTraining();
+        }
+    }
+
 
 
     //<<<<<<<<<<<<<<<<<<<<<<<DESCRIPTION DYNAMIQUE>>>>>>>>>>>>>>>>>>>>>>>>>>

@@ -51,17 +51,26 @@ class valcapt:public QObject
 public:
     valcapt(QObject *parent = nullptr);
 
+    QTimer timerCapteur;
+    QTimer timerMemo ;
+    QTimer timerSimuMeter;
+    QTimer timerTendance ;
+
+
+
     float deltaTMemo; //fréquence de memorisation en ms
     float deltaTAquisition;
     
     float getvalTangage();
     float getvalGite();
     float getvalVitesse();
+    float getvalDistance();
 
 
     float getMemoValTangage();
     float getMemoValGite();
     float getMemoValVitesse();
+    float getMemoValDistance();
 
     int getTendanceTangage();
     int getTendanceGite();
@@ -76,6 +85,8 @@ public:
     tendance tendanceGite;
     tendance tendanceTangage;
     tendance tendanceVitesse;
+
+    bool onTraining; // variable détailant si un entraienement est en cours ou non
 
     // 2) ----- ajout capteur : float get<nom_val_nouv_capt>(); -----
 
@@ -92,6 +103,8 @@ public:
     Q_INVOKABLE void initDeltaTMemo(float);//temps de mémorisation des données en ms[A PARAMETER]
     Q_INVOKABLE void initDeltaTAquisition(float);//temps d'aquisition des données en ms[A PARAMETER]
 
+    Q_INVOKABLE void lauchStopTraining();//lancement du programme d'entrainement (mémorisation des données)
+
 
 public slots:
 
@@ -101,10 +114,10 @@ public slots:
    void updateTangage();
    void updateGite();
    void updateVitesse();
+   void updateDistance();
 
 
    void slotUpdateFile();
-
    void slotCalcTendance();
    
    
@@ -121,6 +134,7 @@ private:
    SocketDataReceiver receiverTangage;
    SocketDataReceiver receiverGite;
    SocketDataReceiver receiverVitesse;
+   SocketDataReceiver receiverDistance;
 
 
 
@@ -136,10 +150,12 @@ private:
    float valTangage;
    float valGite;
    float valVitesse;
+   float valDistance;
 
    float MemoValTangage;
    float MemoValGite;
    float MemoValVitesse;
+   float MemoValDistance;
 
    int TendanceTangage;
    int TendanceGite;
