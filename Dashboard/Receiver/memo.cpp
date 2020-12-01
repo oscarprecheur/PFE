@@ -47,7 +47,7 @@ void memo::initFile(float deltaTime, float deltaAquisition, float TangMin, float
 //        qDebug()<<"Erreur fichier "<<memoFile.fileName();
 
 
-    //Ecriture des pareamètres du fichier
+    //Ecriture des pareamètres du fichier____________________________________________________________
     memoFile.open(QIODevice::WriteOnly |QIODevice::Text);
     //Date
     memoWrite<<"Date: "<<";"<<QString::number(date.day())<<";"<<QString::number(date.month())<<";"<<QString::number(date.year())<<"\n";
@@ -57,6 +57,8 @@ void memo::initFile(float deltaTime, float deltaAquisition, float TangMin, float
     memoWrite<<" Param Temps: "<<";"<<QString::number(deltaTime)<<";"<<QString::number(deltaAquisition)<<"\n";
     //Paramètres de seuils
     memoWrite<<"Param Seuils: "<<";"<<QString::number(TangMin)<<";"<<QString::number(TangMax)<<QString::number(GiteMin)<<";"<<QString::number(GiteMax)<<"\n";
+    //format de la trame
+    memoWrite<<"T (s); Distance parcourue (m); Valeur Tangage ; Tendance Tangage (degres) ; Valeur Gite ; Tendance Gite (degres) ; Valeur Vitesse (nd) ; Tendance Vitesse ; Vitesse Moyenne 500M ; Vitesse Moyenne 10 SEC ; Direction (degres) ; Latitude (degres) ; Longitude (degres) /n/n";
 
     memoFile.close();
 
