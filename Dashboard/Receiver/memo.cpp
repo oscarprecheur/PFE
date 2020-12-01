@@ -29,15 +29,15 @@ void memo::initFile(float deltaTime)
 
 
 
-    if (memoFile.exists(fileName+QString::number(date.day())+"_"+QString::number(date.month())+"_"+QString::number(date.year())+"_"+QString::number(time.hour())+"h"+QString::number(time.minute())+"m"+QString::number(time.second())+"s"+".txt"))
+    if (memoFile.exists(fileName+QString::number(date.day())+"_"+QString::number(date.month())+"_"+QString::number(date.year())+"_"+QString::number(time.hour())+"h"+QString::number(time.minute())+"m"+QString::number(time.second())+"s"+".csv"))
     {
         qDebug()<<"ce fichier existe deja";
-        memoFile.setFileName(fileName+QString::number(date.day())+"_"+QString::number(date.month())+"_"+QString::number(date.year())+"_"+QString::number(time.hour())+"h"+QString::number(time.minute())+"m"+QString::number(time.second())+"s"+".txt");
+        memoFile.setFileName(fileName+QString::number(date.day())+"_"+QString::number(date.month())+"_"+QString::number(date.year())+"_"+QString::number(time.hour())+"h"+QString::number(time.minute())+"m"+QString::number(time.second())+"s"+".csv");
     }
     else
     {
         qDebug()<<"Ce fichier n'existe pas encore";
-        memoFile.setFileName(fileName+QString::number(date.day())+"_"+QString::number(date.month())+"_"+QString::number(date.year())+"_"+QString::number(time.hour())+"h"+QString::number(time.minute())+"m"+QString::number(time.second())+"s"+".txt");
+        memoFile.setFileName(fileName+QString::number(date.day())+"_"+QString::number(date.month())+"_"+QString::number(date.year())+"_"+QString::number(time.hour())+"h"+QString::number(time.minute())+"m"+QString::number(time.second())+"s"+".csv");
     }
 
     memoWrite.setDevice(&memoFile);
@@ -57,7 +57,7 @@ void memo::initTimeMemo()
 void memo::updateFile(float distance,float gite, float tangage, float vitesse)
 {
     memoFile.open(QIODevice::WriteOnly |QIODevice::Append| QIODevice::Text);
-    memoWrite<<" T:"<<getTimeMemo()<<"/Distance:"<<distance<<"/AnglePitch:"<<gite<<"/AngleRoll:"<<tangage<<"/ValInstSpeed:"<<vitesse<<"\n";
+    memoWrite<<" T:"<<";"<<getTimeMemo()<<";"<<"Distance:"<<";"<<distance<<";"<<"AnglePitch:"<<";"<<gite<<";"<<"AngleRoll:"<<";"<<tangage<<";"<<"ValInstSpeed:"<<";"<<vitesse<<"\n";
     cptFile++;
     memoFile.close();
 }
