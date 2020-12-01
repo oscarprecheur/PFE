@@ -345,7 +345,7 @@ Q_INVOKABLE void valcapt::lauchStopTraining()
 
 void valcapt::slotUpdateFile()
 {
-    memorisation.updateFile(valDistance,valGite,valTangage,valVitesse);
+    memorisation.updateFile(valDistance,valGite,valTangage,valVitesse,TendanceTangage,TendanceGite,TendanceVitesse);
     qDebug()<<"updateFile";
 }
 

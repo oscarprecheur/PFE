@@ -71,10 +71,10 @@ void memo::initTimeMemo()
     valTimeMemo=0;
 }
 
-void memo::updateFile(float distance,float gite, float tangage, float vitesse)
+void memo::updateFile(float distance,float gite, float tangage, float vitesse, int tendanceTang, int tendanceGit, int tendanceVit)
 {
     memoFile.open(QIODevice::WriteOnly |QIODevice::Append| QIODevice::Text);
-    memoWrite<<getTimeMemo()<<";"<<distance<<";"<<tangage<<";"<<"tendance tang"<<";"<<gite<<";"<<"tendance gite"<<";"<<vitesse<<";"<<"tendance vitesse"<<";"<<"vit moy 500"<<";"<<"vit moy 10s"<<";"<<"direction"<<";"<<"lat"<<";"<<"long"<<";";
+    memoWrite<<getTimeMemo()<<";"<<distance<<";"<<tangage<<";"<<tendanceTang<<";"<<gite<<";"<<tendanceGit<<";"<<vitesse<<";"<<tendanceVit<<";"<<"vit moy 500"<<";"<<"vit moy 10s"<<";"<<"direction"<<";"<<"lat"<<";"<<"long"<<";";
     memoWrite<<"\n";
     cptFile++;
     memoFile.close();
