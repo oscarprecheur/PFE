@@ -35,7 +35,7 @@ public:
     float getTimeMemo();
 
 public slots:
-    void initFile(float);
+    void initFile(float,float,float,float,float,float);
     void initTimeMemo();
     void updateFile(float,float,float,float);
     void updateTimeMemo();

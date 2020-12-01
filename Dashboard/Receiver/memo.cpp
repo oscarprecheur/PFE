@@ -5,7 +5,7 @@ memo::memo(QObject *parent):QObject(parent)
 
 }
 
-void memo::initFile(float deltaTime)
+void memo::initFile(float deltaTime, float deltaAquisition, float TangMin, float TangMax, float GiteMin, float GiteMax)
 {
     //delta ecriture
 
@@ -45,6 +45,21 @@ void memo::initFile(float deltaTime)
 //        qDebug()<<"Fichier "<<memoFile.fileName()<<" ouvert";
 //    else
 //        qDebug()<<"Erreur fichier "<<memoFile.fileName();
+
+
+    //Ecriture des pareamètres du fichier
+    memoFile.open(QIODevice::WriteOnly |QIODevice::Text);
+    //Date
+    memoWrite<<"Date: "<<";"<<QString::number(date.day())<<";"<<QString::number(date.month())<<";"<<QString::number(date.year())<<"\n";
+    //Heure
+    memoWrite<<"Heure: "<<";"<<QString::number(time.hour())<<";"<<QString::number(time.minute())<<";"<<QString::number(time.second())<<"\n";
+    //Paramètre d'initialisation
+    memoWrite<<"Paramètres de temps: "<<";"<<QString::number(deltaTime)<<";"<<QString::number(deltaAquisition)<<"\n";
+    //Paramètres de seuils
+    memoWrite<<"Paramètres de seuils: "<<";"<<QString::number(TangMin)<<";"<<QString::number(TangMax)<<QString::number(GiteMin)<<";"<<QString::number(GiteMax)<<"\n";
+
+    memoFile.close();
+
 
 }
 

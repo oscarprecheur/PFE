@@ -300,7 +300,7 @@ Q_INVOKABLE void valcapt::lauchStopTraining()
 {
     if (onTraining==false)
     {
-           memorisation.initFile(deltaTMemo);
+           memorisation.initFile(deltaTMemo,deltaTAquisition,valTangageMin,valTangageMax,valGiteMin,valGiteMax);
            memorisation.initTimeMemo();
            connect(&timerMemo, SIGNAL(timeout()),this,SLOT(slotUpdateFile()));
            connect(&timerMemo, SIGNAL(timeout()),&memorisation,SLOT(updateTimeMemo()));
