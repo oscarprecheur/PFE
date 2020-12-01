@@ -54,9 +54,9 @@ void memo::initFile(float deltaTime, float deltaAquisition, float TangMin, float
     //Heure
     memoWrite<<"Heure: "<<";"<<QString::number(time.hour())<<";"<<QString::number(time.minute())<<";"<<QString::number(time.second())<<"\n";
     //Paramètre d'initialisation
-    memoWrite<<"Paramètres de temps: "<<";"<<QString::number(deltaTime)<<";"<<QString::number(deltaAquisition)<<"\n";
+    memoWrite<<" Param Temps: "<<";"<<QString::number(deltaTime)<<";"<<QString::number(deltaAquisition)<<"\n";
     //Paramètres de seuils
-    memoWrite<<"Paramètres de seuils: "<<";"<<QString::number(TangMin)<<";"<<QString::number(TangMax)<<QString::number(GiteMin)<<";"<<QString::number(GiteMax)<<"\n";
+    memoWrite<<"Param Seuils: "<<";"<<QString::number(TangMin)<<";"<<QString::number(TangMax)<<QString::number(GiteMin)<<";"<<QString::number(GiteMax)<<"\n";
 
     memoFile.close();
 
