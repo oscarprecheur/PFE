@@ -56,9 +56,9 @@ void memo::initFile(float deltaTime, float deltaAquisition, float TangMin, float
     //Paramètre d'initialisation
     memoWrite<<" Param Temps: "<<";"<<QString::number(deltaTime)<<";"<<QString::number(deltaAquisition)<<"\n";
     //Paramètres de seuils
-    memoWrite<<"Param Seuils: "<<";"<<QString::number(TangMin)<<";"<<QString::number(TangMax)<<QString::number(GiteMin)<<";"<<QString::number(GiteMax)<<"\n";
+    memoWrite<<"Param Seuils: "<<";"<<QString::number(TangMin)<<";"<<QString::number(TangMax)<<";"<<QString::number(GiteMin)<<";"<<QString::number(GiteMax)<<"\n";
     //format de la trame
-    memoWrite<<"T (s); Distance parcourue (m); Valeur Tangage ; Tendance Tangage (degres) ; Valeur Gite ; Tendance Gite (degres) ; Valeur Vitesse (nd) ; Tendance Vitesse ; Vitesse Moyenne 500M ; Vitesse Moyenne 10 SEC ; Direction (degres) ; Latitude (degres) ; Longitude (degres) /n/n";
+    memoWrite<<"T (s); Distance parcourue (m); Valeur Tangage (degres) ; Tendance Tangage  ; Valeur Gite (degres) ; Tendance Gite  ; Valeur Vitesse (nd) ; Tendance Vitesse ; Vitesse Moyenne 500M ; Vitesse Moyenne 10 SEC ; Direction (degres) ; Latitude (degres) ; Longitude (degres)"<<"\n";
 
     memoFile.close();
 
@@ -74,7 +74,8 @@ void memo::initTimeMemo()
 void memo::updateFile(float distance,float gite, float tangage, float vitesse)
 {
     memoFile.open(QIODevice::WriteOnly |QIODevice::Append| QIODevice::Text);
-    memoWrite<<" T:"<<";"<<getTimeMemo()<<";"<<"Distance:"<<";"<<distance<<";"<<"AnglePitch:"<<";"<<gite<<";"<<"AngleRoll:"<<";"<<tangage<<";"<<"ValInstSpeed:"<<";"<<vitesse<<"\n";
+    memoWrite<<getTimeMemo()<<";"<<distance<<";"<<tangage<<";"<<"tendance tang"<<";"<<gite<<";"<<"tendance gite"<<";"<<vitesse<<";"<<"tendance vitesse"<<";"<<"vit moy 500"<<";"<<"vit moy 10s"<<";"<<"direction"<<";"<<"lat"<<";"<<"long"<<";";
+    memoWrite<<"\n";
     cptFile++;
     memoFile.close();
 }
