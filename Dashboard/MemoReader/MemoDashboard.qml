@@ -39,11 +39,9 @@ ApplicationWindow
         folder: shortcuts.home
         onAccepted: {
             console.log("You chose: " + fileDialog.fileUrls)
-            Qt.quit()
         }
         onRejected: {
             console.log("Canceled")
-            Qt.quit()
         }
         Component.onCompleted: visible = true
     }
