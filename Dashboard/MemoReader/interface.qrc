@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>MemoDashboard.qml</file>
+    </qresource>
+</RCC>
