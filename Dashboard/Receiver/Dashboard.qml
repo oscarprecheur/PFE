@@ -580,7 +580,8 @@ ApplicationWindow
             valeur.lauchStopTraining();
             if(valeur.getOnTraining==true)
             {
-               text= /*"Stop Training"*/ valeur.getOnTraining.toString
+               text= "Stop Training"
+
             }
             else
             {
