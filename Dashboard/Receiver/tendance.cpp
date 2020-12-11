@@ -25,7 +25,7 @@ int tendance::calcTendance(float val_actu)
 
     }
         tab_val[0]=val_actu;
-qDebug()<<tab_val[0]<<"       "<<tab_val[99];
+    //qDebug()<<tab_val[0]<<"       "<<tab_val[99];
     moyennage();
     //qDebug()<<"acumoy   "<<actuMoy<<"    memomoy "<<memoMoy;
     if (tab_val[0]>tab_val[99])
