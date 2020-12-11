@@ -60,6 +60,7 @@ void memo::initFile(float deltaTime, float deltaAquisition, float TangMin, float
     //format de la trame
     memoWrite<<"T (s); Distance parcourue (m); Valeur Tangage (degres) ; Tendance Tangage  ; Valeur Gite (degres) ; Tendance Gite  ; Valeur Vitesse (nd) ; Tendance Vitesse ; Vitesse Moyenne 500M ; Vitesse Moyenne 10 SEC ; Direction (degres) ; Latitude (degres) ; Longitude (degres)"<<"\n";
 
+
     memoFile.close();
 
 

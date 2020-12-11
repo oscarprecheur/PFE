@@ -46,6 +46,7 @@ private:
     int cptTraining=1;
 
     float valTimeMemo;
+    int cptLigneData =0;
 
 
 
