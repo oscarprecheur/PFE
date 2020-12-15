@@ -16,6 +16,8 @@ ApplicationWindow
     id: id_MemoDashboard
 
     visible:false
+    width: 1080
+    height: 720
 
     READFILE
     {
@@ -40,12 +42,18 @@ ApplicationWindow
 
     Rectangle
     {
-        id:id_rectangle_test
-        width: 1080
-        height: 720
-        visible: true
-        color:"blue"
+        id:id_timeline_area
+        width: parent.width
+        height: parent.height
+
+
+        Timeline
+        {
+            id:id_timeline
+        }
     }
+
+
 
 
 
