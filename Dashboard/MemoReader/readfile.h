@@ -18,6 +18,45 @@ public:
      Q_INVOKABLE void readFileLineData(int);
      Q_INVOKABLE void initReading();
 
+    Q_PROPERTY(float getValMemoTempo READ getValMemoTempo)
+    Q_PROPERTY(float getValTangageSeuilMax READ getValTangageSeuilMax)
+    Q_PROPERTY(float getValTangageSeuilMin READ getValTangageSeuilMin)
+    Q_PROPERTY(float getValGiteSeuilMax READ getValGiteSeuilMax)
+    Q_PROPERTY(float getValGiteSeuilMin READ getValGiteSeuilMin)
+    Q_PROPERTY(float getValTime READ getValTime)
+    Q_PROPERTY(float getValDistance READ getValDistance)
+    Q_PROPERTY(float getValTangageVal READ getValTangageVal)
+    Q_PROPERTY(float getValTangageTend READ getValTangageTend)
+    Q_PROPERTY(float getValGiteVal READ getValGiteVal)
+    Q_PROPERTY(float getValGiteTend READ getValGiteTend)
+    Q_PROPERTY(float getValVitesseVal READ getValVitesseVal)
+    Q_PROPERTY(float getValVitesseTend READ getValVitesseTend)
+
+
+    float getValMemoTempo();
+    //seuils tang
+    float getValTangageSeuilMax();
+    float getValTangageSeuilMin();
+    //seuils gite
+    float getValGiteSeuilMax();
+    float getValGiteSeuilMin();
+    //temps
+    float getValTime();
+    //distance
+    float getValDistance();
+    //tangage
+    float getValTangageVal();
+    //tend tangage
+    float getValTangageTend();
+    //gite
+    float getValGiteVal();
+    //tend gite
+    float getValGiteTend();
+    //vitesse
+    float getValVitesseVal();
+    //tend vitesse
+    float getValVitesseTend();
+
 public slots:
 
 private:
@@ -31,6 +70,8 @@ private:
     int valtest;
 
     bool openFile();
+
+    int nbFileLine;
 
     //valeurs données
 

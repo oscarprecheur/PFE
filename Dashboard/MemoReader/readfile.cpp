@@ -117,5 +117,80 @@ void readfile::readFileLineData(int nLine)
     vitesseTend=listLineValue.at(7).toFloat();
     qDebug()<<"vitesseTend :"<<vitesseTend;
 
-
 }
+
+
+
+//------getter
+
+
+float readfile::getValMemoTempo()
+{
+    return memoTempo;
+}
+
+float readfile::getValTangageSeuilMax()
+{
+    return tangageSeuilMax;
+}
+
+float readfile::getValTangageSeuilMin()
+{
+    return tangageSeuilMin;
+}
+
+float readfile::getValGiteSeuilMax()
+{
+    return giteSeuilMax;
+}
+
+float readfile::getValGiteSeuilMin()
+{
+    return giteSeuilMin;
+}
+
+float readfile::getValTime()
+{
+    return time;
+}
+
+float readfile::getValDistance()
+{
+    return distance;
+}
+
+float readfile::getValTangageVal()
+{
+    return tangageVal;
+}
+
+float readfile::getValTangageTend()
+{
+    return tangageTend;
+}
+
+float readfile::getValGiteVal()
+{
+    return giteVal;
+}
+
+float readfile::getValGiteTend()
+{
+    return giteTend;
+}
+
+float readfile::getValVitesseVal()
+{
+    return vitesseVal;
+}
+
+float readfile::getValVitesseTend()
+{
+    return vitesseTend;
+}
+
+
+
+
+
+
