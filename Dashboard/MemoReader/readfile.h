@@ -15,12 +15,15 @@ public:
     readfile(QObject *parent = nullptr);
 
      Q_INVOKABLE void setFileUrl(QString NewFileUrl);
-     Q_INVOKABLE void readFileLine(int, int);
+     Q_INVOKABLE void readFileLineData(int);
      Q_INVOKABLE void initReading();
 
 public slots:
 
 private:
+
+    QString line;
+    QStringList listLineValue;
     QFileDialog dialog;
     QString FileUrl;
     QDir FileDir;
