@@ -52,6 +52,24 @@ void readfile::initReading()
     fileTime.setHMS(listLineValue.at(1).toInt(),listLineValue.at(2).toInt(),listLineValue.at(3).toInt());
     qDebug()<<"Heure :"<<fileTime;
 
+    //tempo memo (ms)
+    line = memoFile.readLine();
+    listLineValue = line.split(";");
+    memoTempo=listLineValue.at(1).toFloat();
+    qDebug()<<"memoTempo (ms) :"<<memoTempo;
+    //seuils
+    line = memoFile.readLine();
+    listLineValue = line.split(";");
+    tangageSeuilMin=listLineValue.at(1).toFloat();
+    tangageSeuilMax=listLineValue.at(2).toFloat();
+    giteSeuilMin=listLineValue.at(3).toFloat();
+    giteSeuilMax=listLineValue.at(4).toFloat();
+    qDebug()<<"min tang :"<<tangageSeuilMin;
+    qDebug()<<"max tang :"<<tangageSeuilMax;
+    qDebug()<<"min gite :"<<giteSeuilMin;
+    qDebug()<<"max gite:"<<giteSeuilMax;
+
+
 }
 
 void readfile::readFileLine(int nLine, int nColomn)

@@ -38,9 +38,11 @@ private:
     //tempo
     float memoTempo;
     //seuils tang
-    float tangageSeuil;
+    float tangageSeuilMax;
+    float tangageSeuilMin;
     //seuils gite
-    float giteSeuil;
+    float giteSeuilMax;
+    float giteSeuilMin;
     //temps
     float time;
     //distance
