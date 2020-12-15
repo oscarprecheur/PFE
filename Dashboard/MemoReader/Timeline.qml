@@ -5,6 +5,7 @@ import QtQuick.Controls.Styles 1.4
 Slider
 {
 
+
     implicitWidth: parent.width/1.5
     anchors
     {
@@ -16,7 +17,7 @@ Slider
 
     from:0
     value:0
-    to:100
-    stepSize: 25
+    to:0
+    stepSize: 1
     snapMode: "SnapAlways"
 }
