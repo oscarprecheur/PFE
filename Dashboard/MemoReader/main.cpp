@@ -5,17 +5,17 @@
 #include <QQmlContext>
 #include <QtGui>
 
-#include "browser.h"
+#include "readfile.h"
 
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
 
-    qmlRegisterType<browser>("OPEN.FILE",1,0,"OPENFILE");
+    qmlRegisterType<readfile>("READ.FILE",1,0,"READFILE");
 
     QQmlApplicationEngine engine;
-    QQmlComponent component(&engine, QUrl(QLatin1String("qrc:/MemoDashboard.qml")));
+    QQmlComponent component(&engine, QUrl(QLatin1String("qrc:/FileDialog.qml")));
 
 
     component.create();
