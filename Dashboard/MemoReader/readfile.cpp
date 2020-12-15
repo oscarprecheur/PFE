@@ -117,6 +117,8 @@ void readfile::readFileLineData(int nLine)
     vitesseTend=listLineValue.at(7).toFloat();
     qDebug()<<"vitesseTend :"<<vitesseTend;
 
+    memoFile.close();
+
 }
 
 
@@ -187,6 +189,21 @@ float readfile::getValVitesseVal()
 float readfile::getValVitesseTend()
 {
     return vitesseTend;
+}
+
+int readfile::getNbDataLine()
+{
+    openFile();
+    int cpt=0;
+    while(!memoFile.atEnd())
+    {
+        memoFile.readLine();
+        cpt++;
+    }
+    nbDataLine=cpt-6;
+    memoFile.close();
+    return nbDataLine;
+
 }
 
 

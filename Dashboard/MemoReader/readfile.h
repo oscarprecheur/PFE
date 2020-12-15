@@ -31,7 +31,7 @@ public:
     Q_PROPERTY(float getValGiteTend READ getValGiteTend)
     Q_PROPERTY(float getValVitesseVal READ getValVitesseVal)
     Q_PROPERTY(float getValVitesseTend READ getValVitesseTend)
-
+    Q_PROPERTY(int getNbDataLine READ getNbDataLine)
 
     float getValMemoTempo();
     //seuils tang
@@ -56,6 +56,8 @@ public:
     float getValVitesseVal();
     //tend vitesse
     float getValVitesseTend();
+    //nombre de données
+    int getNbDataLine();
 
 public slots:
 
@@ -71,7 +73,7 @@ private:
 
     bool openFile();
 
-    int nbFileLine;
+    int nbDataLine=0;
 
     //valeurs données
 
@@ -88,21 +90,21 @@ private:
     float giteSeuilMax;
     float giteSeuilMin;
     //temps
-    float time;
+    float time=0;
     //distance
-    float distance;
+    float distance=0;
     //tangage
-    float tangageVal;
+    float tangageVal=0;
     //tend tangage
-    float tangageTend;
+    float tangageTend=0;
     //gite
-    float giteVal;
+    float giteVal=0;
     //tend gite
-    float giteTend;
+    float giteTend=0;
     //vitesse
-    float vitesseVal;
+    float vitesseVal=0;
     //tend vitesse
-    float vitesseTend;
+    float vitesseTend=0;
 
     //-------------à faire-----------
     //vitesse moy 500
