@@ -44,7 +44,14 @@ void readfile::initReading()
     line = memoFile.readLine();
     listLineValue = line.split(";");
     fileDate.setDate(listLineValue.at(3).toInt(),listLineValue.at(2).toInt(),listLineValue.at(1).toInt());
-    qDebug()<<fileDate;
+    qDebug()<<"Date :"<<fileDate;
+
+    //heure
+    line = memoFile.readLine();
+    listLineValue = line.split(";");
+    fileTime.setHMS(listLineValue.at(1).toInt(),listLineValue.at(2).toInt(),listLineValue.at(3).toInt());
+    qDebug()<<"Heure :"<<fileTime;
+
 }
 
 void readfile::readFileLine(int nLine, int nColomn)
