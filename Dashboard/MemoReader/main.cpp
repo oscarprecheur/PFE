@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<readfile>("READ.FILE",1,0,"READFILE");
 
     QQmlApplicationEngine engine;
-    QQmlComponent component(&engine, QUrl(QLatin1String("qrc:/FileDialog.qml")));
+    QQmlComponent component(&engine, QUrl(QLatin1String("qrc:/MemoDashboard.qml")));
 
 
     component.create();

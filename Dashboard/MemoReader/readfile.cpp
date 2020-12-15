@@ -77,7 +77,7 @@ void readfile::initReading()
     qDebug()<<"min gite :"<<giteSeuilMin;
     qDebug()<<"max gite:"<<giteSeuilMax;
 
-    readFileLineData(36);
+    //readFileLineData(36);
 
 
 }

@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
         <file>MemoDashboard.qml</file>
-        <file>FileDialog.qml</file>
     </qresource>
 </RCC>
