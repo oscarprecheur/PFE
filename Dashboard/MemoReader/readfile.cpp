@@ -20,19 +20,9 @@ void readfile::setFileUrl(QString NewFileUrl)
 
 void readfile::readFileLine(int nLine)
 {
-
-//    if (FileDir.exists(FileUrl))
-//    {
-//        qDebug()<<"Ce dossier existe";
-//    }
-//    else
-//    {
-//        qDebug()<<"Ce dossier n'existe pas ";
-//    }
-
     memoFile.setFileName(FileUrl);
    if (!memoFile.open(QIODevice::ReadOnly | QIODevice::Text))
-       qDebug()<<"ok";
+       qDebug()<<"File"<<FileUrl<<"Not Opened";
    else
-       qDebug()<<"opened";
+       qDebug()<<"File"<<FileUrl<<" Opened";
 }
