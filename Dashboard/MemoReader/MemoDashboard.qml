@@ -32,6 +32,8 @@ ApplicationWindow
             console.log("You chose: " + fileDialog.fileUrls)
             id_MemoDashboard.visible=true
 
+            file.setFileUrl(fileDialog.fileUrls.toString())
+
 
         }
         onRejected: {
