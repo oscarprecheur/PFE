@@ -14,7 +14,6 @@ ApplicationWindow
     id: id_dashboard
 
     //<<<<<<<<<<<<<<<<<<<<<<<DESCRIPTION STATIQUE>>>>>>>>>>>>>>>>>>>>>>>>>>
-
     //-----------HORIZON ARTIFICIEL------------------
 
     Rectangle//zone horizon artificiel
