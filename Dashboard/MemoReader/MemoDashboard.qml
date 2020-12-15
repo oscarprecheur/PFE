@@ -33,6 +33,7 @@ ApplicationWindow
             id_MemoDashboard.visible=true
 
             file.setFileUrl(fileDialog.fileUrls.toString())
+            console.log(file.getNbDataLine)
 
 
         }
