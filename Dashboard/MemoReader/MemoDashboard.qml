@@ -99,6 +99,7 @@ ApplicationWindow
       onTriggered:
       {
            id_timeline.increase()
+           file.readFileLineData(id_timeline.value)
       }
     }
 
