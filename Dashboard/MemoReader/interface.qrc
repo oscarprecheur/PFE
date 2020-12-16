@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>MemoDashboard.qml</file>
         <file>Timeline.qml</file>
+        <file>PlayPauseButton.qml</file>
+        <file>DigitTime.qml</file>
     </qresource>
 </RCC>
