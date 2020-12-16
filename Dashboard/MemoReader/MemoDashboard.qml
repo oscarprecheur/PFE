@@ -19,6 +19,8 @@ ApplicationWindow
     width: 1080
     height: 720
 
+    property real intervalTimer: 1
+
     READFILE
     {
         id:file
@@ -35,7 +37,7 @@ ApplicationWindow
             file.setFileUrl(fileDialog.fileUrls.toString())
             console.log(file.getNbDataLine)
             id_timeline.to=file.getNbDataLine
-            console.log(id_timeline.value)
+            intervalTimer=file.getValMemoTempo
 
 
         }
@@ -55,7 +57,49 @@ ApplicationWindow
         Timeline
         {
             id:id_timeline
+
+            onMoved:
+            {
+                file.readFileLineData(value)
+            }
         }
+    }
+
+
+    PlayPauseButton
+    {
+        id:id_play_pause_button
+        anchors
+        {
+            left: parent.left
+            bottom: parent.bottom
+            leftMargin: parent.width/20
+            bottomMargin: parent.height/10
+        }
+        text: "Play"
+
+        onClicked:
+        {
+            if (id_timer.running==false)
+            {
+                id_timer.running=true
+            }
+            else
+            {
+                id_timer.running=false
+            }
+
+        }
+    }
+
+    Timer
+    {
+      id:id_timer
+      interval:intervalTimer ; running:false;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
+      onTriggered:
+      {
+           id_timeline.increase()
+      }
     }
 
 
