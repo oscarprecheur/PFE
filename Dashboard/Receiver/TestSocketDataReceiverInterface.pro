@@ -4,6 +4,7 @@ QT += quick
 
 
 
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -23,11 +24,13 @@ SOURCES += \
     main.cpp \
     memo.cpp \
     socketdatareceiver.cpp \
+    tendance.cpp \
     valcapt.cpp
 
 HEADERS += \
     memo.h \
     socketdatareceiver.h \
+    tendance.h \
     valcapt.h
 
 FORMS += \
