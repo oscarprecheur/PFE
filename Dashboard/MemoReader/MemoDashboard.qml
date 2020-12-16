@@ -34,6 +34,8 @@ ApplicationWindow
 
             file.setFileUrl(fileDialog.fileUrls.toString())
             console.log(file.getNbDataLine)
+            id_timeline.to=file.getNbDataLine
+            console.log(id_timeline.value)
 
 
         }

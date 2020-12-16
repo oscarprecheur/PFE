@@ -17,7 +17,7 @@ Slider
 
     from:0
     value:0
-    to:0
+    to:1
     stepSize: 1
     snapMode: "SnapAlways"
 }

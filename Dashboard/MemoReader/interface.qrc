@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>MemoDashboard.qml</file>
+        <file>Timeline.qml</file>
     </qresource>
 </RCC>
