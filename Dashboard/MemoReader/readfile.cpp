@@ -85,11 +85,11 @@ void readfile::initReading()
 void readfile::readFileLineData(int nLine)
 {
     openFile();
-    for(int cpt=0;cpt<=nLine+6;cpt++)
+    for(int cpt=0;cpt<=nLine+5;cpt++)
     {
         line = memoFile.readLine();
         listLineValue = line.split(";");
-        qDebug()<<listLineValue;
+        //qDebug()<<listLineValue;
     }
 
     //temps
