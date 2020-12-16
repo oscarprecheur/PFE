@@ -63,8 +63,8 @@ ApplicationWindow
                 valeur.initValTangageMin(tangageMin)
                 valeur.initDeltaTMemo(timeMemo)
                 valeur.initDeltaTAquisition(timeAquisition)
-                valeur.init()
-                id_start_init.close()
+                valeur.init(id_init)
+                id_start_init.visible=false
 
             }
 
