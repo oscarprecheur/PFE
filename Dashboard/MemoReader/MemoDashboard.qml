@@ -50,17 +50,30 @@ ApplicationWindow
     Rectangle
     {
         id:id_timeline_area
-        width: parent.width
-        height: parent.height
+        width: id_timeline.width
+        height: id_timeline.height
+
+        anchors
+        {
+            horizontalCenter:parent.horizontalCenter
+            bottom:parent.bottom
+            bottomMargin:parent.height/10
+
+        }
+        border.color: "#00000000"
+        color: "#00000000"
 
 
         Timeline
         {
             id:id_timeline
 
+            implicitWidth: id_MemoDashboard.width/1.5
+
             onMoved:
             {
                 file.readFileLineData(value)
+                id_time_display.text=file.getValTime.toFixed(2)
             }
         }
     }
@@ -92,6 +105,38 @@ ApplicationWindow
         }
     }
 
+    Rectangle
+    {
+        id: id_time_display_area
+        anchors
+        {
+            verticalCenter:id_timeline_area.verticalCenter
+            left:id_timeline_area.right
+            leftMargin: parent.width/30
+        }
+
+        width:  id_time_display.paintedWidth
+        height: id_time_display.paintedHeight
+        border.color: "#00000000"
+        color: "#00000000"
+
+        DigitTime
+        {
+            id: id_time_display
+            horizontalAlignment: Text.AlignHCenter
+
+            anchors
+            {
+                horizontalCenter: parent.horizontalCenter
+                verticalCenter: parent.verticalCenter
+
+            }
+            font.pixelSize: id_MemoDashboard.height/30
+
+        }
+
+    }
+
     Timer
     {
       id:id_timer
@@ -100,6 +145,7 @@ ApplicationWindow
       {
            id_timeline.increase()
            file.readFileLineData(id_timeline.value)
+          id_time_display.text=(file.getValTime/60).toFixed(2)
       }
     }
 

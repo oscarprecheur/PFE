@@ -6,12 +6,11 @@ Slider
 {
 
 
-    implicitWidth: parent.width/1.5
+
     anchors
     {
         horizontalCenter:parent.horizontalCenter
-        bottom:parent.bottom
-        bottomMargin:parent.height/10
+        verticalCenter:parent.verticalCenter
 
     }
 
