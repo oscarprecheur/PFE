@@ -500,23 +500,23 @@ ApplicationWindow
             switch(slider_memo.value)
             {
             case 0:
-                id_text_val_memo.text="1 ms"
-                timeMemo=1
-                break
-            case 25:
-                id_text_val_memo.text="10 ms"
-                timeMemo=10
-                break
-            case 50:
                 id_text_val_memo.text="100 ms"
                 timeMemo=100
                 break
-            case 75:
-                id_text_val_memo.text="1000 ms"
+            case 25:
+                id_text_val_memo.text="1 s"
                 timeMemo=1000
                 break
+            case 50:
+                id_text_val_memo.text="2 s"
+                timeMemo=2000
+                break
+            case 75:
+                id_text_val_memo.text="5 s"
+                timeMemo=5000
+                break
             default:
-                id_text_val_memo.text="10000 ms"
+                id_text_val_memo.text="10 s"
                 timeMemo=10000
                 break
 
