@@ -34,10 +34,13 @@ ApplicationWindow
             console.log("You chose: " + fileDialog.fileUrls)
             id_MemoDashboard.visible=true
 
-            file.setFileUrl(fileDialog.fileUrls.toString())
+            file.setFileUrl(fileDialog.fileUrls.toString())         
+            file.loadAllFile()
+            file.initReading()
             console.log(file.getNbDataLine)
-            id_timeline.to=file.getNbDataLine
+            id_timeline.to=file.getNbDataLine-1
             intervalTimer=file.getValMemoTempo
+
 
 
         }
@@ -95,6 +98,7 @@ ApplicationWindow
         {
             if (id_timer.running==false)
             {
+
                 id_timer.running=true
             }
             else
@@ -143,9 +147,15 @@ ApplicationWindow
       interval:intervalTimer ; running:false;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
       onTriggered:
       {
+
+
            id_timeline.increase()
            file.readFileLineData(id_timeline.value)
-          id_time_display.text=(file.getValTime/60).toFixed(2)
+          id_time_display.text=file.getValTime.toFixed(2)
+               console.log(id_timeline.value)
+
+          if(id_timeline.value==file.getNbDataLine-1)
+               id_timer.running=false
       }
     }
 
