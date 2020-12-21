@@ -16,7 +16,9 @@ public:
 
      Q_INVOKABLE void setFileUrl(QString NewFileUrl);
      Q_INVOKABLE void readFileLineData(int);
-     Q_INVOKABLE void readFileLineByLine();
+//     Q_INVOKABLE void readFileLineByLine();
+     Q_INVOKABLE void loadAllFile();
+     Q_INVOKABLE QString readDataFile(int,int);
      Q_INVOKABLE void initReading();
      Q_INVOKABLE bool openFile();
      Q_INVOKABLE void closeFile();
@@ -66,8 +68,10 @@ public slots:
 
 private:
 
-    QString line;
-    QStringList listLineValue;
+    QString DataFile;
+    QStringList listLineDataFile;
+    QStringList listCaseDataFile;
+
     QFileDialog dialog;
     QString FileUrl;
     QDir FileDir;

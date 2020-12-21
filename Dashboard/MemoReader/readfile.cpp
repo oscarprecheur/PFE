@@ -22,6 +22,11 @@ bool readfile::openFile()
    }
 }
 
+void readfile::closeFile()
+{
+    memoFile.close();
+}
+
 void readfile::setFileUrl(QString NewFileUrl)
 {
     if (NewFileUrl.contains("file:///"))
@@ -30,133 +35,126 @@ void readfile::setFileUrl(QString NewFileUrl)
     FileUrl=NewFileUrl;
     qDebug()<<"Debug SetFileUrl2"<<FileUrl;
 
-    initReading();
+
 }
 
 void readfile::initReading()
 {
 
-    openFile();
-
 
     //date
-    line = memoFile.readLine();
-    listLineValue = line.split(";");
-
-    fileDate.setDate(listLineValue.at(3).toInt(),listLineValue.at(2).toInt(),listLineValue.at(1).toInt());
+    fileDate.setDate(readDataFile(3,0).toInt(),readDataFile(2,0).toInt(),readDataFile(2,0).toInt());
 
     qDebug()<<"Date :"<<fileDate;
 
     //heure
-    line = memoFile.readLine();
-    listLineValue = line.split(";");
-
-    fileTime.setHMS(listLineValue.at(1).toInt(),listLineValue.at(2).toInt(),listLineValue.at(3).toInt());
+    fileTime.setHMS(readDataFile(1,1).toInt(),readDataFile(2,1).toInt(),readDataFile(3,1).toInt());
 
     qDebug()<<"Heure :"<<fileTime;
 
     //tempo memo (ms)
-    line = memoFile.readLine();
-    listLineValue = line.split(";");
 
-    memoTempo=listLineValue.at(1).toFloat();
+    memoTempo=readDataFile(1,2).toFloat();
 
     qDebug()<<"memoTempo (ms) :"<<memoTempo;
 
     //seuils
-    line = memoFile.readLine();
-    listLineValue = line.split(";");
 
-    tangageSeuilMin=listLineValue.at(1).toFloat();
-    tangageSeuilMax=listLineValue.at(2).toFloat();
-    giteSeuilMin=listLineValue.at(3).toFloat();
-    giteSeuilMax=listLineValue.at(4).toFloat();
+    tangageSeuilMin=readDataFile(1,3).toFloat();
+    tangageSeuilMax=readDataFile(2,3).toFloat();
+    giteSeuilMin=readDataFile(3,3).toFloat();
+    giteSeuilMax=readDataFile(4,3).toFloat();
 
     qDebug()<<"min tang :"<<tangageSeuilMin;
     qDebug()<<"max tang :"<<tangageSeuilMax;
     qDebug()<<"min gite :"<<giteSeuilMin;
     qDebug()<<"max gite:"<<giteSeuilMax;
-
-    //readFileLineData(36);
-
-
 }
 
 void readfile::readFileLineData(int nLine)
 {
-
-    for(int cpt=0;cpt<=nLine+5;cpt++)
-    {
-        line = memoFile.readLine();
-        listLineValue = line.split(";");
-        //qDebug()<<listLineValue;
-    }
-
     //temps
-    time=listLineValue.at(0).toFloat();
-    qDebug()<<"time :"<<time;
+    time=readDataFile(0,nLine+5).toFloat();
+    qDebug()<<"time rvrv:"<<time;
     //distance
-    distance=listLineValue.at(1).toFloat();
+    distance=readDataFile(1,nLine+5).toFloat();
     qDebug()<<"distance :"<<distance;
     //tangage
-    tangageVal=listLineValue.at(2).toFloat();
+    tangageVal=readDataFile(2,nLine+5).toFloat();
     qDebug()<<"tangageVal :"<<tangageVal;
     //tend tangage
-    tangageTend=listLineValue.at(3).toFloat();
+    tangageTend=readDataFile(3,nLine+5).toFloat();
     qDebug()<<"tangageTend :"<<tangageTend;
     //gite
-    giteVal=listLineValue.at(4).toFloat();
+    giteVal=readDataFile(4,nLine+5).toFloat();
     qDebug()<<"giteVal :"<<giteVal;
     //tend gite
-    giteTend=listLineValue.at(5).toFloat();
+    giteTend=readDataFile(5,nLine+5).toFloat();
     qDebug()<<"giteTend :"<<giteTend;
     //vitesse
-    vitesseVal=listLineValue.at(6).toFloat();
+    vitesseVal=readDataFile(6,nLine+5).toFloat();
     qDebug()<<"vitesseVal :"<<vitesseVal;
     //tend vitesse
-    vitesseTend=listLineValue.at(7).toFloat();
+    vitesseTend=readDataFile(7,nLine+5).toFloat();
     qDebug()<<"vitesseTend :"<<vitesseTend;
 
 
 
 }
 
-
-void readfile::readFileLineByLine()
+void readfile::loadAllFile()
 {
-    if (!memoFile.atEnd())
-        line = memoFile.readLine();
-    listLineValue = line.split(";");
-        //qDebug()<<listLineValue;
-
-    //temps
-    time=listLineValue.at(0).toFloat();
-    qDebug()<<"time :"<<time;
-    //distance
-    distance=listLineValue.at(1).toFloat();
-    qDebug()<<"distance :"<<distance;
-    //tangage
-    tangageVal=listLineValue.at(2).toFloat();
-    qDebug()<<"tangageVal :"<<tangageVal;
-    //tend tangage
-    tangageTend=listLineValue.at(3).toFloat();
-    qDebug()<<"tangageTend :"<<tangageTend;
-    //gite
-    giteVal=listLineValue.at(4).toFloat();
-    qDebug()<<"giteVal :"<<giteVal;
-    //tend gite
-    giteTend=listLineValue.at(5).toFloat();
-    qDebug()<<"giteTend :"<<giteTend;
-    //vitesse
-    vitesseVal=listLineValue.at(6).toFloat();
-    qDebug()<<"vitesseVal :"<<vitesseVal;
-    //tend vitesse
-    vitesseTend=listLineValue.at(7).toFloat();
-    qDebug()<<"vitesseTend :"<<vitesseTend;
-
-
-
+    openFile();
+    DataFile = memoFile.readAll();
+    closeFile();
 }
+
+QString readfile::readDataFile(int line, int colomn)
+{
+    listLineDataFile = DataFile.split("\n");
+    listCaseDataFile=listLineDataFile.at(colomn).split(";");
+    return listCaseDataFile.at(line);
+}
+
+
+//void readfile::readFileLineByLine()
+//{
+
+
+
+//    if (!memoFile.atEnd())
+//        listLineDataFile = memoFile.readLine();
+//    listLineValue = listLineDataFile.split(";");
+//        //qDebug()<<listLineValue;
+
+//    //temps
+//    time=listLineValue.at(0).toFloat();
+//    qDebug()<<"time :"<<time;
+//    //distance
+//    distance=listLineValue.at(1).toFloat();
+//    qDebug()<<"distance :"<<distance;
+//    //tangage
+//    tangageVal=listLineValue.at(2).toFloat();
+//    qDebug()<<"tangageVal :"<<tangageVal;
+//    //tend tangage
+//    tangageTend=listLineValue.at(3).toFloat();
+//    qDebug()<<"tangageTend :"<<tangageTend;
+//    //gite
+//    giteVal=listLineValue.at(4).toFloat();
+//    qDebug()<<"giteVal :"<<giteVal;
+//    //tend gite
+//    giteTend=listLineValue.at(5).toFloat();
+//    qDebug()<<"giteTend :"<<giteTend;
+//    //vitesse
+//    vitesseVal=listLineValue.at(6).toFloat();
+//    qDebug()<<"vitesseVal :"<<vitesseVal;
+//    //tend vitesse
+//    vitesseTend=listLineValue.at(7).toFloat();
+//    qDebug()<<"vitesseTend :"<<vitesseTend;
+
+
+
+//}
 
 
 
@@ -237,7 +235,7 @@ int readfile::getNbDataLine()
         memoFile.readLine();
         cpt++;
     }
-    nbDataLine=cpt-6;
+    nbDataLine=cpt-5;
     memoFile.close();
     return nbDataLine;
 
