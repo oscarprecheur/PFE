@@ -84,7 +84,7 @@ void readfile::initReading()
 
 void readfile::readFileLineData(int nLine)
 {
-    openFile();
+
     for(int cpt=0;cpt<=nLine+5;cpt++)
     {
         line = memoFile.readLine();
@@ -117,15 +117,16 @@ void readfile::readFileLineData(int nLine)
     vitesseTend=listLineValue.at(7).toFloat();
     qDebug()<<"vitesseTend :"<<vitesseTend;
 
-    memoFile.close();
+
 
 }
 
 
 void readfile::readFileLineByLine()
 {
+    if (!memoFile.atEnd())
         line = memoFile.readLine();
-        listLineValue = line.split(";");
+    listLineValue = line.split(";");
         //qDebug()<<listLineValue;
 
     //temps

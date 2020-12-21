@@ -18,6 +18,8 @@ public:
      Q_INVOKABLE void readFileLineData(int);
      Q_INVOKABLE void readFileLineByLine();
      Q_INVOKABLE void initReading();
+     Q_INVOKABLE bool openFile();
+     Q_INVOKABLE void closeFile();
 
     Q_PROPERTY(float getValMemoTempo READ getValMemoTempo)
     Q_PROPERTY(float getValTangageSeuilMax READ getValTangageSeuilMax)
@@ -72,7 +74,7 @@ private:
     QFile memoFile;
     int valtest;
 
-    bool openFile();
+
 
     int nbDataLine=0;
 
