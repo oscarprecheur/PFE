@@ -122,6 +122,42 @@ void readfile::readFileLineData(int nLine)
 }
 
 
+void readfile::readFileLineByLine()
+{
+        line = memoFile.readLine();
+        listLineValue = line.split(";");
+        //qDebug()<<listLineValue;
+
+    //temps
+    time=listLineValue.at(0).toFloat();
+    qDebug()<<"time :"<<time;
+    //distance
+    distance=listLineValue.at(1).toFloat();
+    qDebug()<<"distance :"<<distance;
+    //tangage
+    tangageVal=listLineValue.at(2).toFloat();
+    qDebug()<<"tangageVal :"<<tangageVal;
+    //tend tangage
+    tangageTend=listLineValue.at(3).toFloat();
+    qDebug()<<"tangageTend :"<<tangageTend;
+    //gite
+    giteVal=listLineValue.at(4).toFloat();
+    qDebug()<<"giteVal :"<<giteVal;
+    //tend gite
+    giteTend=listLineValue.at(5).toFloat();
+    qDebug()<<"giteTend :"<<giteTend;
+    //vitesse
+    vitesseVal=listLineValue.at(6).toFloat();
+    qDebug()<<"vitesseVal :"<<vitesseVal;
+    //tend vitesse
+    vitesseTend=listLineValue.at(7).toFloat();
+    qDebug()<<"vitesseTend :"<<vitesseTend;
+
+
+
+}
+
+
 
 //------getter
 

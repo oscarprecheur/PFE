@@ -16,6 +16,7 @@ public:
 
      Q_INVOKABLE void setFileUrl(QString NewFileUrl);
      Q_INVOKABLE void readFileLineData(int);
+     Q_INVOKABLE void readFileLineByLine();
      Q_INVOKABLE void initReading();
 
     Q_PROPERTY(float getValMemoTempo READ getValMemoTempo)
