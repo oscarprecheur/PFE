@@ -63,7 +63,7 @@ ApplicationWindow
         height: parent.height
         border.color: "#00000000"
         color: "#00000000"
-
+        z:1
 
 
         Rectangle //TIMELINE
@@ -186,6 +186,36 @@ ApplicationWindow
         height: parent.height
         border.color: "#00000000"
         color: "#00000000"
+        z:0
+
+
+
+
+        Rectangle//zone horizon artificiel
+        {
+            id: id_horizon_area
+            anchors
+            {
+                horizontalCenter:parent.horizontalCenter
+                verticalCenter:parent.verticalCenter
+            }
+
+            width:  parent.width*4
+            height: parent.height*4
+            color: "#00000000"
+
+
+
+            //description statique horizon artificiel
+            HorizonArtificiel
+            {
+                id: id_horizon_artificiel
+            }
+
+
+
+
+        }
     }
 
 
