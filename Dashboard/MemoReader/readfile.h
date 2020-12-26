@@ -37,7 +37,6 @@ public:
     Q_PROPERTY(float getValVitesseVal READ getValVitesseVal)
     Q_PROPERTY(float getValVitesseTend READ getValVitesseTend)
     Q_PROPERTY(int getNbDataLine READ getNbDataLine)
-    Q_PROPERTY(QString showValTimeHMS READ showValTimeHMS)
 
     float getValMemoTempo();
     //seuils tang
@@ -64,8 +63,6 @@ public:
     float getValVitesseTend();
     //nombre de données
     int getNbDataLine();
-    //affichage du temps de la time line en HMS
-    QString showValTimeHMS();
 
 public slots:
 
