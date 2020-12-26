@@ -44,7 +44,7 @@ ApplicationWindow
             file.initReading()
             sizeDataFile=file.getNbDataLine
             console.log(sizeDataFile)
-            id_timeline.to=file.sizeDataFile-1
+            id_timeline.to=sizeDataFile-1
             intervalTimer=file.getValMemoTempo
 
 
@@ -88,7 +88,7 @@ ApplicationWindow
                 id:id_timeline
 
                 implicitWidth: id_MemoDashboard.width/1.5
-                to :file.getNbDataLine-1
+
 
                 onMoved:
                 {
