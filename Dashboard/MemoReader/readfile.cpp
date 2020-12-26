@@ -40,6 +40,17 @@ void readfile::setFileUrl(QString NewFileUrl)
 
 void readfile::initReading()
 {
+    //nombre de ligne de données
+    openFile();
+    int cpt=0;
+    while(!memoFile.atEnd())
+    {
+        memoFile.readLine();
+        cpt++;
+    }
+    nbDataLine=cpt-5;
+    closeFile();
+    qDebug()<<"nombre ligne de donénes"<<nbDataLine;
 
 
     //date
@@ -73,6 +84,7 @@ void readfile::initReading()
 
 void readfile::readFileLineData(int nLine)
 {
+
     //temps
     time=readDataFile(0,nLine+5).toFloat();
     qDebug()<<"time rvrv:"<<time;
@@ -106,6 +118,7 @@ void readfile::loadAllFile()
 {
     openFile();
     DataFile = memoFile.readAll();
+    nbDataLine = memoFile.size();
     closeFile();
 }
 
@@ -228,15 +241,6 @@ float readfile::getValVitesseTend()
 
 int readfile::getNbDataLine()
 {
-    openFile();
-    int cpt=0;
-    while(!memoFile.atEnd())
-    {
-        memoFile.readLine();
-        cpt++;
-    }
-    nbDataLine=cpt-5;
-    memoFile.close();
     return nbDataLine;
 
 }
