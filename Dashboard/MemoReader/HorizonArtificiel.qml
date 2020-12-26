@@ -15,7 +15,7 @@ Rectangle
         id: eau
         x: 0
         y: ciel.height
-        color: "black"
+        color: "blue"
 
         width: parent.width
         height: parent.height/2
@@ -26,6 +26,8 @@ Rectangle
         id: ciel
         x: 0
         y: 0
+
+        color: "sky blue"
         width: parent.width
         height: parent.height/2
     }
