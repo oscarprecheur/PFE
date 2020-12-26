@@ -191,30 +191,110 @@ ApplicationWindow
 
 
 
-        Rectangle//zone horizon artificiel
+//        Rectangle//zone horizon artificiel
+//        {
+//            id: id_horizon_area
+//            anchors
+//            {
+//                horizontalCenter:parent.horizontalCenter
+//                verticalCenter:parent.verticalCenter
+//            }
+
+//            width:  parent.width*4
+//            height: parent.height*4
+//            color: "#00000000"
+
+
+
+//            //description statique horizon artificiel
+//            HorizonArtificiel
+//            {
+//                id: id_horizon_artificiel
+//            }
+
+
+
+
+//        }
+
+        Rectangle
         {
-            id: id_horizon_area
+            id: id_visu_gite_area
+
+            color: "red"
+
+            height: parent.height/2
+            width  : parent.height/2
+
+            anchors
+            {
+                left:parent.left
+                top:parent.top
+            }
+        }
+
+        Rectangle
+        {
+            id: id_value_gite_area
+
+            color: "pink"
+
+            height: parent.height/2
+            width  : parent.height/2
+
+            anchors
+            {
+                left:parent.left
+                bottom:parent.bottom
+            }
+        }
+
+        Rectangle
+        {
+            id: id_visu_tangage_area
+
+            color: "blue"
+
+            height: parent.height/2
+            width  : parent.height/2
+
             anchors
             {
                 horizontalCenter:parent.horizontalCenter
-                verticalCenter:parent.verticalCenter
+                top:parent.top
             }
+        }
 
-            width:  parent.width*4
-            height: parent.height*4
-            color: "#00000000"
+        Rectangle
+        {
+            id: id_value_tangage_area
 
+            color: "sky blue"
 
+            height: parent.height/2
+            width  : parent.height/2
 
-            //description statique horizon artificiel
-            HorizonArtificiel
+            anchors
             {
-                id: id_horizon_artificiel
+                horizontalCenter:parent.horizontalCenter
+                bottom:parent.bottom
             }
+        }
 
+        Rectangle
+        {
+            id: id_visu_vitesse_area
 
+            color: "yellow"
 
+            height: parent.height/2
+            width  : parent.height/2
 
+            anchors
+            {
+                right:parent.right
+                top:parent.top
+            }
         }
     }
 
