@@ -95,6 +95,12 @@ ApplicationWindow
                     file.readFileLineData(value)
                     id_time_display.text=file.getValTime.toFixed(2)
                 }
+
+                onValueChanged:
+                {
+                    id_bateau_face.rotation=file.getValGiteVal
+                    id_bateau_cote.rotation=file.getValTangageVal
+                }
             }
         }
 
@@ -237,20 +243,11 @@ ApplicationWindow
                 id: id_HA_gite
             }
 
-            Image {
-                id: id_bateau_face
-                clip: true
+           BateauFace
+           {
+               id:id_bateau_face
+           }
 
-                source: "Visu/Gite/pfe_bateau_face.svg"
-                fillMode: Image.PreserveAspectFit
-                height:parent.height/1.5
-
-                anchors
-                {
-                    horizontalCenter:parent.horizontalCenter
-                    verticalCenter:parent.verticalCenter
-                }
-            }
 
 
         }
@@ -286,24 +283,16 @@ ApplicationWindow
                 top:parent.top
             }
 
+
+
             HorizonArtificiel
             {
                 id: id_HA_tangage
             }
 
-            Image {
-                id: id_bateau_cote
-                clip: true
-
-                source: "Visu/Tangage/pfe_bateau_cote.svg"
-                fillMode: Image.PreserveAspectFit
-                height:parent.height/1.5
-
-                anchors
-                {
-                    horizontalCenter:parent.horizontalCenter
-                    verticalCenter:parent.verticalCenter
-                }
+            BateauCote
+            {
+                id:id_bateau_cote
             }
         }
 
