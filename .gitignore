@@ -1,1 +1,6 @@
 Dashboard/Build/
+Dashboard/BuildReceiver/*
+Dashboard/BuildSim/*
+Dashboard/build-MemoReader-Desktop_Qt_5_15_1_MSVC2015_64bit-Debug/*
+Dashboard/Receiver/TestSocketDataReceiverInterface.pro.user
+Dashboard/SimuMan/SimuMan.pro.user
