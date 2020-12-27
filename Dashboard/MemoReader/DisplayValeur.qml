@@ -7,19 +7,19 @@ import QtQuick 2.0
             //color: "#e95454"
             font.bold:true
             text: qsTr("---.---")
-            font.pixelSize: parent.height/10
+            font.pixelSize: parent.height/15
             horizontalAlignment: Text.AlignHCenter
 
             function affichageValeur(valeur,valeurMax,valeurMin)
             {
                 if(valeur>valeurMax)
                 {
-                  id_digit_tang.text=qsTr(valeur.toFixed(2)+"°\n"+"(+"+(valeur-valeurMax).toFixed(2)+"°)")
+                  id_digit_tang.text=qsTr(valeur.toFixed(2)+"°"+"(+"+(valeur-valeurMax).toFixed(2)+"°)")
                   id_digit_tang.color="red"
                 }
                 else if (valeur<valeurMin)
                 {
-                    id_digit_tang.text=qsTr(valeur.toFixed(2)+"°\n"+"("+(valeur-valeurMin).toFixed(2)+"°)")
+                    id_digit_tang.text=qsTr(valeur.toFixed(2)+"°"+"("+(valeur-valeurMin).toFixed(2)+"°)")
                     id_digit_tang.color="red"
                 }
                 else
