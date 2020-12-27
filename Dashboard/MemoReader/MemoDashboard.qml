@@ -215,6 +215,41 @@ ApplicationWindow
             {
                 id: id_HA_gite
 
+
+                Text {
+                    id: id_text_tribord
+                    visible: true
+                    text: qsTr("TRI")
+                    color: "black"
+                    font
+                    {
+                        pixelSize:id_HA_tangage.height/10
+                    }
+                    anchors
+                    {
+                        top:parent.top
+                        right:parent.right
+                        rightMargin:parent.width/10
+                    }
+                }
+
+                Text {
+                    id: id_text_babord
+                    visible: true
+                    text: qsTr("BAB")
+                    color: "black"
+                    font
+                    {
+                        pixelSize:id_HA_tangage.height/10
+                    }
+                    anchors
+                    {
+                        top:parent.top
+                        left:parent.left
+                        leftMargin:parent.width/10
+                    }
+                }
+
             }
 
            BateauFace
@@ -262,6 +297,40 @@ ApplicationWindow
             HorizonArtificiel
             {
                 id: id_HA_tangage
+
+                Text {
+                    id: id_text_proue
+                    visible: true
+                    text: qsTr("PROUE")
+                    color: "black"
+                    font
+                    {
+                        pixelSize:id_HA_tangage.height/10
+                    }
+                    anchors
+                    {
+                        top:parent.top
+                        right:parent.right
+                        rightMargin:parent.width/10
+                    }
+                }
+
+                Text {
+                    id: id_text_poupe
+                    visible: true
+                    text: qsTr("POUPE")
+                    color: "black"
+                    font
+                    {
+                        pixelSize:id_HA_tangage.height/10
+                    }
+                    anchors
+                    {
+                        top:parent.top
+                        left:parent.left
+                        leftMargin:parent.width/10
+                    }
+                }
             }
 
             BateauCote
