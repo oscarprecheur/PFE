@@ -20,7 +20,7 @@ public slots:
     void bytesWritten(qint64);
 
 
-    void update(int);
+    void update(float);
 
 
 

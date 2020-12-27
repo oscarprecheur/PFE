@@ -38,11 +38,11 @@ void serverdistance::bytesWritten(qint64 nb){
      qDebug() << "" << nb << " Bytes sent ..." ;
 }
 
-void serverdistance::update(int newval)
+void serverdistance::update(float newval)
 {
     if (isconnected==true){
 
-        float f = (float)newval;
+        float f = newval;
          //qDebug() <<f;
         QByteArray x(reinterpret_cast<const char *>(&f), sizeof(f)) ;
         a=x;
