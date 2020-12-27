@@ -109,6 +109,8 @@ ApplicationWindow
 
                     id_fleche_tangage_gauche.tendance(file.getValTangageTend)
                     id_fleche_tangage_droite.tendance(file.getValTangageTend)
+
+                    id_display_val_gite.affichageValeur(file.getValGiteVal,file.getValGiteSeuilMax,file.getValGiteSeuilMin)
                 }
             }
         }
@@ -295,6 +297,18 @@ ApplicationWindow
                 left:parent.left
                 bottom:parent.bottom
             }
+
+            DisplayValeur
+            {
+                id:id_display_val_gite
+
+                anchors
+                {
+                    top:parent.top
+                    horizontalCenter:parent.horizontalCenter
+                }
+            }
+
         }
 
         Rectangle
