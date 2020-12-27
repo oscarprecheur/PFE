@@ -35,7 +35,7 @@ void servervitesse::newConnection() {
 }
 
 void servervitesse::bytesWritten(qint64 nb){
-     qDebug() << "" << nb << " Bytes sent ..." ;
+     //qDebug() << "" << nb << " Bytes sent ..." ;
 }
 
 void servervitesse::update(float newval)

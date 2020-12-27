@@ -36,7 +36,7 @@ void servergite::newConnection() {
 }
 
 void servergite::bytesWritten(qint64 nb){
-     qDebug() << "" << nb << " Bytes sent ..." ;
+     //qDebug() << "" << nb << " Bytes sent ..." ;
 }
 
 void servergite::update(float newval)
@@ -46,7 +46,8 @@ void servergite::update(float newval)
 
         float f = newval;
          //qDebug() <<f;
-        QByteArray x(reinterpret_cast<const char *>(&f), sizeof(f)) ;
+        QByteArray x((reinterpret_cast<const char *>(&f)), sizeof(f)) ;
+        qDebug()<<f;
         a=x;
            _socket->write(a);
            _socket->flush();

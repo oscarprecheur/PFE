@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent)
     slider_vitesse = new QSlider(Qt::Horizontal, this);
     slider_vitesse->setGeometry(0, 50, 300, 40);
     slider_vitesse->setMinimum(0);
-    slider_vitesse->setMaximum(120);
+    slider_vitesse->setMaximum(120000);
 
     LCD_vitesse = new QLCDNumber(this);
     LCD_vitesse->setSegmentStyle(QLCDNumber::Flat);
@@ -37,8 +37,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     slider_tangage = new QSlider(Qt::Horizontal, this);
     slider_tangage->setGeometry(0, 150, 300, 40);
-    slider_tangage->setMinimum(-180);
-    slider_tangage->setMaximum(180);
+    slider_tangage->setMinimum(-180000);
+    slider_tangage->setMaximum(180000);
+    slider_tangage->setSingleStep(1);
 
     LCD_tangage = new QLCDNumber(this);
     LCD_tangage->setSegmentStyle(QLCDNumber::Flat);
@@ -52,8 +53,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     slider_gite = new QSlider(Qt::Horizontal, this);
     slider_gite->setGeometry(0, 250, 300, 40);
-    slider_gite->setMinimum(-180);
-    slider_gite->setMaximum(180);
+    slider_gite->setMinimum(-180000);
+    slider_gite->setMaximum(180000);
+    slider_gite->setSingleStep(1);
 
     LCD_gite = new QLCDNumber(this);
     LCD_gite->setSegmentStyle(QLCDNumber::Flat);
@@ -90,24 +92,25 @@ void MainWindow::update_val_distance()
 
 void MainWindow::update_val_vitesse()
 {
-    val_vitesse=slider_vitesse->value();
-    qDebug()<<"VITESSE "<<val_vitesse;
+    val_vitesse=((float)slider_vitesse->value())/1000;
+    //qDebug()<<"VITESSE "<<val_vitesse;
     LCD_vitesse->display(val_vitesse);
     ValVitesse->update(val_vitesse);
 }
 
 void MainWindow::update_val_tangage()
 {
-    val_tangage=slider_tangage->value();
-    qDebug()<<"TANGAGE "<<val_tangage;
+    val_tangage=((float)slider_tangage->value())/1000;
+    //qDebug()<<"TANGAGE "<<val_tangage;
     LCD_tangage->display(val_tangage);
     ValTangage->update(val_tangage);
 }
 
 void MainWindow::update_val_gite()
 {
-    val_gite=slider_gite->value();
-    qDebug()<<"GITE "<<val_gite;
+    val_gite=((float)slider_gite->value())/1000;
+    //qDebug()<<"GITE "<<val_gite;
+
     LCD_gite->display(val_gite);
     ValGite->update(val_gite);
 }

@@ -35,7 +35,7 @@ void serverdistance::newConnection() {
 }
 
 void serverdistance::bytesWritten(qint64 nb){
-     qDebug() << "" << nb << " Bytes sent ..." ;
+     //qDebug() << "" << nb << " Bytes sent ..." ;
 }
 
 void serverdistance::update(float newval)

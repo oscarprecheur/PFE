@@ -34,7 +34,7 @@ void servertangage::newConnection() {
 
 }
 void servertangage::bytesWritten(qint64 nb){
-     qDebug() << "" << nb << " Bytes sent ..." ;
+     //qDebug() << "" << nb << " Bytes sent ..." ;
 }
 
 void servertangage::update(float newval)
