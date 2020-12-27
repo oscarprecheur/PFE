@@ -100,6 +100,8 @@ ApplicationWindow
                 {
                     id_bateau_face.rotation=file.getValGiteVal
                     id_bateau_cote.rotation=file.getValTangageVal
+                    id_HA_gite.color_HA(file.getValGiteVal,file.getValGiteSeuilMax,file.getValGiteSeuilMin)
+                    id_HA_tangage.color_HA(file.getValTangageVal,file.getValTangageSeuilMax,file.getValTangageSeuilMin)
                 }
             }
         }
@@ -194,35 +196,6 @@ ApplicationWindow
         color: "#00000000"
         z:0
 
-
-
-
-//        Rectangle//zone horizon artificiel
-//        {
-//            id: id_horizon_area
-//            anchors
-//            {
-//                horizontalCenter:parent.horizontalCenter
-//                verticalCenter:parent.verticalCenter
-//            }
-
-//            width:  parent.width*4
-//            height: parent.height*4
-//            color: "#00000000"
-
-
-
-//            //description statique horizon artificiel
-//            HorizonArtificiel
-//            {
-//                id: id_horizon_artificiel
-//            }
-
-
-
-
-//        }
-
         Rectangle
         {
             id: id_visu_gite_area
@@ -241,6 +214,7 @@ ApplicationWindow
             HorizonArtificiel
             {
                 id: id_HA_gite
+
             }
 
            BateauFace
