@@ -14,17 +14,17 @@ import QtQuick 2.0
             {
                 if(valeur>valeurMax)
                 {
-                  id_digit_tang.text=qsTr(valeur+"°"+"(+"+(valeur-valeurMax).toFixed(2)+"°)")
+                  id_digit_tang.text=qsTr(valeur.toFixed(2)+"°\n"+"(+"+(valeur-valeurMax).toFixed(2)+"°)")
                   id_digit_tang.color="red"
                 }
                 else if (valeur<valeurMin)
                 {
-                    id_digit_tang.text=qsTr(valeur+"°"+"("+(valeur-valeurMin).toFixed(2)+"°)")
+                    id_digit_tang.text=qsTr(valeur.toFixed(2)+"°\n"+"("+(valeur-valeurMin).toFixed(2)+"°)")
                     id_digit_tang.color="red"
                 }
                 else
                 {
-                    id_digit_tang.text=qsTr(valeur+"°")
+                    id_digit_tang.text=qsTr(valeur.toFixed(2)+"°")
                     id_digit_tang.color="black"
                 }
 
