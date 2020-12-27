@@ -262,6 +262,25 @@ ApplicationWindow
                     }
                 }
 
+                Text
+                {
+                    id: id_text_gite
+                    visible: true
+                    text: qsTr("GITE")
+                    color: "white"
+                    font
+                    {
+                        pixelSize:id_HA_tangage.height/10
+                        bold:true
+                    }
+                    anchors
+                    {
+                        bottom:parent.bottom
+                        horizontalCenter:parent.horizontalCenter
+                        bottomMargin:parent.width/20
+                    }
+                }
+
                 FlecheGauche
                 {
                     id: id_fleche_gite_gauche
@@ -364,6 +383,25 @@ ApplicationWindow
                         top:parent.top
                         left:parent.left
                         leftMargin:parent.width/10
+                    }
+                }
+
+                Text
+                {
+                    id: id_text_tangage
+                    visible: true
+                    text: qsTr("TANGAGE")
+                    color: "white"
+                    font
+                    {
+                        pixelSize:id_HA_tangage.height/10
+                        bold:true
+                    }
+                    anchors
+                    {
+                        bottom:parent.bottom
+                        horizontalCenter:parent.horizontalCenter
+                        bottomMargin:parent.width/20
                     }
                 }
             }
