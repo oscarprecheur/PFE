@@ -220,7 +220,7 @@ ApplicationWindow
                     id: id_text_tribord
                     visible: true
                     text: qsTr("TRI")
-                    color: "black"
+                    color: "green"
                     font
                     {
                         pixelSize:id_HA_tangage.height/10
@@ -237,7 +237,7 @@ ApplicationWindow
                     id: id_text_babord
                     visible: true
                     text: qsTr("BAB")
-                    color: "black"
+                    color: "red"
                     font
                     {
                         pixelSize:id_HA_tangage.height/10
