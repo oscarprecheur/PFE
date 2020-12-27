@@ -100,8 +100,15 @@ ApplicationWindow
                 {
                     id_bateau_face.rotation=file.getValGiteVal
                     id_bateau_cote.rotation=file.getValTangageVal
+
                     id_HA_gite.color_HA(file.getValGiteVal,file.getValGiteSeuilMax,file.getValGiteSeuilMin)
                     id_HA_tangage.color_HA(file.getValTangageVal,file.getValTangageSeuilMax,file.getValTangageSeuilMin)
+
+                    id_fleche_gite_gauche.tendance(file.getValGiteTend)
+                    id_fleche_gite_droite.tendance(file.getValGiteTend)
+
+                    id_fleche_tangage_gauche.tendance(file.getValTangageTend)
+                    id_fleche_tangage_droite.tendance(file.getValTangageTend)
                 }
             }
         }
@@ -216,7 +223,8 @@ ApplicationWindow
                 id: id_HA_gite
 
 
-                Text {
+                Text
+                {
                     id: id_text_tribord
                     visible: true
                     text: qsTr("TRI")
@@ -233,7 +241,8 @@ ApplicationWindow
                     }
                 }
 
-                Text {
+                Text
+                {
                     id: id_text_babord
                     visible: true
                     text: qsTr("BAB")
@@ -248,6 +257,17 @@ ApplicationWindow
                         left:parent.left
                         leftMargin:parent.width/10
                     }
+                }
+
+                FlecheGauche
+                {
+                    id: id_fleche_gite_gauche
+
+                }
+
+                FlecheDroite
+                {
+                    id: id_fleche_gite_droite
                 }
 
             }
@@ -331,6 +351,17 @@ ApplicationWindow
                         leftMargin:parent.width/10
                     }
                 }
+            }
+
+            FlecheGauche
+            {
+                id: id_fleche_tangage_gauche
+
+            }
+
+            FlecheDroite
+            {
+                id: id_fleche_tangage_droite
             }
 
             BateauCote
