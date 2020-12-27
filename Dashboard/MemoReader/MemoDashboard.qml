@@ -18,6 +18,7 @@ ApplicationWindow
     visible:false
     width: 1080
     height: 720
+    color:"#f29d52"
 
     property real intervalTimer: 1
     property real sizeDataFile :1
@@ -210,7 +211,7 @@ ApplicationWindow
         {
             id: id_visu_gite_area
 
-            color: "red"
+            color: "#f29d52"
 
             height: parent.height/2
             width  : parent.height/2
@@ -262,17 +263,12 @@ ApplicationWindow
                     }
                 }
 
-                Text
+
+
+                DisplayValeur
                 {
-                    id: id_text_gite
-                    visible: true
-                    text: qsTr("GITE")
-                    color: "white"
-                    font
-                    {
-                        pixelSize:id_HA_tangage.height/10
-                        bold:true
-                    }
+                    id:id_display_val_gite
+
                     anchors
                     {
                         bottom:parent.bottom
@@ -307,7 +303,7 @@ ApplicationWindow
         {
             id: id_value_gite_area
 
-            color: "pink"
+            color: "#f29d52"
 
             height: parent.height/2
             width  : parent.height/2
@@ -318,16 +314,26 @@ ApplicationWindow
                 bottom:parent.bottom
             }
 
-            DisplayValeur
+            Text
             {
-                id:id_display_val_gite
-
+                id: id_text_gite
+                visible: true
+                text: qsTr("GITE")
+                color: "white"
+                font
+                {
+                    pixelSize:id_HA_tangage.height/10
+                    bold:true
+                }
                 anchors
                 {
                     top:parent.top
                     horizontalCenter:parent.horizontalCenter
                 }
+
             }
+
+
 
         }
 
@@ -335,7 +341,7 @@ ApplicationWindow
         {
             id: id_visu_tangage_area
 
-            color: "blue"
+            color: "#f29d52"
 
             height: parent.height/2
             width  : parent.height/2
@@ -386,17 +392,11 @@ ApplicationWindow
                     }
                 }
 
-                Text
+
+                DisplayValeur
                 {
-                    id: id_text_tangage
-                    visible: true
-                    text: qsTr("TANGAGE")
-                    color: "white"
-                    font
-                    {
-                        pixelSize:id_HA_tangage.height/10
-                        bold:true
-                    }
+                    id:id_display_val_tangage
+
                     anchors
                     {
                         bottom:parent.bottom
@@ -427,7 +427,7 @@ ApplicationWindow
         {
             id: id_value_tangage_area
 
-            color: "sky blue"
+            color: "#f29d52"
 
             height: parent.height/2
             width  : parent.height/2
@@ -438,10 +438,18 @@ ApplicationWindow
                 bottom:parent.bottom
             }
 
-            DisplayValeur
-            {
-                id:id_display_val_tangage
 
+            Text
+            {
+                id: id_text_tangage
+                visible: true
+                text: qsTr("TANGAGE")
+                color: "white"
+                font
+                {
+                    pixelSize:id_HA_tangage.height/10
+                    bold:true
+                }
                 anchors
                 {
                     top:parent.top
@@ -450,13 +458,15 @@ ApplicationWindow
             }
 
 
+
+
         }
 
         Rectangle
         {
             id: id_visu_vitesse_area
 
-            color: "yellow"
+            color: "#f29d52"
 
             height: parent.height/2
             width  : parent.height/2
@@ -465,6 +475,25 @@ ApplicationWindow
             {
                 right:parent.right
                 top:parent.top
+            }
+
+            Text
+            {
+                id: id_text_vitesse
+                visible: true
+                text: qsTr("VITESSE")
+                color: "white"
+                font
+                {
+                    pixelSize:id_HA_tangage.height/10
+                    bold:true
+                }
+                anchors
+                {
+                    bottom:parent.bottom
+                    horizontalCenter:parent.horizontalCenter
+                    bottomMargin:parent.width/20
+                }
             }
         }
     }
