@@ -90,15 +90,11 @@ ApplicationWindow
 
                 implicitWidth: id_MemoDashboard.width/1.5
 
-
-                onMoved:
-                {
-                    file.readFileLineData(value)
-                    id_time_display.text=file.getValTime.toFixed(2)
-                }
-
                 onValueChanged:
                 {
+                    file.readFileLineData(id_timeline.value) //lecture de la ligne de données correspondant à la valeur de la timeline (en prenant en compte les premiere ligne du fichier)
+                    id_time_display.text=file.getValTime.toFixed(2) //Affichage du temps correspondant à la ligne lue
+
                     id_bateau_face.rotation=file.getValGiteVal
                     id_bateau_cote.rotation=file.getValTangageVal
 
@@ -177,7 +173,7 @@ ApplicationWindow
 
         }
 
-        Timer
+        Timer //Creation d'un timer adapté à l'intervale de temps entre chaque donnée enregistrée
         {
             id:id_timer
             interval:intervalTimer ; running:false;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
@@ -185,9 +181,7 @@ ApplicationWindow
             {
 
 
-                id_timeline.increase()
-                file.readFileLineData(id_timeline.value)
-                id_time_display.text=file.getValTime.toFixed(2)
+                id_timeline.increase() //incrementation de la timeline à chaque coup d'horloge
                 console.log(id_timeline.value)
 
                 if(id_timeline.value==sizeDataFile-1)
@@ -209,7 +203,7 @@ ApplicationWindow
 
         Rectangle //CASE 1 : VISU GITE ---------------------------------
         {
-            id: id_case1area
+            id: id_case1_area
 
             color: "#f29d52"
 
@@ -222,12 +216,12 @@ ApplicationWindow
                 top:parent.top
             }
 
-            HorizonArtificiel
+            HorizonArtificiel //Appel du composant horizon artificiel
             {
                 id: id_HA_gite
 
 
-                Text
+                Text //affichage texte indication tribord
                 {
                     id: id_text_tribord
                     visible: true
@@ -245,7 +239,7 @@ ApplicationWindow
                     }
                 }
 
-                Text
+                Text //affichage texte indication babord
                 {
                     id: id_text_babord
                     visible: true
@@ -265,7 +259,7 @@ ApplicationWindow
 
 
 
-                DisplayValeur
+                DisplayValeur //Appel du composant DisplayValeur (affichage des valeurs)
                 {
                     id:id_display_val_gite
 
@@ -296,20 +290,20 @@ ApplicationWindow
 
                 }
 
-                FlecheGauche
+                FlecheGauche //appel composant FlecheGauche (fleche de tendance)
                 {
                     id: id_fleche_gite_gauche
 
                 }
 
-                FlecheDroite
+                FlecheDroite //appel composant FlecheDroite (fleche de tendance)
                 {
                     id: id_fleche_gite_droite
                 }
 
             }
 
-           BateauFace
+           BateauFace // Appel du composant BateauFace (afficahge de l'icone bateau de face et gestion de l'oriention de l'image)
            {
                id:id_bateau_face
            }
@@ -335,11 +329,12 @@ ApplicationWindow
 
 
 
-            HorizonArtificiel
+            HorizonArtificiel //Appel du composant horizon artificiel
             {
                 id: id_HA_tangage
 
-                Text {
+                Text //AFFICHAGE TEXT INDICATION PROUE
+                {
                     id: id_text_proue
                     visible: true
                     text: qsTr("PROUE")
@@ -356,7 +351,8 @@ ApplicationWindow
                     }
                 }
 
-                Text {
+                Text //AFFICHAGE TEXT INDICATION POUPE
+                {
                     id: id_text_poupe
                     visible: true
                     text: qsTr("POUPE")
@@ -373,7 +369,7 @@ ApplicationWindow
                     }
                 }
 
-                Text
+                Text //NOM CASE
                 {
                     id: id_text_tangage
                     visible: true
@@ -392,7 +388,7 @@ ApplicationWindow
                 }
 
 
-                DisplayValeur
+                DisplayValeur //Appel du composant DisplayValeur (affichage des valeurs)
                 {
                     id:id_display_val_tangage
 
@@ -405,18 +401,18 @@ ApplicationWindow
                 }
             }
 
-            FlecheGauche
+            FlecheGauche //appel composant FlecheGauche (fleche de tendance)
             {
                 id: id_fleche_tangage_gauche
 
             }
 
-            FlecheDroite
+            FlecheDroite //appel composant FlecheDroite (fleche de tendance)
             {
                 id: id_fleche_tangage_droite
             }
 
-            BateauCote
+            BateauCote //appel du composant BAteauCote (afficahge de l'icone bateau de cote et gestion de l'oriention de l'image)
             {
                 id:id_bateau_cote
             }
@@ -438,7 +434,7 @@ ApplicationWindow
                 top:parent.top
             }
 
-            Text
+            Text //NOM CASE
             {
                 id: id_text_vitesse
                 visible: true
