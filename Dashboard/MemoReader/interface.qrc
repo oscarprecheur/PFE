@@ -9,5 +9,14 @@
         <file>Visu/Tangage/pfe_bateau_cote.svg</file>
         <file>BateauFace.qml</file>
         <file>BateauCote.qml</file>
+        <file>FlecheDroite.qml</file>
+        <file>FlecheGauche.qml</file>
+        <file>Visu/Tendance/Down.svg</file>
+        <file>Visu/Tendance/Droite.svg</file>
+        <file>Visu/Tendance/Gauche.svg</file>
+        <file>Visu/Tendance/Up.svg</file>
+        <file>DisplayValeur.qml</file>
+        <file>FlecheHaut.qml</file>
+        <file>FlecheBas.qml</file>
     </qresource>
 </RCC>
