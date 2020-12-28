@@ -5,7 +5,7 @@ import QtQuick 2.0
 Text {
 
 
-    id: id_digit_tang
+    id: id_display_val
 
     //prend la taille du parent /10
     width: parent.width/10
@@ -20,29 +20,31 @@ Text {
 
     horizontalAlignment: Text.AlignHCenter//Texte aligné au centre
 
-    function affichageValeur(valeur,valeurMax,valeurMin)
+    function affichageValeurAvecSeuil(valeur,valeurMax,valeurMin)
     //cette foncntion peret d'afficher les valeurs prises en paramètre. Elle recupère de plus
     //les valeurs des seuils et affiche de combien ils sont dépassé lorsque c'est le cas
 
     {
         if(valeur>valeurMax) //si la valeur dépasse le seuil max
         {
-            id_digit_tang.text=qsTr(valeur.toFixed(2)+"°"+"(+"+(valeur-valeurMax).toFixed(2)+"°)") // le texte change
-            id_digit_tang.color="red" //couleur du texte
+            id_display_val.text=qsTr(valeur.toFixed(2)+"°"+"(+"+(valeur-valeurMax).toFixed(2)+"°)") // le texte change
+            id_display_val.color="red" //couleur du texte
         }
         else if (valeur<valeurMin) //si la valeur dépasse le seuil min
         {
-            id_digit_tang.text=qsTr(valeur.toFixed(2)+"°"+"("+(valeur-valeurMin).toFixed(2)+"°)") //le texte change
-            id_digit_tang.color="red"//couleur du texte
+            id_display_val.text=qsTr(valeur.toFixed(2)+"°"+"("+(valeur-valeurMin).toFixed(2)+"°)") //le texte change
+            id_display_val.color="red"//couleur du texte
         }
         else
         {
-            id_digit_tang.text=qsTr(valeur.toFixed(2)+"°") //le texte change
-            id_digit_tang.color="black" // couleur du texte
+            id_display_val.text=qsTr(valeur.toFixed(2)+"°") //le texte change
+            id_display_val.color="black" // couleur du texte
         }
 
+    }
 
-
-
+    function affichageValeur (valeur)
+    {
+        id_display_val.text=qsTr(valeur.toFixed(2)+"°") //le texte change
     }
 }
