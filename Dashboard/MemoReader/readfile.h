@@ -14,15 +14,16 @@ public:
 
     readfile(QObject *parent = nullptr);
 
+    //méthode invocable par le composant QML
      Q_INVOKABLE void setFileUrl(QString NewFileUrl);
      Q_INVOKABLE void readFileLineData(int);
-//     Q_INVOKABLE void readFileLineByLine();
      Q_INVOKABLE void loadAllFile();
      Q_INVOKABLE QString readDataFile(int,int);
      Q_INVOKABLE void initReading();
      Q_INVOKABLE bool openFile();
      Q_INVOKABLE void closeFile();
 
+    //Propriété invocables par le composant QML
     Q_PROPERTY(float getValMemoTempo READ getValMemoTempo)
     Q_PROPERTY(float getValTangageSeuilMax READ getValTangageSeuilMax)
     Q_PROPERTY(float getValTangageSeuilMin READ getValTangageSeuilMin)
