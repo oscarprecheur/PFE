@@ -134,6 +134,11 @@ ApplicationWindow
 
                     id_display_val_vitesse.affichageValeur(file.getValVitesseVal)//appel de la fonctno affichageValeur de id_display_val_vitesse pour affichage de la valeur de vitesse instantannée
 
+                    id_tendance_vitesse_augmente.tendance(file.getValVitesseTend)
+                    id_tendance_vitesse_diminue.tendance(file.getValVitesseTend)
+
+
+
                 }
             }
         }
@@ -511,7 +516,7 @@ ApplicationWindow
                     id: id_text_instantanee
                     visible: true
                     text: qsTr("INSTANTANEE")
-                    color: "white"
+                    color: "#E85454"
                     font
                     {
                         pixelSize:parent.height/10
@@ -542,6 +547,8 @@ ApplicationWindow
                     {
                         id : id_display_val_vitesse
 
+                        color : "#E85454"
+
                         anchors
                         {
                             horizontalCenter: parent.horizontalCenter
@@ -570,6 +577,16 @@ ApplicationWindow
                     {
                         top:parent.top
                         right:parent.right
+                    }
+
+                    FlecheHaut
+                    {
+                        id:id_tendance_vitesse_augmente
+                    }
+
+                    FlecheBas
+                    {
+                        id:id_tendance_vitesse_diminue
                     }
 
 
