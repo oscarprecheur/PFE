@@ -129,8 +129,11 @@ ApplicationWindow
                     id_fleche_tangage_gauche.tendance(file.getValTangageTend) //appel de la fonction tendance de id_fleche_tangage_gauche prend en paramètre la valeur de la tendance du gite (0 1 ou 2)
                     id_fleche_tangage_droite.tendance(file.getValTangageTend) //appel de la fonction tendance de id_fleche_tangage_droite prend en paramètre la valeur de la tendance du gite (0 1 ou 2)
 
-                    id_display_val_gite.affichageValeur(file.getValGiteVal,file.getValGiteSeuilMax,file.getValGiteSeuilMin) //appel de la fonction affichageValeur de id_display_val_gite prend en paramètre la valeur du gite ainsi que le sdeux seuil
-                    id_display_val_tangage.affichageValeur(file.getValTangageVal,file.getValTangageSeuilMax,file.getValTangageSeuilMin) //appel de la fonction affichageValeur de id_display_val_tangage prend en paramètre la valeur du tangage ainsi que le sdeux seuil
+                    id_display_val_gite.affichageValeurAvecSeuil(file.getValGiteVal,file.getValGiteSeuilMax,file.getValGiteSeuilMin) //appel de la fonction affichageValeur de id_display_val_gite prend en paramètre la valeur du gite ainsi que le sdeux seuil
+                    id_display_val_tangage.affichageValeurAvecSeuil(file.getValTangageVal,file.getValTangageSeuilMax,file.getValTangageSeuilMin) //appel de la fonction affichageValeur de id_display_val_tangage prend en paramètre la valeur du tangage ainsi que le sdeux seuil
+
+                    id_display_val_vitesse.affichageValeur(file.getValVitesseVal)//appel de la fonctno affichageValeur de id_display_val_vitesse pour affichage de la valeur de vitesse instantannée
+
                 }
             }
         }
@@ -485,6 +488,162 @@ ApplicationWindow
                     bottom:parent.bottom
                     horizontalCenter:parent.horizontalCenter
                  }
+            }
+
+            //DIvision de la case en 3 pour acceuillir les 3 types de données
+            Rectangle
+            {
+                id: id_case31_area
+
+                width: parent.width //larguer du parent
+                height : parent.height/2 //hautre du parent/3
+
+                color: "transparent" //couleur test
+
+                anchors //placement en haut au centre
+                {
+                    top:parent.top
+                    horizontalCenter:parent.horizontalCenter
+                }
+
+                Text
+                {
+                    id: id_text_instantanee
+                    visible: true
+                    text: qsTr("INSTANTANEE")
+                    color: "white"
+                    font
+                    {
+                        pixelSize:parent.height/10
+                    }
+                    anchors
+                    {
+                        top:parent.top
+                        horizontalCenter:parent.horizontalCenter
+                     }
+                }
+
+                Rectangle
+                {
+                    id: id_case311_area
+
+                    width: parent.width/2 //larguer du parent
+                    height : parent.height //hautre du parent/3
+
+                    color: "transparent" //couleur test
+
+                    anchors //placement en haut au centre
+                    {
+                        top:parent.top
+                        left:parent.left
+                    }
+
+                    DisplayValeur
+                    {
+                        id : id_display_val_vitesse
+
+                        anchors
+                        {
+                            horizontalCenter: parent.horizontalCenter
+                            verticalCenter: parent.verticalCenter
+
+                        }
+
+                        font
+                        {
+                            pixelSize:parent.height/5
+                        }
+
+                    }
+                }
+
+                Rectangle
+                {
+                    id: id_case312_area
+
+                    width: parent.width/2 //larguer du parent
+                    height : parent.height //hautre du parent/3
+
+                    color: "transparent" //couleur test
+
+                    anchors //placement en haut au centre
+                    {
+                        top:parent.top
+                        right:parent.right
+                    }
+
+
+                }
+
+
+            }
+
+            Rectangle
+            {
+                id: id_case32_area
+
+
+                width: parent.width/2 //larguer du parent
+                height : parent.height/2 //hautre du parent/3
+
+                color: "transparent" //couleur test
+
+                anchors //placement en haut au centre
+                {
+                    top:id_case31_area.bottom //ancrage haut au bas de id_case3A_area
+                    left:parent.left//ancrage du coté gauche au coté gauche du parent
+                }
+
+                Text
+                {
+                    id: id_text_moy
+                    visible: true
+                    text: qsTr("MOY")
+                    color: "white"
+                    font
+                    {
+                        pixelSize:parent.height/10
+                    }
+                    anchors
+                    {
+                        top:parent.top
+                        horizontalCenter:parent.horizontalCenter
+                     }
+                }
+
+            }
+
+            Rectangle
+            {
+                id: id_case33_area
+
+                width: parent.width/2 //larguer du parent
+                height : parent.height/2 //hautre du parent/3
+
+                color: "transparent" //couleur test
+
+                anchors //placement en haut au centre
+                {
+                    top:id_case31_area.bottom //ancrage haut au bas de id_case3A_area
+                    right:parent.right//ancrage du coté gauche au coté gauche du parent
+                }
+
+                Text
+                {
+                    id: id_text_max
+                    visible: true
+                    text: qsTr("MAX")
+                    color: "white"
+                    font
+                    {
+                        pixelSize:parent.height/10
+                    }
+                    anchors
+                    {
+                        top:parent.top
+                        horizontalCenter:parent.horizontalCenter
+                     }
+                }
             }
 
 
