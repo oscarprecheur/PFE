@@ -477,23 +477,6 @@ ApplicationWindow
                 top:parent.top
             }
 
-            Text //NOM CASE
-            {
-                id: id_text_vitesse
-                visible: true
-                text: qsTr("VITESSE")
-                color: "white"
-                font
-                {
-                    pixelSize:id_HA_tangage.height/10
-                    bold:true
-                }
-                anchors
-                {
-                    bottom:parent.bottom
-                    horizontalCenter:parent.horizontalCenter
-                 }
-            }
 
             //DIvision de la case en 3 pour acceuillir les 3 types de données
             Rectangle
@@ -535,7 +518,7 @@ ApplicationWindow
                     width: parent.width/2 //larguer du parent
                     height : parent.height //hautre du parent/3
 
-                    color: "transparent" //couleur test
+                    color: "transparent"
 
                     anchors //placement en haut au centre
                     {
@@ -571,7 +554,7 @@ ApplicationWindow
                     width: parent.width/2 //larguer du parent
                     height : parent.height //hautre du parent/3
 
-                    color: "transparent" //couleur test
+                    color: "transparent"
 
                     anchors //placement en haut au centre
                     {
@@ -603,7 +586,7 @@ ApplicationWindow
                 width: parent.width/2 //larguer du parent
                 height : parent.height/2 //hautre du parent/3
 
-                color: "transparent" //couleur test
+                color: "#0C4B5A"
 
                 anchors //placement en haut au centre
                 {
@@ -616,7 +599,7 @@ ApplicationWindow
                     id: id_text_moy
                     visible: true
                     text: qsTr("MOY")
-                    color: "white"
+                    color: "#31BA47"
                     font
                     {
                         pixelSize:parent.height/10
@@ -628,6 +611,26 @@ ApplicationWindow
                      }
                 }
 
+                DisplayValeur
+                {
+                    id : id_display_moy_vitesse
+
+                    color : "#31BA47"
+
+                    anchors
+                    {
+                        horizontalCenter: parent.horizontalCenter
+                        verticalCenter: parent.verticalCenter
+
+                    }
+
+                    font
+                    {
+                        pixelSize:parent.height/10
+                    }
+
+                }
+
             }
 
             Rectangle
@@ -637,7 +640,7 @@ ApplicationWindow
                 width: parent.width/2 //larguer du parent
                 height : parent.height/2 //hautre du parent/3
 
-                color: "transparent" //couleur test
+                 color: "#0C4B5A" //couleur test
 
                 anchors //placement en haut au centre
                 {
@@ -650,7 +653,7 @@ ApplicationWindow
                     id: id_text_max
                     visible: true
                     text: qsTr("MAX")
-                    color: "white"
+                    color: "#31BA47"
                     font
                     {
                         pixelSize:parent.height/10
@@ -661,6 +664,44 @@ ApplicationWindow
                         horizontalCenter:parent.horizontalCenter
                      }
                 }
+
+                DisplayValeur
+                {
+                    id : id_display_max_vitesse
+
+                    color : "#31BA47"
+
+                    anchors
+                    {
+                        horizontalCenter: parent.horizontalCenter
+                        verticalCenter: parent.verticalCenter
+
+                    }
+
+                    font
+                    {
+                        pixelSize:parent.height/10
+                    }
+
+                }
+            }
+
+            Text //NOM CASE
+            {
+                id: id_text_vitesse
+                visible: true
+                text: qsTr("VITESSE")
+                color: "white"
+                font
+                {
+                    pixelSize:id_HA_tangage.height/10
+                    bold:true
+                }
+                anchors
+                {
+                    bottom:parent.bottom
+                    horizontalCenter:parent.horizontalCenter
+                 }
             }
 
 
