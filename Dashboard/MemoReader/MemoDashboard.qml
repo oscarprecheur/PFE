@@ -18,7 +18,7 @@ ApplicationWindow
     visible:false
     width: 1080
     height: 720
-    color:"#f29d52"
+    color:"#004B5D"
 
     property real intervalTimer: 1
     property real sizeDataFile :1
@@ -277,7 +277,7 @@ ApplicationWindow
                     }
                 }
 
-                Text
+                Text //NOM CASE
                 {
                     id: id_text_gite
                     visible: true
@@ -474,6 +474,25 @@ ApplicationWindow
                 bottom:parent.bottom
             }
 
+            Text //NOM CASE
+            {
+                id: id_text_case4
+                visible: true
+                text: qsTr("<CASE 4>")
+                color: "white"
+                font
+                {
+                    pixelSize:id_HA_tangage.height/10
+                    bold:true
+                }
+                anchors
+                {
+                    bottom:parent.bottom
+                    horizontalCenter:parent.horizontalCenter
+                }
+
+            }
+
 
 
 
@@ -494,6 +513,24 @@ ApplicationWindow
                 horizontalCenter:parent.horizontalCenter
                 bottom:parent.bottom
             }
+            Text //NOM CASE
+            {
+                id: id_text_case5
+                visible: true
+                text: qsTr("<CASE 5>")
+                color: "white"
+                font
+                {
+                    pixelSize:id_HA_tangage.height/10
+                    bold:true
+                }
+                anchors
+                {
+                    bottom:parent.bottom
+                    horizontalCenter:parent.horizontalCenter
+                }
+
+            }
 
 
 
@@ -513,6 +550,25 @@ ApplicationWindow
             {
                 right:parent.right
                 bottom:parent.bottom
+            }
+
+            Text //NOM CASE
+            {
+                id: id_text_case6
+                visible: true
+                text: qsTr("<CASE 6>")
+                color: "white"
+                font
+                {
+                    pixelSize:id_HA_tangage.height/10
+                    bold:true
+                }
+                anchors
+                {
+                    bottom:parent.bottom
+                    horizontalCenter:parent.horizontalCenter
+                }
+
             }
 
 
