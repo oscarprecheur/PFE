@@ -5,7 +5,7 @@
 #include <QQmlContext>
 #include <QtGui>
 
-#include "readfile.h"
+#include "readfile.h" //appel de la classe readfile
 
 int main(int argc, char *argv[])
 {
