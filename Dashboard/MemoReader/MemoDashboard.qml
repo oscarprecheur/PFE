@@ -84,31 +84,31 @@ ApplicationWindow
             color: "#00000000"
 
 
-            Timeline
+            Timeline //ligne de temps permet la mamnipulation du temps de l'entrainement
             {
                 id:id_timeline
 
-                implicitWidth: id_MemoDashboard.width/1.5
+                implicitWidth: id_MemoDashboard.width/1.5 //largeur = largeur de id_MemoDashboard/1.5
 
-                onValueChanged:
+                onValueChanged: // lorsque l'evenement onValueChanged est vrai ( la valeur de la timeline change)
                 {
                     file.readFileLineData(id_timeline.value) //lecture de la ligne de données correspondant à la valeur de la timeline (en prenant en compte les premiere ligne du fichier)
                     id_time_display.text=file.getValTime.toFixed(2) //Affichage du temps correspondant à la ligne lue
 
-                    id_bateau_face.rotation=file.getValGiteVal
-                    id_bateau_cote.rotation=file.getValTangageVal
+                    id_bateau_face.rotation=file.getValGiteVal //acquisition de la valeur de gite -> rotation id_ateau_face
+                    id_bateau_cote.rotation=file.getValTangageVal //acquisition de la valeur de tanagage -> rotation id_bateau_cote
 
-                    id_HA_gite.color_HA(file.getValGiteVal,file.getValGiteSeuilMax,file.getValGiteSeuilMin)
-                    id_HA_tangage.color_HA(file.getValTangageVal,file.getValTangageSeuilMax,file.getValTangageSeuilMin)
+                    id_HA_gite.color_HA(file.getValGiteVal,file.getValGiteSeuilMax,file.getValGiteSeuilMin) //appel de la fonction color_HA de id_HA_gite prend en paramètre la valeur du gite ainsi que le sdeux seuil
+                    id_HA_tangage.color_HA(file.getValTangageVal,file.getValTangageSeuilMax,file.getValTangageSeuilMin) //appel de la fonction color_HA de id_HA_tangage prend en paramètre la valeur du tangage ainsi que le sdeux seuil
 
-                    id_fleche_gite_gauche.tendance(file.getValGiteTend)
-                    id_fleche_gite_droite.tendance(file.getValGiteTend)
+                    id_fleche_gite_gauche.tendance(file.getValGiteTend) //appel de la fonction tendance de id_fleche_gite_gauche prend en paramètre la valeur de la tendance du gite (0 1 ou 2)
+                    id_fleche_gite_droite.tendance(file.getValGiteTend) //appel de la fonction tendance de id_fleche_gite_droite prend en paramètre la valeur de la tendance du gite (0 1 ou 2)
 
-                    id_fleche_tangage_gauche.tendance(file.getValTangageTend)
-                    id_fleche_tangage_droite.tendance(file.getValTangageTend)
+                    id_fleche_tangage_gauche.tendance(file.getValTangageTend) //appel de la fonction tendance de id_fleche_tangage_gauche prend en paramètre la valeur de la tendance du gite (0 1 ou 2)
+                    id_fleche_tangage_droite.tendance(file.getValTangageTend) //appel de la fonction tendance de id_fleche_tangage_droite prend en paramètre la valeur de la tendance du gite (0 1 ou 2)
 
-                    id_display_val_gite.affichageValeur(file.getValGiteVal,file.getValGiteSeuilMax,file.getValGiteSeuilMin)
-                    id_display_val_tangage.affichageValeur(file.getValTangageVal,file.getValTangageSeuilMax,file.getValTangageSeuilMin)
+                    id_display_val_gite.affichageValeur(file.getValGiteVal,file.getValGiteSeuilMax,file.getValGiteSeuilMin) //appel de la fonction affichageValeur de id_display_val_gite prend en paramètre la valeur du gite ainsi que le sdeux seuil
+                    id_display_val_tangage.affichageValeur(file.getValTangageVal,file.getValTangageSeuilMax,file.getValTangageSeuilMin) //appel de la fonction affichageValeur de id_display_val_tangage prend en paramètre la valeur du tangage ainsi que le sdeux seuil
                 }
             }
         }
@@ -182,9 +182,8 @@ ApplicationWindow
 
 
                 id_timeline.increase() //incrementation de la timeline à chaque coup d'horloge
-                console.log(id_timeline.value)
 
-                if(id_timeline.value==sizeDataFile-1)
+                if(id_timeline.value==sizeDataFile-1)//arret automatique du timer à la fin de la timeline
                     id_timer.running=false
 
             }
