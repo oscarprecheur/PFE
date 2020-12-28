@@ -207,7 +207,7 @@ ApplicationWindow
         color: "#00000000"
         z:0
 
-        Rectangle
+        Rectangle //VISU GITE ---------------------------------
         {
             id: id_visu_gite_area
 
@@ -271,10 +271,29 @@ ApplicationWindow
 
                     anchors
                     {
-                        bottom:parent.bottom
+                        bottom:id_text_gite.top
                         horizontalCenter:parent.horizontalCenter
                         bottomMargin:parent.width/20
                     }
+                }
+
+                Text
+                {
+                    id: id_text_gite
+                    visible: true
+                    text: qsTr("GITE")
+                    color: "white"
+                    font
+                    {
+                        pixelSize:id_HA_tangage.height/10
+                        bold:true
+                    }
+                    anchors
+                    {
+                        bottom:parent.bottom
+                        horizontalCenter:parent.horizontalCenter
+                    }
+
                 }
 
                 FlecheGauche
@@ -299,7 +318,7 @@ ApplicationWindow
 
         }
 
-        Rectangle
+        Rectangle //VALEUR GITE -----------------------------------
         {
             id: id_value_gite_area
 
@@ -314,30 +333,13 @@ ApplicationWindow
                 bottom:parent.bottom
             }
 
-            Text
-            {
-                id: id_text_gite
-                visible: true
-                text: qsTr("GITE")
-                color: "white"
-                font
-                {
-                    pixelSize:id_HA_tangage.height/10
-                    bold:true
-                }
-                anchors
-                {
-                    top:parent.top
-                    horizontalCenter:parent.horizontalCenter
-                }
 
-            }
 
 
 
         }
 
-        Rectangle
+        Rectangle //VISU TANGAGE-------------------------------
         {
             id: id_visu_tangage_area
 
@@ -392,6 +394,24 @@ ApplicationWindow
                     }
                 }
 
+                Text
+                {
+                    id: id_text_tangage
+                    visible: true
+                    text: qsTr("TANGAGE")
+                    color: "white"
+                    font
+                    {
+                        pixelSize:id_HA_tangage.height/10
+                        bold:true
+                    }
+                    anchors
+                    {
+                        bottom:parent.bottom
+                        horizontalCenter:parent.horizontalCenter
+                    }
+                }
+
 
                 DisplayValeur
                 {
@@ -399,7 +419,7 @@ ApplicationWindow
 
                     anchors
                     {
-                        bottom:parent.bottom
+                        bottom:id_text_tangage.top
                         horizontalCenter:parent.horizontalCenter
                         bottomMargin:parent.width/20
                     }
@@ -423,7 +443,7 @@ ApplicationWindow
             }
         }
 
-        Rectangle
+        Rectangle //VALEUR TANGAGE---------------------------
         {
             id: id_value_tangage_area
 
@@ -439,34 +459,16 @@ ApplicationWindow
             }
 
 
-            Text
-            {
-                id: id_text_tangage
-                visible: true
-                text: qsTr("TANGAGE")
-                color: "white"
-                font
-                {
-                    pixelSize:id_HA_tangage.height/10
-                    bold:true
-                }
-                anchors
-                {
-                    top:parent.top
-                    horizontalCenter:parent.horizontalCenter
-                }
-            }
-
-
 
 
         }
 
-        Rectangle
+        Rectangle //VISU VITESSE ------------------------------
         {
+
             id: id_visu_vitesse_area
 
-            color: "#f29d52"
+            color: "#0F596A"
 
             height: parent.height/2
             width  : parent.height/2
@@ -492,10 +494,31 @@ ApplicationWindow
                 {
                     bottom:parent.bottom
                     horizontalCenter:parent.horizontalCenter
-                    bottomMargin:parent.width/20
-                }
+                 }
             }
+
+
         }
+
+        Rectangle //VALEUR VITESSE---------------------------
+        {
+            id: id_value_vitesse_area
+
+            color: "#f29d52"
+
+            height: parent.height/2
+            width  : parent.height/2
+
+            anchors
+            {
+                right:parent.right
+                bottom:parent.bottom
+            }
+
+
+
+        }
+
     }
 
 
