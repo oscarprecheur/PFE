@@ -207,9 +207,9 @@ ApplicationWindow
         color: "#00000000"
         z:0
 
-        Rectangle //VISU GITE ---------------------------------
+        Rectangle //CASE 1 : VISU GITE ---------------------------------
         {
-            id: id_visu_gite_area
+            id: id_case1area
 
             color: "#f29d52"
 
@@ -318,30 +318,9 @@ ApplicationWindow
 
         }
 
-        Rectangle //VALEUR GITE -----------------------------------
+        Rectangle //CASE 2: VISU TANGAGE-------------------------------
         {
-            id: id_value_gite_area
-
-            color: "#f29d52"
-
-            height: parent.height/2
-            width  : parent.height/2
-
-            anchors
-            {
-                left:parent.left
-                bottom:parent.bottom
-            }
-
-
-
-
-
-        }
-
-        Rectangle //VISU TANGAGE-------------------------------
-        {
-            id: id_visu_tangage_area
+            id: id_case2_area
 
             color: "#f29d52"
 
@@ -443,30 +422,10 @@ ApplicationWindow
             }
         }
 
-        Rectangle //VALEUR TANGAGE---------------------------
-        {
-            id: id_value_tangage_area
-
-            color: "#f29d52"
-
-            height: parent.height/2
-            width  : parent.height/2
-
-            anchors
-            {
-                horizontalCenter:parent.horizontalCenter
-                bottom:parent.bottom
-            }
-
-
-
-
-        }
-
-        Rectangle //VISU VITESSE ------------------------------
+        Rectangle // CASE 3: VISU VITESSE ------------------------------
         {
 
-            id: id_visu_vitesse_area
+            id: id_case3_area
 
             color: "#0F596A"
 
@@ -500,9 +459,50 @@ ApplicationWindow
 
         }
 
-        Rectangle //VALEUR VITESSE---------------------------
+        Rectangle //CASE 4: ? -----------------------------------
         {
-            id: id_value_vitesse_area
+            id: id_case4_area
+
+            color: "#f29d52"
+
+            height: parent.height/2
+            width  : parent.height/2
+
+            anchors
+            {
+                left:parent.left
+                bottom:parent.bottom
+            }
+
+
+
+
+
+        }
+
+        Rectangle //CASE 5: ? ---------------------------
+        {
+            id: id_case5_area
+
+            color: "#f29d52"
+
+            height: parent.height/2
+            width  : parent.height/2
+
+            anchors
+            {
+                horizontalCenter:parent.horizontalCenter
+                bottom:parent.bottom
+            }
+
+
+
+
+        }
+
+        Rectangle //CASE 6: ?---------------------------
+        {
+            id: id_case6_area
 
             color: "#f29d52"
 
