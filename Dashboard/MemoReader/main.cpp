@@ -9,16 +9,16 @@
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    QApplication app(argc, argv);
 
-    qmlRegisterType<readfile>("READ.FILE",1,0,"READFILE");
+    QApplication app(argc, argv);//Instanciation de l'application
 
-    QQmlApplicationEngine engine;
-    QQmlComponent component(&engine, QUrl(QLatin1String("qrc:/MemoDashboard.qml")));
+    qmlRegisterType<readfile>("READ.FILE",1,0,"READFILE"); // creation du registre qml READFILE permetant d'acceder au fonctino de la clase readFile
+
+    QQmlApplicationEngine engine; //Création du moteur de l'applciation
+    QQmlComponent component(&engine, QUrl(QLatin1String("qrc:/MemoDashboard.qml")));//Instanciation du composant qml MemoDashboard grace au moteur crée
 
 
-    component.create();
+    component.create(); //création du composant
 
-    return app.exec();
+    return app.exec(); // lancement de l'application
 }
