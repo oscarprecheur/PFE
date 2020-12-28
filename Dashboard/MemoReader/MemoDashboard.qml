@@ -33,20 +33,26 @@ ApplicationWindow
 
     FileDialog //BOITE DE DIALOGUE CHOIX FICHIER
     {
-        id: fileDialog
-        title: "Please choose a file"
-        folder: shortcuts.home
-        onAccepted: {
-            console.log("You chose: " + fileDialog.fileUrls)
-            id_MemoDashboard.visible=true
+        //Affichage d'une boite de dialogue de choix d'un fichier à ouvrir pour la lecture des données
 
-            file.setFileUrl(fileDialog.fileUrls.toString())
-            file.loadAllFile()
-            file.initReading()
-            sizeDataFile=file.getNbDataLine
-            console.log(sizeDataFile)
-            id_timeline.to=sizeDataFile-1
-            intervalTimer=file.getValMemoTempo
+        id: fileDialog
+
+        title: "Choix fichier d'entrainement" //Nom de la fenêtre
+
+        folder: shortcuts.home //repertoire d'ouverture de la fiche de dialogue
+
+        onAccepted: //lorsque le bouton accepter est cliqué
+        {
+            //console.log("You chose: " + fileDialog.fileUrls)
+            id_MemoDashboard.visible=true //Affichage de l'interface
+
+            file.setFileUrl(fileDialog.fileUrls.toString())//appel de la fonction setFileIrl de file (lecture de l'url du fichier choisi)
+            file.loadAllFile()//appel de la fonction loadAllFile de file , lecture du fichier en entier
+            file.initReading()//appel de la fonction initReading de file , acquisition des données relative au fonctionnement de l'enregistrement de données
+            sizeDataFile=file.getNbDataLine//lecture du nombre de ligne de données avec getNbDataLine de file
+            //console.log(sizeDataFile)
+            id_timeline.to=sizeDataFile-1//adaptation de la taille de la timeline en fonction du nombre de ligne
+            intervalTimer=file.getValMemoTempo//adaptation de l'intervald e temps du timer de lecture en fontino de l'interval de temps de memorisation
 
 
 
@@ -59,25 +65,35 @@ ApplicationWindow
 
     Rectangle{ // PARTIE COMMANDE------------------------------------------------------------------------------------------------
 
+        //case incluant toute les commandes de la lecture
+
         id:id_command_area
+
+        //taille du parent
         width: parent.width
         height: parent.height
+
+        //rectangle transparent
         border.color: "#00000000"
         color: "#00000000"
+
+        //rectange à la couche 1 (premier plan)
         z:1
 
 
         Rectangle //TIMELINE
         {
-            id:id_timeline_area
+            id:id_timeline_area //case incluant la timeline
+
+            //prend la taille de la timeline
             width: id_timeline.width
             height: id_timeline.height
 
             anchors
             {
-                horizontalCenter:parent.horizontalCenter
-                bottom:parent.bottom
-                bottomMargin:parent.height/10
+                horizontalCenter:parent.horizontalCenter //allignement milieur horizotale du parent
+                bottom:parent.bottom //ancrage du bas au bas du parent
+                bottomMargin:parent.height/10 //marge du bas = hauteur du parent/10
 
             }
             border.color: "#00000000"
@@ -119,16 +135,16 @@ ApplicationWindow
             id:id_play_pause_button
             anchors
             {
-                left: parent.left
-                bottom: parent.bottom
-                leftMargin: parent.width/20
-                bottomMargin: parent.height/10
+                left: parent.left //ancrage du coté gauche au coté gauche du composant parent
+                bottom: parent.bottom //ancrage du bas au bas du composant parent
+                leftMargin: parent.width/20 //largeur = largeur du parent/20
+                bottomMargin: parent.height/10 //hateur = hauteur du parent /20
             }
-            text: "Play"
+            text: "Play"//text présent dans le boutton
 
-            onClicked:
+            onClicked: //lorque le bouton est cliqué
             {
-                if (id_timer.running==false)
+                if (id_timer.running==false) // lancement du timer de lecture s'il n'est pas lancé sinon arret du timer
                 {
 
                     id_timer.running=true
@@ -143,31 +159,34 @@ ApplicationWindow
 
         Rectangle // AFFICHAGE TEMPS
         {
-            id: id_time_display_area
+            id: id_time_display_area //case incluant le texte
             anchors
             {
-                verticalCenter:id_timeline_area.verticalCenter
-                left:id_timeline_area.right
-                leftMargin: parent.width/30
+                verticalCenter:id_timeline_area.verticalCenter //allignement du centre vertical au centre vertical de la timeline
+                left:id_timeline_area.right //ancrage du coté gauche au coté droit de la timeline
+                leftMargin: parent.width/30 //marge de gauche = larguer du parent/30
             }
 
+            //prend la taille du texte de temps
             width:  id_time_display.paintedWidth
             height: id_time_display.paintedHeight
+
+            //rectangle transparent
             border.color: "#00000000"
             color: "#00000000"
 
-            DigitTime
+            DigitTime //APpel du compoasant DigitTime : afficahge du temps présent correspondant à la ligne lue
             {
                 id: id_time_display
                 horizontalAlignment: Text.AlignHCenter
 
-                anchors
+                anchors//alligné au centre du parent
                 {
                     horizontalCenter: parent.horizontalCenter
                     verticalCenter: parent.verticalCenter
 
                 }
-                font.pixelSize: id_MemoDashboard.height/30
+                font.pixelSize: id_MemoDashboard.height/30 //taille de police = hauteur de id_MemoDashboard/30
 
             }
 
@@ -177,7 +196,7 @@ ApplicationWindow
         {
             id:id_timer
             interval:intervalTimer ; running:false;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
-            onTriggered:
+            onTriggered: //à cahque coup d'horloge
             {
 
 
