@@ -15,6 +15,7 @@ Rectangle
         id: eau
         x: 0
         y: ciel.height
+        color:"#03738C"
 
 
 
@@ -27,6 +28,7 @@ Rectangle
         id: ciel
         x: 0
         y: 0
+        color:"#f29d52"
 
 
         width: parent.width
