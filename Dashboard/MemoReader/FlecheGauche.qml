@@ -2,6 +2,7 @@ import QtQuick 2.0
 
 Rectangle {
 
+    id: tendance_area
     anchors
     {
         left:parent.left
@@ -14,16 +15,6 @@ Rectangle {
     color: "#00000000"
     width:parent.width/10
 
-    Rectangle
-    {
-       id:id_Tendance_Gauche_Area
-
-       clip:false
-       border.color: "#00000000"
-       color: "#00000000"
-
-       height:parent.height
-       width:parent.width
     Image {
         id: id_Tendance_Gauche
 
@@ -32,7 +23,6 @@ Rectangle {
         source: "Visu/Tendance/Gauche.svg"
         fillMode: Image.PreserveAspectFit
     }
-    }
 
     function tendance(valTendance)
     {
@@ -40,12 +30,12 @@ Rectangle {
         if (valTendance===0)
         {
 
-            id_Tendance_Gauche_Area.visible=true
+            tendance_area.visible=true
         }
         else
         {
 
-            id_Tendance_Gauche_Area.visible=false
+            tendance_area.visible=false
         }
     }
 
