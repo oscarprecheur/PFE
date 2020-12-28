@@ -1,13 +1,13 @@
 import QtQuick 2.7
 import QtQuick.Controls 1.0
-import READ.FILE 1.0
+import READ.FILE 1.0 //registre permettant d'avoir accés à la classe readfile
 import QtQuick.Layouts 1.0
 import QtQuick.Dialogs 1.0
 
 
 
 
-
+//Description de l'interface graphique de lecture des données enregistrées lors de l'execution d'un entrainement avec le Reader
 
 
 
@@ -15,18 +15,22 @@ ApplicationWindow
 {
     id: id_MemoDashboard
 
-    visible:false
+    visible:false //la fenetre de l'interface ne s'affiche pas immédiateemnt
+    // taille de la fenetre à définir
     width: 1080
     height: 720
+
+    //couleur de l'arriere plan
     color:"#004B5D"
 
+    //instanciation des variable d'interval du timer de lecture et du nombre de ligne contenu dans le fichier lu
     property real intervalTimer: 1
     property real sizeDataFile :1
 
 
 
 
-    READFILE
+    READFILE //ajour du registre READ File permet d'avoir accés aux fonction Q_INVOKABLE et aux Q_PROPERTY de la classe readfile
     {
         id:file
     }
@@ -44,7 +48,7 @@ ApplicationWindow
         onAccepted: //lorsque le bouton accepter est cliqué
         {
             //console.log("You chose: " + fileDialog.fileUrls)
-            id_MemoDashboard.visible=true //Affichage de l'interface
+            id_MemoDashboard.visible=true //Affichage de l'interface graphique
 
             file.setFileUrl(fileDialog.fileUrls.toString())//appel de la fonction setFileIrl de file (lecture de l'url du fichier choisi)
             file.loadAllFile()//appel de la fonction loadAllFile de file , lecture du fichier en entier
@@ -57,10 +61,10 @@ ApplicationWindow
 
 
         }
-        onRejected: {
-            console.log("Canceled")
+        onRejected: { //lorsque le bouton annuler est cliqué
+            //console.log("Canceled")
         }
-        Component.onCompleted: visible = true
+        Component.onCompleted: visible = true // affichage du composant boite de dialogue
     }
 
     Rectangle{ // PARTIE COMMANDE------------------------------------------------------------------------------------------------
@@ -96,6 +100,8 @@ ApplicationWindow
                 bottomMargin:parent.height/10 //marge du bas = hauteur du parent/10
 
             }
+
+            //rectangle transparent
             border.color: "#00000000"
             color: "#00000000"
 
@@ -130,7 +136,7 @@ ApplicationWindow
         }
 
 
-        PlayPauseButton // BOUTON DEBUT/FIN ENTRAINEMENT
+        PlayPauseButton //BOUTON PLAY/PAUSE : Appel du composant PlayPauseButton
         {
             id:id_play_pause_button
             anchors
@@ -212,26 +218,37 @@ ApplicationWindow
 
     Rectangle{ // PARTIE  VISUALISATION------------------------------------------------------------------------------------------------
 
+        //Partie visualisation : regroupe tous les composants permettant la visualisation de la lecture des données, composée de 6 cases dont trois utilisés pour le tagage la gite et la vitesse, 3 autres
+        //sont prevu pour la visualisation de données suplémentaires si besoin
+        //les casqe sont numérotées de 1 à 6
+
         id:id_interface_area
+
+        //l'aire ou vont se positionner les cases a la meme taile que le composant parent
         width: parent.width
         height: parent.height
+
+        //rectangle transparent
         border.color: "#00000000"
         color: "#00000000"
+
+        //couche 0 , arriere plan
         z:0
 
         Rectangle //CASE 1 : VISU GITE ---------------------------------
         {
-            id: id_case1_area
+            id: id_case1_area //La case 1 est dédié à la visualisation de la gite
 
-            color: "#f29d52"
+            color: "#f29d52" //couleur de fond
 
+            //taille de la case = carrée de coté de longueur de hautre de parent /2
             height: parent.height/2
             width  : parent.height/2
 
-            anchors
+            anchors //positionnement
             {
-                left:parent.left
-                top:parent.top
+                left:parent.left //à gauche
+                top:parent.top //en haut
             }
 
             HorizonArtificiel //Appel du composant horizon artificiel
@@ -242,18 +259,18 @@ ApplicationWindow
                 Text //affichage texte indication tribord
                 {
                     id: id_text_tribord
-                    visible: true
-                    text: qsTr("TRI")
-                    color: "green"
-                    font
+                    visible: true //visibilité
+                    text: qsTr("TRI")//compositino du texte
+                    color: "green" //couleur du text
+                    font //taille de la police
                     {
                         pixelSize:id_HA_tangage.height/10
                     }
                     anchors
                     {
-                        top:parent.top
-                        right:parent.right
-                        rightMargin:parent.width/10
+                        top:parent.top //en haute
+                        right:parent.right // à droite
+                        rightMargin:parent.width/10 // marge de largeur de parent /10
                     }
                 }
 
@@ -270,7 +287,7 @@ ApplicationWindow
                     anchors
                     {
                         top:parent.top
-                        left:parent.left
+                        left:parent.left //à gauche
                         leftMargin:parent.width/10
                     }
                 }
@@ -298,7 +315,7 @@ ApplicationWindow
                     font
                     {
                         pixelSize:id_HA_tangage.height/10
-                        bold:true
+                        bold:true //police en gras
                     }
                     anchors
                     {
@@ -472,6 +489,9 @@ ApplicationWindow
 
 
         }
+
+
+        //Les cases suivantes sont prêtes à être complétées par la visualisation de donénes supplémentaires
 
         Rectangle //CASE 4: ? -----------------------------------
         {

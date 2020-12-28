@@ -1,35 +1,48 @@
 import QtQuick 2.0
 
-        Text {
-            id: id_digit_tang
-            width: parent.width/10
-            height: parent.height/10
-            //color: "#e95454"
-            font.bold:true
-            text: qsTr("---.---")
-            font.pixelSize: parent.height/15
-            horizontalAlignment: Text.AlignHCenter
+//ce composant est un texte permetant d'afficher les valeurs de données mise en paramètre de la focntino affichageValeur
 
-            function affichageValeur(valeur,valeurMax,valeurMin)
-            {
-                if(valeur>valeurMax)
-                {
-                  id_digit_tang.text=qsTr(valeur.toFixed(2)+"°"+"(+"+(valeur-valeurMax).toFixed(2)+"°)")
-                  id_digit_tang.color="red"
-                }
-                else if (valeur<valeurMin)
-                {
-                    id_digit_tang.text=qsTr(valeur.toFixed(2)+"°"+"("+(valeur-valeurMin).toFixed(2)+"°)")
-                    id_digit_tang.color="red"
-                }
-                else
-                {
-                    id_digit_tang.text=qsTr(valeur.toFixed(2)+"°")
-                    id_digit_tang.color="black"
-                }
+Text {
 
 
+    id: id_digit_tang
+
+    //prend la taille du parent /10
+    width: parent.width/10
+    height: parent.height/10
 
 
-            }
+    font.bold:true//police en gras
+
+    text: qsTr("---.---")//texte d'initialisation
+
+    font.pixelSize: parent.height/15 //police prend la hauteur du parent/15
+
+    horizontalAlignment: Text.AlignHCenter//Texte aligné au centre
+
+    function affichageValeur(valeur,valeurMax,valeurMin)
+    //cette foncntion peret d'afficher les valeurs prises en paramètre. Elle recupère de plus
+    //les valeurs des seuils et affiche de combien ils sont dépassé lorsque c'est le cas
+
+    {
+        if(valeur>valeurMax) //si la valeur dépasse le seuil max
+        {
+            id_digit_tang.text=qsTr(valeur.toFixed(2)+"°"+"(+"+(valeur-valeurMax).toFixed(2)+"°)") // le texte change
+            id_digit_tang.color="red" //couleur du texte
         }
+        else if (valeur<valeurMin) //si la valeur dépasse le seuil min
+        {
+            id_digit_tang.text=qsTr(valeur.toFixed(2)+"°"+"("+(valeur-valeurMin).toFixed(2)+"°)") //le texte change
+            id_digit_tang.color="red"//couleur du texte
+        }
+        else
+        {
+            id_digit_tang.text=qsTr(valeur.toFixed(2)+"°") //le texte change
+            id_digit_tang.color="black" // couleur du texte
+        }
+
+
+
+
+    }
+}
