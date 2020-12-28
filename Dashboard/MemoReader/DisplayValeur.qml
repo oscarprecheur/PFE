@@ -45,6 +45,6 @@ Text {
 
     function affichageValeur (valeur)
     {
-        id_display_val.text=qsTr(valeur.toFixed(2)+"°") //le texte change
+        id_display_val.text=qsTr(valeur.toFixed(2)+" nd") //le texte change
     }
 }
