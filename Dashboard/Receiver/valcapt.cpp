@@ -44,6 +44,22 @@ void valcapt::init()
    //initialisation de l'etat d'entrainement
    onTraining=false;
 
+   //initialisation tableau de mémorisation pour le calcul dynamique de la vitesse moyenne sur nbIntervalMetreMoy;
+   nbIntervalMetreMoy=1;
+   nbMetreMoy=1;
+
+
+   //tabMoy.insert(0,0);
+
+
+   //DEBUGAGE A RETIRER--------------------------
+
+   //initNbMetreMoy(500);
+   //initNbIntervalMetreMoy(10);
+
+   //--------------------------------------------
+
+
    //connexion aux serveurs des données capteurs
 
    receiverTangage.Connexion(65430);
@@ -71,6 +87,7 @@ void valcapt::start()
     connect(&timerCapteur, SIGNAL(timeout()),this,SLOT(updateGite()));
     connect(&timerCapteur, SIGNAL(timeout()),this,SLOT(updateVitesse()));
     connect(&timerCapteur, SIGNAL(timeout()),this,SLOT(updateDistance()));
+    //connect(&timerCapteur, SIGNAL(timeout()),this,SLOT(addValueTabMoy()));
 
     //mise à jour des valeurs de tendance
 //    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTendanceTangage()));
@@ -152,6 +169,30 @@ void valcapt::updateDistance()
     //qDebug()<<"Taille"<<sizeof(valDistance);
     }
 }
+
+//void valcapt::addValueTabMoy()
+//{
+
+//    float sommeValVitesse=0;
+
+//        for(int cpt=tabMoy.size();cpt>0;cpt--)
+//        {
+//            tabMoy.insert(cpt,tabMoy[cpt-1]);
+//        }
+//        tabMoy.insert(0,valVitesse);
+
+//        while(tabMoy.first()-tabMoy.last()>nbMetreMoy)
+//        {
+//            tabMoy.erase(&tabMoy.last());
+//        }
+//        for(int cpt=0;cpt<tabMoy.size();cpt++)
+//        {
+//            sommeValVitesse=sommeValVitesse+tabMoy[cpt];
+//        }
+
+//        valVitesseMoy=sommeValVitesse/tabMoy.size();
+//        qDebug()<<"val moy  "<<valVitesseMoy;
+//}
 
 
 
@@ -295,6 +336,16 @@ Q_INVOKABLE void valcapt::initValTangageMin(float newval)
 {
     valTangageMin=newval;
 }
+
+//Q_INVOKABLE void valcapt::initNbMetreMoy(float newval)
+//{
+//    nbMetreMoy=newval;
+//}
+
+//Q_INVOKABLE void valcapt::initNbIntervalMetreMoy(float newval)
+//{
+//    nbIntervalMetreMoy=newval;
+//}
 
 Q_INVOKABLE void valcapt::lauchStopTraining()
 {

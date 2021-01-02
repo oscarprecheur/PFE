@@ -17,6 +17,7 @@
 #include <QTextStream>
 #include <QDate>
 #include <QTime>
+#include <QVector>
 
 #include <QMatrix>
 
@@ -105,6 +106,10 @@ public:
     Q_INVOKABLE void initDeltaTMemo(float);//temps de mémorisation des données en ms[A PARAMETER]
     Q_INVOKABLE void initDeltaTAquisition(float);//temps d'aquisition des données en ms[A PARAMETER]
 
+    //Q_INVOKABLE void initNbMetreMoy(float);
+    //Q_INVOKABLE void initNbIntervalMetreMoy(float);
+//    Q_INVOKABLE void initNbCaseTabMoy(float, float);
+
     Q_INVOKABLE void lauchStopTraining();//lancement du programme d'entrainement (mémorisation des données)
 
 
@@ -117,6 +122,8 @@ public slots:
    void updateGite();
    void updateVitesse();
    void updateDistance();
+
+   //void addValueTabMoy();
 
 
    void slotUpdateFile();
@@ -169,6 +176,11 @@ private:
     float valGiteMax;
     float valGiteMin;
 
+    float nbMetreMoy;
+    float nbIntervalMetreMoy;
+
+    QVector<float> tabMoy;
+    float valVitesseMoy;
 
    // 5) ----- ajout capteur : val<nom_val_nouv_capt>; -----
 
