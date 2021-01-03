@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1080 1080" style="enable-background:new 0 0 1080 1080;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:#091693;}
+	.st2{display:none;}
+	.st3{display:inline;fill:#424242;}
+	.st4{display:inline;}
+</style>
+<g id="Calque_1">
+	<g>
+		<path class="st0" d="M1043,539.8l-1006,0.5C36.9,262.5,262,37.2,539.8,37.1S1042.9,262,1043,539.8z"/>
+		<path class="st1" d="M1043,539.8c0.1,277.8-225,503.1-502.7,503.2c-277.8,0.1-503.1-225-503.2-502.7L1043,539.8z"/>
+	</g>
+</g>
+<g id="cadran" class="st2">
+	<path class="st3" d="M540,0C241.8,0,0,241.8,0,540s241.8,540,540,540s540-241.8,540-540S838.3,0,540,0z M539.3,1033.4
+		c-272.1,0-492.6-220.9-492.6-493.4S267.2,46.6,539.3,46.6s492.6,220.9,492.6,493.4S811.3,1033.4,539.3,1033.4z"/>
+	<g id="Calque_4" class="st4">
+		<rect x="199.5" y="530.5" width="25.2" height="19"/>
+		<rect x="149.1" y="530.5" width="25.2" height="19"/>
+		<rect x="250" y="530.5" width="25.2" height="19"/>
+		<rect x="98.6" y="530.5" width="25.2" height="19"/>
+		<rect x="48.2" y="530.5" width="25.2" height="19"/>
+		<rect x="451.7" y="530.4" width="25.2" height="19"/>
+		<rect x="401.3" y="530.4" width="25.2" height="19"/>
+		<rect x="350.9" y="530.4" width="25.2" height="19"/>
+		<rect x="300.4" y="530.4" width="25.2" height="19"/>
+	</g>
+	<g id="Calque_4_1_" class="st4">
+		<rect x="653.5" y="530.5" width="25.2" height="19"/>
+		<rect x="603.1" y="530.5" width="25.2" height="19"/>
+		<rect x="704" y="530.5" width="25.2" height="19"/>
+		<rect x="552.6" y="530.5" width="25.2" height="19"/>
+		<rect x="502.2" y="530.5" width="25.2" height="19"/>
+		<rect x="905.8" y="530.5" width="25.2" height="19"/>
+		<rect x="855.3" y="530.5" width="25.2" height="19"/>
+		<rect x="804.9" y="530.5" width="25.2" height="19"/>
+		<rect x="754.4" y="530.5" width="25.2" height="19"/>
+	</g>
+	<g id="Calque_4_2_" class="st4">
+		<rect x="1006.7" y="530.5" width="25.2" height="19"/>
+		<rect x="956.2" y="530.5" width="25.2" height="19"/>
+	</g>
+</g>
+</svg>
