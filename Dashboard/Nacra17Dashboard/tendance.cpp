@@ -1,5 +1,4 @@
 #include "tendance.h"
-#include <QDebug>
 
 tendance::tendance(QObject *parent):QObject(parent)
 {

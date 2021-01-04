@@ -3,23 +3,18 @@
 
 #include <QMainWindow>
 #include <QObject>
-#include <QtWidgets>
+#include <QWidget>
+#include <QDebug>
+#include <QTimer>
 
-#include <QPushButton>
+
+#include <QDate>
+#include <QTime>
+
 #include "socketdatareceiver.h"
 #include "memo.h"
 #include "tendance.h"
-#include <QSvgWidget>
-#include <QGraphicsScene>
 
-#include <QFile>
-#include <QString>
-#include <QTextStream>
-#include <QDate>
-#include <QTime>
-#include <QVector>
-
-#include <QMatrix>
 
 class valcapt:public QObject
 {

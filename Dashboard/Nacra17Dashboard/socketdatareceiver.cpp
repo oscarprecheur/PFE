@@ -1,5 +1,4 @@
 #include "socketdatareceiver.h"
-#include <QTimer>
 
 SocketDataReceiver::SocketDataReceiver(QObject *parent):QObject(parent)
 {

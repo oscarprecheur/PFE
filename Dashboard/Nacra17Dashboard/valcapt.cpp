@@ -1,18 +1,5 @@
 #include "valcapt.h"
 
-#include <QDebug>
-
-#include <QObject>
-#include <QTimer>
-#include "socketdatareceiver.h"
-#include "memo.h"
-#include <QSvgWidget>
-#include <QWidget>
-#include <QGridLayout>
-#include <QtWidgets>
-#include <QDebug>
-
-
 valcapt::valcapt(QObject *parent):QObject(parent)
 {
     init();

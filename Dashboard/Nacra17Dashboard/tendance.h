@@ -2,6 +2,7 @@
 #define TENDANCE_H
 
 #include <QObject>
+#include <QDebug>
 
 
 class tendance:public QObject
