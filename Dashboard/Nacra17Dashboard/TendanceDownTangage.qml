@@ -1,6 +1,7 @@
 import QtQuick 2.0
 
-Item {
+Item
+{
     id: id_Tend_Down_Tangage
 
     anchors
@@ -9,7 +10,8 @@ Item {
         verticalCenter: parent.verticalCenter
     }
 
-    Image {
+    Image
+    {
         id: id_Tendance_Down_Tangage
 
         source: "Visu/Tendance/TangageDown.svg"

@@ -1,6 +1,7 @@
 import QtQuick 2.0
 
-Item {
+Item
+{
     id: id_repere_hori
 
     anchors
@@ -12,7 +13,8 @@ Item {
     width:  parent.width
     height: parent.height
 
-    Image {
+    Image
+    {
         id: id_repere_hori_image
 
         anchors.fill:parent

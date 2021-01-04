@@ -1,6 +1,7 @@
 import QtQuick 2.0
 
-Item {
+Item
+{
     id: id_Tend_Up_Vit
 
     anchors
@@ -9,9 +10,9 @@ Item {
         verticalCenter: parent.verticalCenter
     }
 
-    Image {
+    Image
+    {
         id: id_Tendance_Ip_Vit
-        //clip: true
 
         source: "Visu/Tendance/VitesseUp.svg"
         fillMode: Image.PreserveAspectFit

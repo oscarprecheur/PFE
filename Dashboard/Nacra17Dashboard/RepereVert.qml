@@ -1,6 +1,7 @@
 import QtQuick 2.0
 
-Item {
+Item
+{
     id: id_repere_vert
 
     anchors
@@ -12,7 +13,8 @@ Item {
     height: parent.height
 
 
-    Image {
+    Image
+    {
         id: id_repere_vert_image
 
         anchors.fill:parent

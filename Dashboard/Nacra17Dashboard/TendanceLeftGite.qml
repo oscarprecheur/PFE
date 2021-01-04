@@ -1,6 +1,7 @@
 import QtQuick 2.0
 
-Item {
+Item
+{
     id: id_Tend_Left_Gite
 
     anchors
@@ -9,9 +10,9 @@ Item {
         verticalCenter: parent.verticalCenter
     }
 
-    Image {
+    Image
+    {
         id: id_Tendance_Left_Gite
-        //clip: true
 
         source: "Visu/Tendance/GiteGauche.svg"
         fillMode: Image.PreserveAspectFit
