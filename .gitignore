@@ -1,4 +1,4 @@
-Dashboard/Build/
+Dashboard/Build/*
 Dashboard/BuildReceiver/*
 Dashboard/BuildSim/*
 Dashboard/build-MemoReader-Desktop_Qt_5_15_1_MSVC2015_64bit-Debug/*
@@ -5052,3 +5052,4 @@ Build/Nacra17Dashboard/Debug/debug/qrc_interface.obj
 Build/Nacra17Dashboard/Debug/debug/socketdatareceiver.obj
 Build/Nacra17Dashboard/Debug/debug/tendance.obj
 Build/Nacra17Dashboard/Debug/debug/valcapt.obj
+Build/Nacra17Dashboard/Debug/training_saves/memoTraining4_1_2021_16h17m49s.csv
