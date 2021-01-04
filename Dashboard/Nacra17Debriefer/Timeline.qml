@@ -1,6 +1,5 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.15
-import QtQuick.Controls.Styles 1.4
 
 //ce composant represente la ligne de temps, c'est en réalité un slider dont les valerus vont influer sur les lignes lues du fichier et donc du temps
 

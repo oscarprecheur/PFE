@@ -1,7 +1,6 @@
 import QtQuick 2.7
 import QtQuick.Controls 1.0
 import READ.FILE 1.0 //registre permettant d'avoir accés à la classe readfile
-import QtQuick.Layouts 1.0
 import QtQuick.Dialogs 1.0
 
 

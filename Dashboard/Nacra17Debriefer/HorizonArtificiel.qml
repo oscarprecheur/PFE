@@ -1,8 +1,4 @@
 import QtQuick 2.7
-import QtQuick.Controls 1.0
-import READ.FILE 1.0
-import QtQuick.Layouts 1.0
-import QtQuick.Dialogs 1.0
 
 //Ce composant permet d'affiche un horizon artificiel en deux partie : partie eau (bas) partie ciel (haut)
 
