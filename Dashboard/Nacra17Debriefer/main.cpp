@@ -1,9 +1,6 @@
 #include <QApplication>
-#include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlComponent>
-#include <QQmlContext>
-#include <QtGui>
 
 #include "readfile.h" //appel de la classe readfile
 

@@ -1,6 +1,5 @@
 #include "readfile.h"
-#include <QDebug>
-#include <QApplication>
+
 
 readfile::readfile(QObject *parent):QObject(parent)
 {

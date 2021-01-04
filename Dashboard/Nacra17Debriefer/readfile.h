@@ -6,6 +6,7 @@
 #include <QTime>
 
 
+
 class readfile: public QObject
 {
     Q_OBJECT
@@ -24,20 +25,20 @@ public:
      Q_INVOKABLE void closeFile();
 
     //Propriété invocables par le composant QML
-    Q_PROPERTY(float getValMemoTempo READ getValMemoTempo)
-    Q_PROPERTY(float getValTangageSeuilMax READ getValTangageSeuilMax)
-    Q_PROPERTY(float getValTangageSeuilMin READ getValTangageSeuilMin)
-    Q_PROPERTY(float getValGiteSeuilMax READ getValGiteSeuilMax)
-    Q_PROPERTY(float getValGiteSeuilMin READ getValGiteSeuilMin)
-    Q_PROPERTY(float getValTime READ getValTime)
-    Q_PROPERTY(float getValDistance READ getValDistance)
-    Q_PROPERTY(float getValTangageVal READ getValTangageVal)
-    Q_PROPERTY(float getValTangageTend READ getValTangageTend)
-    Q_PROPERTY(float getValGiteVal READ getValGiteVal)
-    Q_PROPERTY(float getValGiteTend READ getValGiteTend)
-    Q_PROPERTY(float getValVitesseVal READ getValVitesseVal)
-    Q_PROPERTY(float getValVitesseTend READ getValVitesseTend)
-    Q_PROPERTY(int getNbDataLine READ getNbDataLine)
+    Q_PROPERTY(float getValMemoTempo READ getValMemoTempo CONSTANT)
+    Q_PROPERTY(float getValTangageSeuilMax READ getValTangageSeuilMax CONSTANT)
+    Q_PROPERTY(float getValTangageSeuilMin READ getValTangageSeuilMin CONSTANT)
+    Q_PROPERTY(float getValGiteSeuilMax READ getValGiteSeuilMax CONSTANT)
+    Q_PROPERTY(float getValGiteSeuilMin READ getValGiteSeuilMin CONSTANT)
+    Q_PROPERTY(float getValTime READ getValTime CONSTANT)
+    Q_PROPERTY(float getValDistance READ getValDistance CONSTANT)
+    Q_PROPERTY(float getValTangageVal READ getValTangageVal CONSTANT)
+    Q_PROPERTY(float getValTangageTend READ getValTangageTend CONSTANT)
+    Q_PROPERTY(float getValGiteVal READ getValGiteVal CONSTANT)
+    Q_PROPERTY(float getValGiteTend READ getValGiteTend CONSTANT)
+    Q_PROPERTY(float getValVitesseVal READ getValVitesseVal CONSTANT)
+    Q_PROPERTY(float getValVitesseTend READ getValVitesseTend CONSTANT)
+    Q_PROPERTY(int getNbDataLine READ getNbDataLine CONSTANT)
 
     float getValMemoTempo();
     //seuils tang
