@@ -7,7 +7,6 @@
 #include <QDebug>
 #include <QTimer>
 
-
 #include <QDate>
 #include <QTime>
 
@@ -21,20 +20,20 @@ class valcapt:public QObject
     Q_OBJECT
 
 
-    Q_PROPERTY(float getvalTangage READ getvalTangage )
-    Q_PROPERTY(float getvalGite READ getvalGite )
-    Q_PROPERTY(float getvalVitesse READ getvalVitesse )
+    Q_PROPERTY(float getvalTangage READ getvalTangage CONSTANT)
+    Q_PROPERTY(float getvalGite READ getvalGite CONSTANT)
+    Q_PROPERTY(float getvalVitesse READ getvalVitesse CONSTANT)
 
-    Q_PROPERTY(int getTendanceTangage READ getTendanceTangage )
-    Q_PROPERTY(int getTendanceGite READ getTendanceGite )
-    Q_PROPERTY(int getTendanceVitesse READ getTendanceVitesse )
+    Q_PROPERTY(int getTendanceTangage READ getTendanceTangage CONSTANT)
+    Q_PROPERTY(int getTendanceGite READ getTendanceGite CONSTANT)
+    Q_PROPERTY(int getTendanceVitesse READ getTendanceVitesse CONSTANT)
 
-    Q_PROPERTY(float getvalTangageMax READ getvalTangageMax )
-    Q_PROPERTY(float getvalTangageMin READ getvalTangageMin )
-    Q_PROPERTY(float getvalGiteMax READ getvalGiteMax )
-    Q_PROPERTY(float getvalGiteMin READ getvalGiteMin )
+    Q_PROPERTY(float getvalTangageMax READ getvalTangageMax CONSTANT)
+    Q_PROPERTY(float getvalTangageMin READ getvalTangageMin CONSTANT)
+    Q_PROPERTY(float getvalGiteMax READ getvalGiteMax CONSTANT)
+    Q_PROPERTY(float getvalGiteMin READ getvalGiteMin CONSTANT)
 
-    Q_PROPERTY(bool getOnTraining READ getOnTraining)
+    Q_PROPERTY(bool getOnTraining READ getOnTraining CONSTANT)
     // 1) ----- ajout capteur : Q_PROPERTY(float get<nom_val_nouv_capt> READ <getnom_val_nouv_capt> ) -----
 
     //Q_PROPERTY(float getvalCapt_Supp_1 READ getvalCapt_Supp_1 ) //A décommenter si utilisé
