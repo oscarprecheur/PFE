@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.14.0, 2021-01-03T16:07:02. -->
+<!-- Written by QtCreator 4.14.0, 2021-01-03T17:44:44. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -96,8 +96,8 @@
    <value type="int" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.0">
     <value type="int" key="EnableQmlDebugging">0</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">D:\TRAVAIL\Polytech\sources\PFE\Dashboard\build-Nacra17Dashboard-Desktop_Qt_5_15_1_MSVC2015_64bit-Debug</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">D:/TRAVAIL/Polytech/sources/PFE/Dashboard/build-Nacra17Dashboard-Desktop_Qt_5_15_1_MSVC2015_64bit-Debug</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">D:\TRAVAIL\Polytech\sources\PFE\Build\Nacra17Dashboard\Debug</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">D:/TRAVAIL/Polytech/sources/PFE/Build/Nacra17Dashboard/Debug</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -136,8 +136,8 @@
     <value type="int" key="RunSystemFunction">0</value>
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.1">
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">D:\TRAVAIL\Polytech\sources\PFE\Dashboard\build-Nacra17Dashboard-Desktop_Qt_5_15_1_MSVC2015_64bit-Release</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">D:/TRAVAIL/Polytech/sources/PFE/Dashboard/build-Nacra17Dashboard-Desktop_Qt_5_15_1_MSVC2015_64bit-Release</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">D:\TRAVAIL\Polytech\sources\PFE\Build\Nacra17Dashboard\Release</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">D:/TRAVAIL/Polytech/sources/PFE/Build/Nacra17Dashboard/Release</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -301,7 +301,7 @@
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">D:/TRAVAIL/Polytech/sources/PFE/Dashboard/build-Nacra17Dashboard-Desktop_Qt_5_15_1_MSVC2015_64bit-Release</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">D:/TRAVAIL/Polytech/sources/PFE/Build/Nacra17Dashboard/Release</value>
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>
