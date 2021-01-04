@@ -45,6 +45,8 @@ ApplicationWindow
 
         folder: shortcuts.home //repertoire d'ouverture de la fiche de dialogue
 
+        nameFilters : ["Readable Files (*.csv *.txt)"," All Files (*)"]
+
         onAccepted: //lorsque le bouton accepter est cliqué
         {
             //console.log("You chose: " + fileDialog.fileUrls)
