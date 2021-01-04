@@ -1,13 +1,5 @@
 import QtQuick 2.7
 import QtQuick.Controls 1.0
-import VAL.CAPT 1.0
-import QtQuick.Layouts 1.0
-
-
-
-
-
-
 
 ApplicationWindow
 {
