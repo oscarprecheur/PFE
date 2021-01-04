@@ -6,6 +6,8 @@
 #include <QDebug>
 #include <QTcpServer>
 #include <QTcpSocket>
+#include<QTimer>
+
 
 class serverdistance : public QObject
 {

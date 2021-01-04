@@ -9,6 +9,9 @@
 #include <QFont>
 #include <QDebug>
 #include <QTimer>
+
+#include "ui_mainwindow.h"
+
 #include "servervitesse.h"
 #include "servertangage.h"
 #include "servergite.h"

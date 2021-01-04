@@ -19,6 +19,7 @@ SOURCES += \
     mainwindow.cpp \
     serverdistance.cpp \
     servergite.cpp \
+    serversensor.cpp \
     servertangage.cpp \
     servervitesse.cpp
 
@@ -26,6 +27,7 @@ HEADERS += \
     mainwindow.h \
     serverdistance.h \
     servergite.h \
+    serversensor.h \
     servertangage.h \
     servervitesse.h
 

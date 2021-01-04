@@ -1,8 +1,4 @@
 #include "serverdistance.h"
-#include<QTimer>
-#include<cmath>
-
-
 
 serverdistance::serverdistance(quint16 port, QObject *parent):QObject(parent)
 {

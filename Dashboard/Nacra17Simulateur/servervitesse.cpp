@@ -1,8 +1,4 @@
 #include "servervitesse.h"
-#include<QTimer>
-#include<cmath>
-
-
 
 servervitesse::servervitesse(quint16 port, QObject *parent):QObject(parent)
 {
