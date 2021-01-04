@@ -7,10 +7,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     //Envoie de données
-    ValTangage = new servertangage(65430,this);
-    ValGite = new servergite(65431,this);
-    ValVitesse = new servervitesse(65432,this);
-    ValDist = new serverdistance(65433,this);
+    ValTangage = new serversensor(65430," Tangage ",this);
+    ValGite = new serversensor(65431," Gite ",this);
+    ValVitesse = new serversensor(65432," Vitesse ",this);
+    ValDist = new serversensor(65433," Distance ",this);
 
 
 

@@ -12,10 +12,7 @@
 
 #include "ui_mainwindow.h"
 
-#include "servervitesse.h"
-#include "servertangage.h"
-#include "servergite.h"
-#include "serverdistance.h"
+#include "serversensor.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -55,10 +52,10 @@ QLCDNumber *LCD_tangage;
 QLCDNumber *LCD_gite;
 QLCDNumber *LCD_distance;
 
-servervitesse *ValVitesse;
-servertangage *ValTangage;
-servergite *ValGite;
-serverdistance *ValDist;
+serversensor *ValVitesse;
+serversensor *ValTangage;
+serversensor *ValGite;
+serversensor *ValDist;
 
 float val_vitesse=0;
 float val_tangage=0;

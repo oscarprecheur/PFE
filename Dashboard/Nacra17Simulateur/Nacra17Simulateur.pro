@@ -17,19 +17,11 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    serverdistance.cpp \
-    servergite.cpp \
-    serversensor.cpp \
-    servertangage.cpp \
-    servervitesse.cpp
+    serversensor.cpp
 
 HEADERS += \
     mainwindow.h \
-    serverdistance.h \
-    servergite.h \
-    serversensor.h \
-    servertangage.h \
-    servervitesse.h
+    serversensor.h
 
 FORMS +=
 
