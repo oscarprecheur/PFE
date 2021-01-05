@@ -173,7 +173,6 @@ private:
     float nbMetreMoy;
     float nbIntervalMetreMoy;
 
-    QVector<float> tabMoy;
     float valVitesseMoy;
 
    // 5) ----- ajout capteur : val<nom_val_nouv_capt>; -----

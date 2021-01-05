@@ -36,17 +36,6 @@ void valcapt::init()
    nbMetreMoy=1;
 
 
-   //tabMoy.insert(0,0);
-
-
-   //DEBUGAGE A RETIRER--------------------------
-
-   //initNbMetreMoy(500);
-   //initNbIntervalMetreMoy(10);
-
-   //--------------------------------------------
-
-
    //connexion aux serveurs des données capteurs
 
    receiverTangage.Connexion(65430);
