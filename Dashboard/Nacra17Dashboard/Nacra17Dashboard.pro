@@ -2,6 +2,10 @@ QT       += core gui network
 QT += svg
 QT += quick
 
+QT -= core gui
+TEMPLATE = app
+CONFIG += console
+
 
 
 
@@ -25,13 +29,15 @@ SOURCES += \
     memo.cpp \
     socketdatareceiver.cpp \
     tendance.cpp \
-    valcapt.cpp
+    valcapt.cpp \
+    valmoy.cpp
 
 HEADERS += \
     memo.h \
     socketdatareceiver.h \
     tendance.h \
-    valcapt.h
+    valcapt.h \
+    valmoy.h
 
 FORMS +=
 
