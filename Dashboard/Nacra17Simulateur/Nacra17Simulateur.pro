@@ -23,7 +23,8 @@ HEADERS += \
     mainwindow.h \
     serversensor.h
 
-FORMS +=
+FORMS += \
+mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
