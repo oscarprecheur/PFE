@@ -59,10 +59,10 @@ void valcapt::start()
     //-----
 
     //mise à jour des valeurs capteurs
-    connect(&timerCapteur, SIGNAL(timeout()),this,SLOT(updateTangage()));
-    connect(&timerCapteur, SIGNAL(timeout()),this,SLOT(updateGite()));
-    connect(&timerCapteur, SIGNAL(timeout()),this,SLOT(updateVitesse()));
-    connect(&timerCapteur, SIGNAL(timeout()),this,SLOT(updateDistance()));
+    connect(&timerCapteur, SIGNAL(timeout()),this,SLOT(updateTangage()));//à chaque fin de période de timerCapteur on updateTangage
+    connect(&timerCapteur, SIGNAL(timeout()),this,SLOT(updateGite()));//à chaque fin de période de timerCapteur on updateGite
+    connect(&timerCapteur, SIGNAL(timeout()),this,SLOT(updateVitesse()));//à chaque fin de période de timerCapteur on updateVitesse
+    connect(&timerCapteur, SIGNAL(timeout()),this,SLOT(updateDistance()));//à chaque fin de période de timerCapteur on updateDistance
     //connect(&timerCapteur, SIGNAL(timeout()),this,SLOT(addValueTabMoy()));
 
     //mise à jour des valeurs de tendance
@@ -70,7 +70,7 @@ void valcapt::start()
 //    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTendanceGite()));
 //    connect(timerCapteur, SIGNAL(timeout()),this,SLOT(updateTendanceVitesse()));
 
-    connect(&timerTendance, SIGNAL(timeout()),this,SLOT(slotCalcTendance()));
+    connect(&timerTendance, SIGNAL(timeout()),this,SLOT(slotCalcTendance()));//à chaque fin de période de timerTendance on slotCalcTendance
     //2) ----- ajout de capteur :connect(timer, SIGNAL(timeout()),this,SLOT(update<nom_val_nouv_capt>())); -----
     //connect(timer, SIGNAL(timeout()),this,SLOT(updateCapt_Supp_2())); //A décommenter si utilisé
     //connect(timer, SIGNAL(timeout()),this,SLOT(updateCapt_Supp_1())); //A décommenter si utilisé
@@ -81,21 +81,21 @@ void valcapt::start()
 
 
     //Lancement des timers
-    timerCapteur.start((int)deltaTAquisition);
+    timerCapteur.start((int)deltaTAquisition);//allumage du timer d'aquisition des capteur avec la période données par l'utilisateur
     timerMemo.start((int)deltaTMemo);// valeur en msec
     timerSimuMeter.start(200);//simualtaiton metre parcouru
-    timerTendance.start((int)deltaTAquisition);
+    timerTendance.start((int)deltaTAquisition);//allumafe du time des Tendances
 }
 
 //<<<<<<<<<<<<<<<<<<Mise à jour des valeur des capteurs>>>>>>>>>>>>>>>>>>>
 
-void valcapt::updateTangage()
+void valcapt::updateTangage()//mise à jour des données tangage
 {
     MemoValTangage=valTangage;//mémorisation
-    if (receiverTangage.getNbByteAvailable()>0)
+    if (receiverTangage.getNbByteAvailable()>0)//s'il y a des valeur à lire dans la socket correspondant au tangage
     {
 
-    valTangage=receiverTangage.readyRead();
+    valTangage=receiverTangage.readyRead();//on execute readyRead de receiverTangage
 //    qDebug()<<"valTangage"<<valTangage;
 //    qDebug()<<"valTangageMEMO"<<MemoValTangage;
 //    qDebug()<<"Taille"<<sizeof(valTangage);
@@ -107,10 +107,10 @@ void valcapt::updateTangage()
 void valcapt::updateGite()
 {
     MemoValGite=valGite;//mémorisation
-    if (receiverGite.getNbByteAvailable()>0)
+    if (receiverGite.getNbByteAvailable()>0)//s'il y a des valeur à lire dans la socket correspondant à la gite
     {
 
-    valGite=receiverGite.readyRead();
+    valGite=receiverGite.readyRead();//on execute readyRead de receiverGite
 //    qDebug()<<"valGite"<<valGite;
 //    qDebug()<<"valGiteMEMO"<<MemoValGite;
 //    qDebug()<<"Taille"<<sizeof(valGite);
@@ -123,9 +123,9 @@ void valcapt::updateVitesse()
 
     MemoValVitesse=valVitesse;//mémorisation
 
-    if (receiverVitesse.getNbByteAvailable()>0)
+    if (receiverVitesse.getNbByteAvailable()>0)//s'il y a des valeur à lire dans la socket correspondant a la vitesse
     {
-    valVitesse=receiverVitesse.readyRead();
+    valVitesse=receiverVitesse.readyRead();//on execute readyRead de receiverVitesse
     //qDebug()<<"valVitesse"<<valVitesse;
     //qDebug()<<"valVitesseMEMO"<<MemoValVitesse;
 //    qDebug()<<"Taille"<<sizeof(valVitesse);
@@ -137,9 +137,9 @@ void valcapt::updateDistance()
 
     MemoValDistance=valDistance;//mémorisation
 
-    if (receiverDistance.getNbByteAvailable()>0)
+    if (receiverDistance.getNbByteAvailable()>0)//s'il y a des valeur à lire dans la socket correspondant a la distance
     {
-    valDistance=receiverDistance.readyRead();
+    valDistance=receiverDistance.readyRead();//on execute readyRead de receiverDistance
     //qDebug()<<"valDistance"<<valDistance;
     //qDebug()<<"valDistanceMEMO"<<MemoValDistance;
     //qDebug()<<"Taille"<<sizeof(valDistance);
@@ -276,8 +276,9 @@ bool valcapt:: getOnTraining()
     return onTraining;
 }
 
+//Les méthode Q_INVOKABLE sont des fonctions capables d'être appélées dans des composants QML, elles sont donc utilisées dans le programme de décription graphique
 
-
+//ces méthode peremtte la récuperation des valeurs fourni par l'utilisateur dans l'interface de paramétrage, on initialise les variables des paramètres avec ces valeurs
 Q_INVOKABLE void valcapt::initDeltaTAquisition(float newval)
 {
     deltaTAquisition=newval;
@@ -323,22 +324,22 @@ Q_INVOKABLE void valcapt::initValTangageMin(float newval)
 //    nbIntervalMetreMoy=newval;
 //}
 
-Q_INVOKABLE void valcapt::lauchStopTraining()
+Q_INVOKABLE void valcapt::lauchStopTraining() //fonction du lancement de la mémoristion apres l'appuie de l'utilisateur sur le bouton start training ou stop training
 {
-    if (onTraining==false)
+    if (onTraining==false)// une mémorisation n'est pas en cours -> on lance une mémorisation
     {
-           memorisation.initFile(deltaTMemo,deltaTAquisition,valTangageMin,valTangageMax,valGiteMin,valGiteMax);
-           memorisation.initTimeMemo();
-           connect(&timerMemo, SIGNAL(timeout()),this,SLOT(slotUpdateFile()));
-           connect(&timerMemo, SIGNAL(timeout()),&memorisation,SLOT(updateTimeMemo()));
-           onTraining=true;
+           memorisation.initFile(deltaTMemo,deltaTAquisition,valTangageMin,valTangageMax,valGiteMin,valGiteMax);//initialisation du ficier
+           memorisation.initTimeMemo();//initialisation de la valeur du temsp
+           connect(&timerMemo, SIGNAL(timeout()),this,SLOT(slotUpdateFile()));//à cahque fin de periode du timerMemo ou met à jur le fichier
+           connect(&timerMemo, SIGNAL(timeout()),&memorisation,SLOT(updateTimeMemo()));//à cahque fin de periode du timerMemo on met à jour la valeur du temps actuel
+           onTraining=true;//l'entrainement est maintienant en cours
     }
-    else
+    else //une mémorisation est en cours -> on stop la mémorisation
     {
-           memorisation.initTimeMemo();
-           disconnect(&timerMemo, SIGNAL(timeout()),this,SLOT(slotUpdateFile()));
-           disconnect(&timerMemo, SIGNAL(timeout()),&memorisation,SLOT(updateTimeMemo()));
-           onTraining=false;
+           memorisation.initTimeMemo();//on reinitialise la valeur de temps
+           disconnect(&timerMemo, SIGNAL(timeout()),this,SLOT(slotUpdateFile()));//deconnexion des slot
+           disconnect(&timerMemo, SIGNAL(timeout()),&memorisation,SLOT(updateTimeMemo()));//deconnexion des slot
+           onTraining=false; //l'entrainement ,,'est pas en cours
     }
 
 
@@ -370,13 +371,13 @@ Q_INVOKABLE void valcapt::lauchStopTraining()
 //<<<<<<<<<<<<<<<<<<Deviation des slots avec paramètres>>>>>>>>>>>>>>>>>>>
 
 
-void valcapt::slotUpdateFile()
+void valcapt::slotUpdateFile() //slot permetant la mise à jour de fichier
 {
-    memorisation.updateFile(valDistance,valGite,valTangage,valVitesse,TendanceTangage,TendanceGite,TendanceVitesse);
-    qDebug()<<"updateFile";
+    memorisation.updateFile(valDistance,valGite,valTangage,valVitesse,TendanceTangage,TendanceGite,TendanceVitesse);//MAJ du fichier .csv avec les nouvelles valeurs en paramètres
+    //qDebug()<<"updateFile";
 }
 
-void valcapt::slotCalcTendance()
+void valcapt::slotCalcTendance()//slot permettant le calcul des trendance de chaque donées
 {
     TendanceGite=tendanceGite.calcTendance(valGite);
     TendanceTangage=tendanceTangage.calcTendance(valTangage);

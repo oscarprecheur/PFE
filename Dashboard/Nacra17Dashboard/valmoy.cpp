@@ -1,5 +1,7 @@
 #include "valmoy.h"
 
+//début d'etude du moyennage des données vitesse mais ne focntionne pas
+
 valmoy::valmoy(QObject *parent):QObject(parent)
 {
 

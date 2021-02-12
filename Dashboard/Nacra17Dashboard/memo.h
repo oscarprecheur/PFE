@@ -1,7 +1,6 @@
 #ifndef MEMO_H
 #define MEMO_H
 
-#include <QMainWindow>
 #include <QObject>
 #include <QtWidgets>
 
@@ -13,7 +12,7 @@
 #include <QDate>
 #include <QTime>
 
-#include <QMatrix>
+
 
 class memo: public QObject
 {
@@ -24,29 +23,29 @@ public:
     float deltaTMemo; //fréquence de memorisation en ms
 
     int getcptFile();
-    QString fileName;
-    QString dirName = "./training_saves";
-    QFile memoFile;
-    QDir memoDir;
-    QTextStream memoWrite;
+    QString fileName;//nom du fichier
+    QString dirName = "./training_saves";//nom du repertoire
+    QFile memoFile; //fichier en question
+    QDir memoDir;//repertoire en question
+    QTextStream memoWrite;// chain de caractère permettant l'écriture dans le fichier
     QDate date;
     QTime time;
 
-    float getTimeMemo();
+    float getTimeMemo();//valeur du temps actuel
 
 public slots:
-    void initFile(float,float,float,float,float,float);
-    void initTimeMemo();
-    void updateFile(float,float,float,float,int,int,int);
-    void updateTimeMemo();
+    void initFile(float,float,float,float,float,float); //initialisation du fichier
+    void initTimeMemo();//initialisation de la valeur de temps
+    void updateFile(float,float,float,float,int,int,int);//MAJ des donnes dans le fichier
+    void updateTimeMemo();//MAJ de la valure de temps
 
 private:
 
-    int cptFile=0;
+    int cptFile=0;//compteur de lignes du fichier
     int cptTraining=1;
 
-    float valTimeMemo;
-    int cptLigneData =0;
+    float valTimeMemo;//valeur du temps acutel
+    int cptLigneData =0;//compteur du nombre de ligne de données du fichier
 
 
 
