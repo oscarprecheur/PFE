@@ -16,7 +16,11 @@ int main(int argc, char *argv[])
 
         QQmlApplicationEngine engine;
 
+        QFile file("qrc:/main.qml");
+        qDebug()<<file.exists();
+
         QQmlComponent component(&engine, QUrl(QLatin1String("qrc:/main.qml")));
+
 
         component.create();
 
