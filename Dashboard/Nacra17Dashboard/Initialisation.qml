@@ -6,7 +6,7 @@ import QtQuick.Layouts 1.0
 ApplicationWindow
 {
     id: id_init
-
+//description graphique de l'interface de paramétrage
 
 
     property real timeAquisition:slider_aquisition.value
@@ -50,13 +50,13 @@ ApplicationWindow
 
         }
 
-        onClicked:
+        onClicked://au clique du bouton
         {
-            if (test==true)
+            if (test==true)//si toutes les données sont données correctement
             {
-                var component =Qt.createComponent("qrc:/openDashboard.qml")
+                var component =Qt.createComponent("qrc:/openDashboard.qml")//on crée le composant openDashboard.qml
                 component.createObject()
-                //init
+                //on initialise les données en fonction des paramétrages indiqués par l'utilisateur
                 valeur.initValGiteMax(giteMax)
                 valeur.initValGiteMin(giteMin)
                 valeur.initValTangageMax(tangageMax)
@@ -458,7 +458,7 @@ ApplicationWindow
     {
         id:timeraquisition
         interval:1; running:true;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
-        onTriggered:
+        onTriggered://a chque fin de période on affiche la nouvelle valeur de l'aquisition
         {
             switch(slider_aquisition.value)
             {
@@ -495,7 +495,7 @@ ApplicationWindow
     {
         id:timermemo
         interval:1; running:true;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
-        onTriggered:
+        onTriggered://a chque fin de période on affiche la nouvelle valeur de la memo
         {
             switch(slider_memo.value)
             {
@@ -529,7 +529,7 @@ ApplicationWindow
     {
         id:timerseuil
         interval:1; running:true;repeat: true // on rafraichi l'écran toutes les 0,01 secondes
-        onTriggered:
+        onTriggered: //a chque fin de période on affiche la nouvelle valeur des seuils
         {
             id_text_val_gite_max.text=giteMax.toFixed(3)+"°"
             id_text_val_gite_min.text=giteMin.toFixed(3)+"°"
