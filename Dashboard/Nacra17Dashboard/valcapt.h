@@ -20,6 +20,7 @@ class valcapt:public QObject
     Q_OBJECT
 
 
+    //Q_PRPERTY permet de lire des valeur de méthodes sur le programme QML, les getter des donées sont donc accéssibles dans le programme de description graphique
     Q_PROPERTY(float getvalTangage READ getvalTangage CONSTANT)
     Q_PROPERTY(float getvalGite READ getvalGite CONSTANT)
     Q_PROPERTY(float getvalVitesse READ getvalVitesse CONSTANT)
@@ -91,7 +92,7 @@ public:
     //float getvalCapt_Supp_2(); //A décommenter si utilisé
 
     //-----
-
+//méthodes utilisable par le programme QML
     Q_INVOKABLE void initValTangageMax(float);
     Q_INVOKABLE void initValTangageMin(float);
     Q_INVOKABLE void initValGiteMax(float);
